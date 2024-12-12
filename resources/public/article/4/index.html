@@ -1,0 +1,11 @@
+<head><meta charset="utf-8" /><title>Cómo escribir una lista en un archivo en Clojure – Resuelto</title><link href="../styles.css" rel="stylesheet" /><meta content="initial-scale=1, width=device-width" name="viewport" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet" /></head><body><noscript>Clojure-tutorials is a JavaScript app. Please enable JavaScript to
+      continue.</noscript><div id="app"></div><main><article><h2>Cómo escribir una lista en un archivo en Clojure – Resuelto</h2><p>En Clojure, escribir datos en archivos es una tarea común y se puede hacer utilizando las funciones del sistema de entrada/salida (I/O) estándar. A continuación, te mostramos cómo escribir una lista en un archivo.</p>
+         <h2>Escribir usando clojure.java.io</h2>
+         <p>Podemos utilizar <code>clojure.java.io</code> para escribir una lista en un archivo de texto. El ejemplo siguiente muestra cómo hacerlo:</p>
+         <code>(require '[clojure.java.io :as io])</code>
+         <code>(with-open [w (io/writer "archivo.txt")]
+  (doseq [item [1 2 3 4]]
+    (.write w (str item "
+"))))</code>
+         <h2>Explicación</h2>
+         <p>En este ejemplo, <code>with-open</code> se asegura de que el archivo se cierre automáticamente después de escribir en él. Utilizamos <code>doseq</code> para iterar sobre la lista e imprimir cada elemento en una nueva línea.</p></article></main><script src="/js/compiled/app.js"></script></body>

@@ -1,0 +1,31 @@
+<head><meta charset="utf-8" /><title>Cómo manejar excepciones en Clojure – Resuelto</title><link href="../styles.css" rel="stylesheet" /><meta content="initial-scale=1, width=device-width" name="viewport" /><link href="https://fonts.googleapis.com" rel="preconnect" /><link crossorigin="crossorigin" href="https://fonts.gstatic.com" rel="preconnect" /><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet" /></head><body><noscript>Clojure-tutorials is a JavaScript app. Please enable JavaScript to
+      continue.</noscript><div id="app"></div><main><article><h2>Cómo manejar excepciones en Clojure – Resuelto</h2><p>Cuando trabajamos en cualquier lenguaje de programación, el manejo de excepciones es fundamental para evitar que errores inesperados detengan la ejecución de nuestra aplicación. En Clojure, el manejo de excepciones se realiza principalmente con las construcciones try, catch y finally.</p>
+         <h2>¿Qué es una excepción en Clojure?</h2>
+         <p>Una excepción es un evento que interrumpe el flujo normal del programa. Puede ser causada por operaciones como dividir por cero, acceso a índices fuera de rango, o errores personalizados definidos por el programador.</p>
+         <h2>Manejo básico de excepciones</h2>
+         <p>En Clojure, usamos try para definir un bloque de código que podría lanzar una excepción. Si ocurre una excepción, el bloque catch la captura y permite manejarla.</p>
+         <code>(try (do (println "Intentando dividir...") (/ 10 0)) ;; Esto lanza una excepción
+(catch ArithmeticException e (println "¡Error! No puedes dividir por cero."))
+(finally (println "Bloque finally: este código siempre se ejecuta."))</code>
+         <h2>Usar ex-info para lanzar excepciones personalizadas</h2>
+         <p>A veces, necesitamos lanzar nuestras propias excepciones para manejar errores específicos. En Clojure, podemos usar ex-info para incluir información adicional en las excepciones.</p>
+         <code>(defn dividir [a b]
+  (if (zero? b)
+    (throw (ex-info "División por cero no permitida" {:numerador a :denominador b}))
+    (/ a b)))
+
+(try
+  (dividir 10 0)
+  (catch Exception e
+    (println "¡Error personalizado!")
+    (println (.getMessage e))
+    (println (ex-data e))))</code>
+         <h2>Buenas prácticas para manejar excepciones en Clojure</h2>
+         <ul>
+           <li>Usa catch solo cuando sea necesario. Capturar todas las excepciones puede esconder errores importantes.</li>
+           <li>Lanza excepciones con contexto. Utiliza ex-info para proporcionar detalles sobre el error.</li>
+           <li>Asegura recursos con finally. Por ejemplo, cerrar conexiones o liberar memoria.</li>
+           <li>Evita abusar de excepciones. Úsalas solo para situaciones excepcionales, no como parte de la lógica habitual.</li>
+         </ul>
+         <h2>Conclusión</h2>
+         <p>El manejo de excepciones en Clojure es sencillo y flexible, permitiendo capturar errores específicos y agregar contexto útil. Con las herramientas como try, catch, finally y ex-info, podemos construir aplicaciones más robustas y confiables. ¡Experimenta con estos ejemplos y adapta estas prácticas a tus proyectos!</p></article></main><script src="/js/compiled/app.js"></script></body>

@@ -1,0 +1,740 @@
+[{:title "Cómo manejar excepciones en Clojure – Resuelto"
+  :desc "<p>Cuando trabajamos en cualquier lenguaje de programación, el manejo de excepciones es fundamental para evitar que errores inesperados detengan la ejecución de nuestra aplicación. En Clojure, el manejo de excepciones se realiza principalmente con las construcciones try, catch y finally.</p>
+         <h2>¿Qué es una excepción en Clojure?</h2>
+         <p>Una excepción es un evento que interrumpe el flujo normal del programa. Puede ser causada por operaciones como dividir por cero, acceso a índices fuera de rango, o errores personalizados definidos por el programador.</p>
+         <h2>Manejo básico de excepciones</h2>
+         <p>En Clojure, usamos try para definir un bloque de código que podría lanzar una excepción. Si ocurre una excepción, el bloque catch la captura y permite manejarla.</p>
+         <code>(try (do (println \"Intentando dividir...\") (/ 10 0)) ;; Esto lanza una excepción\n(catch ArithmeticException e (println \"¡Error! No puedes dividir por cero.\"))\n(finally (println \"Bloque finally: este código siempre se ejecuta.\"))</code>
+         <h2>Usar ex-info para lanzar excepciones personalizadas</h2>
+         <p>A veces, necesitamos lanzar nuestras propias excepciones para manejar errores específicos. En Clojure, podemos usar ex-info para incluir información adicional en las excepciones.</p>
+         <code>(defn dividir [a b]\n  (if (zero? b)\n    (throw (ex-info \"División por cero no permitida\" {:numerador a :denominador b}))\n    (/ a b)))\n\n(try\n  (dividir 10 0)\n  (catch Exception e\n    (println \"¡Error personalizado!\")\n    (println (.getMessage e))\n    (println (ex-data e))))</code>
+         <h2>Buenas prácticas para manejar excepciones en Clojure</h2>
+         <ul>
+           <li>Usa catch solo cuando sea necesario. Capturar todas las excepciones puede esconder errores importantes.</li>
+           <li>Lanza excepciones con contexto. Utiliza ex-info para proporcionar detalles sobre el error.</li>
+           <li>Asegura recursos con finally. Por ejemplo, cerrar conexiones o liberar memoria.</li>
+           <li>Evita abusar de excepciones. Úsalas solo para situaciones excepcionales, no como parte de la lógica habitual.</li>
+         </ul>
+         <h2>Conclusión</h2>
+         <p>El manejo de excepciones en Clojure es sencillo y flexible, permitiendo capturar errores específicos y agregar contexto útil. Con las herramientas como try, catch, finally y ex-info, podemos construir aplicaciones más robustas y confiables. ¡Experimenta con estos ejemplos y adapta estas prácticas a tus proyectos!</p>"
+  :id 1}
+ 
+ {:title "Cómo trabajar con cadenas en Clojure – Resuelto"
+  :desc "<p>Las cadenas en Clojure son inmutables y se gestionan con una serie de funciones útiles para su manipulación. Veremos cómo crear, modificar y operar con cadenas en este artículo.</p>
+         <h2>Crear cadenas</h2>
+         <p>Las cadenas se crean simplemente con comillas dobles, por ejemplo:</p>
+         <code>(def saludo \"Hola, mundo!\")</code>
+         <p>También podemos usar la función <code>str</code> para concatenar cadenas:</p>
+         <code>(str \"Hola, \" \"mundo!\")</code>
+         <h2>Funciones comunes con cadenas</h2>
+         <ul>
+           <li><code>clojure.string/upper-case</code>: Convierte una cadena a mayúsculas.</li>
+           <li><code>clojure.string/lower-case</code>: Convierte una cadena a minúsculas.</li>
+           <li><code>clojure.string/trim</code>: Elimina los espacios en blanco al principio y final de una cadena.</li>
+         </ul>
+         <h2>Concatenación de cadenas</h2>
+         <p>En Clojure, podemos concatenar cadenas utilizando la función <code>str</code> o simplemente el operador de adición <code>+</code>:</p>
+         <code>(+ \"Hola, \" \"mundo!\")</code>"
+  :id 2}
+ 
+ {:title "Cómo verificar una lista vacía en Clojure – Resuelto"
+  :desc "<p>En Clojure, las listas son estructuras de datos fundamentales, y a menudo necesitamos verificar si una lista está vacía. Afortunadamente, Clojure proporciona funciones integradas para realizar esta tarea.</p>
+         <h2>Usando la función empty?</h2>
+         <p>La forma más sencilla de verificar si una lista está vacía es usando la función <code>empty?</code>, que devuelve <code>true</code> si la colección está vacía y <code>false</code> en caso contrario.</p>
+         <code>(empty? []) ;; true</code>
+         <code>(empty? [1 2 3]) ;; false</code>
+         <h2>Usando la función count</h2>
+         <p>Otra opción es utilizar la función <code>count</code> para obtener la cantidad de elementos en la lista. Si el valor es 0, la lista está vacía.</p>
+         <code>(= (count []) 0) ;; true</code>"
+  :id 3}
+ 
+ {:title "Cómo escribir una lista en un archivo en Clojure – Resuelto"
+  :desc "<p>En Clojure, escribir datos en archivos es una tarea común y se puede hacer utilizando las funciones del sistema de entrada/salida (I/O) estándar. A continuación, te mostramos cómo escribir una lista en un archivo.</p>
+         <h2>Escribir usando clojure.java.io</h2>
+         <p>Podemos utilizar <code>clojure.java.io</code> para escribir una lista en un archivo de texto. El ejemplo siguiente muestra cómo hacerlo:</p>
+         <code>(require '[clojure.java.io :as io])</code>
+         <code>(with-open [w (io/writer \"archivo.txt\")]\n  (doseq [item [1 2 3 4]]\n    (.write w (str item \"\n\"))))</code>
+         <h2>Explicación</h2>
+         <p>En este ejemplo, <code>with-open</code> se asegura de que el archivo se cierre automáticamente después de escribir en él. Utilizamos <code>doseq</code> para iterar sobre la lista e imprimir cada elemento en una nueva línea.</p>"
+  :id 4}
+ 
+ {:title "Cómo convertir un número entero a cadena en Clojure – Resuelto"
+  :desc "<p>En Clojure, convertir un número entero a una cadena es una operación sencilla que se puede realizar con la función <code>str</code>. A continuación te mostramos cómo hacerlo.</p>
+         <h2>Usando str</h2>
+         <p>La función <code>str</code> convierte cualquier tipo de dato en una cadena de texto.</p>
+         <code>(str 123) ;; \"123\"</code>
+         <p>Esto convierte el número entero 123 en la cadena \"123\".</p>"
+  :id 5}
+ 
+ {:title "Cómo leer un archivo en Clojure – Resuelto"
+  :desc "<p>Leer archivos es una operación común en Clojure, y puedes hacerlo utilizando funciones integradas. Te mostramos cómo leer un archivo de texto línea por línea.</p>
+         <h2>Leer archivo con clojure.java.io</h2>
+         <p>Para leer un archivo en Clojure, utilizamos la función <code>slurp</code> o <code>line-seq</code>. Aquí te mostramos cómo hacerlo:</p>
+         <code>(require '[clojure.java.io :as io])</code>
+         <code>(with-open [r (io/reader \"archivo.txt\")]\n  (doseq [linea (line-seq r)]\n    (println linea)))</code>
+         <h2>Explicación</h2>
+         <p>En este ejemplo, <code>with-open</code> asegura que el archivo se cierre después de leerlo, y <code>line-seq</code> se usa para leer cada línea del archivo.</p>"
+  :id 6}
+ 
+ {:title "Cómo filtrar elementos de una lista en Clojure – Resuelto"
+  :desc "<p>Filtrar listas es una tarea común en la programación funcional. En Clojure, podemos hacerlo usando la función <code>filter</code>, que permite seleccionar elementos según una condición.</p>
+         <h2>Filtrar con una predicado</h2>
+         <p>La función <code>filter</code> toma un predicado y una colección, y devuelve una nueva colección con los elementos que cumplen el predicado.</p>
+         <code>(filter even? [1 2 3 4 5]) ;; (2 4)</code>
+         <h2>Explicación</h2>
+         <p>En este caso, el predicado es <code>even?</code>, que filtra los números pares de la lista.</p>"
+  :id 7}
+ 
+ {:title "Cómo trabajar con mapas en Clojure – Resuelto"
+  :desc "<p>Los mapas son estructuras clave-valor muy comunes en Clojure. En este artículo, exploraremos cómo crear, modificar y acceder a los elementos de un mapa.</p>
+         <h2>Crear un mapa</h2>
+         <p>Un mapa se puede crear utilizando la sintaxis de clave-valor, entre llaves:</p>
+         <code>(def mi-mapa {:nombre \"Juan\" :edad 30})</code>
+         <h2>Acceder a valores</h2>
+         <p>Para acceder a un valor, simplemente usamos la clave entre paréntesis:</p>
+         <code>(:nombre mi-mapa) ;; \"Juan\"</code>"
+  :id 8}
+ 
+ {:title "Cómo combinar listas en Clojure – Resuelto"
+  :desc "<p>Combinar listas es una operación común en Clojure. Para ello, podemos usar la función <code>concat</code>, que combina dos o más secuencias en una sola.</p>
+         <h2>Concatenar con concat</h2>
+         <p>La función <code>concat</code> toma dos o más secuencias y las combina en una nueva secuencia:</p>
+         <code>(concat [1 2 3] [4 5 6]) ;; (1 2 3 4 5 6)</code>"
+  :id 9}
+ 
+ {:title "Cómo trabajar con conj en Clojure – Resuelto"
+  :desc "<p>En Clojure, la función <code>conj</code> se utiliza para agregar elementos a una colección. Dependiendo del tipo de colección, se comporta de manera diferente.</p>
+         <h2>Conj para listas</h2>
+         <p>En las listas, <code>conj</code> agrega un elemento al principio:</p>
+         <code>(conj '(2 3 4) 1) ;; (1 2 3 4)</code>
+         <h2>Conj para vectores</h2>
+         <p>En los vectores, <code>conj</code> agrega el elemento al final:</p>
+         <code>(conj [2 3 4] 5) ;; [2 3 4 5]</code>"
+  :id 10}
+ {:title "Cómo usar reduce en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>reduce</code> es una función poderosa que permite aplicar una función a una secuencia, acumulando el resultado a medida que avanza. Es especialmente útil cuando queremos reducir una colección a un solo valor, como la suma de los elementos o la concatenación de cadenas.</p>
+         <h2>Ejemplo de uso básico de reduce</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>reduce</code> para sumar los elementos de una lista:</p>
+         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
+         <h2>Reducir con un valor inicial</h2>
+         <p>Podemos proporcionar un valor inicial para la reducción. Este valor será el primer elemento con el cual se empieza a acumular:</p>
+         <code>(reduce + 10 [1 2 3 4 5]) ;; 25</code>"
+  :id 11}
+ 
+ {:title "Cómo manejar colecciones en Clojure – Resuelto"
+  :desc "<p>En Clojure, las colecciones son inmutables y muy poderosas. A continuación, exploramos las operaciones básicas de manejo de colecciones como listas, vectores y conjuntos.</p>
+         <h2>Lista</h2>
+         <p>Una lista se crea utilizando la notación <code>'()</code>:</p>
+         <code>(def mi-lista '(1 2 3 4))</code>
+         <h2>Vector</h2>
+         <p>Un vector se crea utilizando corchetes <code>[]</code>:</p>
+         <code>(def mi-vector [1 2 3 4])</code>
+         <h2>Conjunto</h2>
+         <p>Un conjunto se crea utilizando la notación <code>#{}</code>:</p>
+         <code>(def mi-conjunto #{1 2 3 4})</code>
+         <h2>Operaciones comunes</h2>
+         <ul>
+           <li><code>first</code>: Devuelve el primer elemento.</li>
+           <li><code>rest</code>: Devuelve todos los elementos excepto el primero.</li>
+           <li><code>conj</code>: Añade un elemento a la colección.</li>
+         </ul>"
+  :id 12}
+ 
+ {:title "Cómo usar map en Clojure – Resuelto"
+  :desc "<p>La función <code>map</code> en Clojure aplica una función a cada elemento de una secuencia y devuelve una nueva secuencia con los resultados. Es similar al método <code>map</code> de otros lenguajes funcionales.</p>
+         <h2>Uso básico de map</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>map</code> para incrementar cada elemento de una lista:</p>
+         <code>(map inc [1 2 3 4 5]) ;; (2 3 4 5 6)</code>
+         <h2>Usar varias colecciones</h2>
+         <p>También podemos usar <code>map</code> con varias colecciones. La función proporcionada se aplica a los elementos correspondientes de las secuencias:</p>
+         <code>(map + [1 2 3] [4 5 6]) ;; (5 7 9)</code>"
+  :id 13}
+ 
+ {:title "Cómo ordenar una lista en Clojure – Resuelto"
+  :desc "<p>En Clojure, podemos ordenar colecciones utilizando la función <code>sort</code> para listas y vectores. A continuación se muestra cómo ordenar una lista de números.</p>
+         <h2>Ordenación ascendente</h2>
+         <p>El siguiente ejemplo ordena una lista de números en orden ascendente:</p>
+         <code>(sort [3 1 4 5 2]) ;; (1 2 3 4 5)</code>
+         <h2>Ordenación descendente</h2>
+         <p>Podemos usar <code>reverse</code> después de ordenar para obtener una ordenación descendente:</p>
+         <code>(reverse (sort [3 1 4 5 2])) ;; (5 4 3 2 1)</code>"
+  :id 14}
+ 
+ {:title "Cómo utilizar clojure.string/join – Resuelto"
+  :desc "<p>En Clojure, la función <code>clojure.string/join</code> nos permite concatenar una secuencia de elementos en una sola cadena, separándolos por un delimitador.</p>
+         <h2>Uso básico de join</h2>
+         <p>El siguiente ejemplo muestra cómo unir una lista de cadenas con un espacio entre ellas:</p>
+         <code>(clojure.string/join \" \" [\"Hola\" \"mundo!\"]) ;; \"Hola mundo!\"</code>
+         <h2>Unir con otro delimitador</h2>
+         <p>También podemos usar cualquier otro delimitador. En este caso, usamos una coma:</p>
+         <code>(clojure.string/join \",\" [\"manzana\" \"banana\" \"cereza\"]) ;; \"manzana,banana,cereza\"</code>"
+  :id 15}
+ 
+ {:title "Cómo trabajar con defn en Clojure – Resuelto"
+  :desc "<p>La función <code>defn</code> en Clojure nos permite definir funciones. A continuación veremos cómo usar <code>defn</code> para crear funciones simples.</p>
+         <h2>Definir una función simple</h2>
+         <p>Podemos definir una función para sumar dos números de la siguiente manera:</p>
+         <code>(defn sumar [a b] (+ a b))</code>
+         <h2>Llamar a la función</h2>
+         <p>Para llamar a la función <code>sumar</code>, simplemente proporcionamos los argumentos:</p>
+         <code>(sumar 3 5) ;; 8</code>"
+  :id 16}
+ 
+ {:title "Cómo usar cond en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>cond</code> es una expresión condicional que permite manejar múltiples condiciones de manera clara y concisa, similar a un <code>switch</code> o <code>if-else</code> en otros lenguajes.</p>
+         <h2>Uso básico de cond</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>cond</code> para evaluar varias condiciones:</p>
+         <code>(cond\n  (= 3 3) \"Es igual\"\n  (< 3 2) \"Es menor\"\n  :else \"Es otro\")</code>
+         <h2>Explicación</h2>
+         <p>En este ejemplo, la primera condición es verdadera, por lo que el resultado será \"Es igual\".</p>"
+  :id 17}
+ 
+ {:title "Cómo utilizar list? en Clojure – Resuelto"
+  :desc "<p>En Clojure, podemos verificar si una colección es una lista utilizando la función <code>list?</code>.</p>
+         <h2>Uso de list?</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>list?</code> para verificar si una colección es una lista:</p>
+         <code>(list? '(1 2 3)) ;; true</code>
+         <code>(list? [1 2 3]) ;; false</code>"
+  :id 18}
+ 
+ {:title "Cómo manejar fechas en Clojure – Resuelto"
+  :desc "<p>En Clojure, podemos trabajar con fechas utilizando las bibliotecas estándar o bibliotecas externas como <code>clj-time</code>.</p>
+         <h2>Uso de java.util.Date</h2>
+         <p>Podemos trabajar con fechas utilizando <code>java.util.Date</code> de Java. A continuación se muestra un ejemplo:</p>
+         <code>(import 'java.util.Date)\n(def hoy (Date.))</code>
+         <h2>Uso de clj-time</h2>
+         <p>Para un manejo más avanzado de fechas, podemos utilizar <code>clj-time</code>, una biblioteca que ofrece una API más fácil de usar para trabajar con fechas y horas.</p>"
+  :id 19}
+ 
+ {:title "Cómo manejar excepciones personalizadas en Clojure – Resuelto"
+  :desc "<p>En Clojure, podemos definir nuestras propias excepciones para situaciones específicas mediante la creación de excepciones personalizadas.</p>
+         <h2>Definir una excepción personalizada</h2>
+         <p>Para crear una excepción personalizada, podemos usar <code>ex-info</code>, que nos permite asociar datos adicionales con la excepción.</p>
+         <code>(throw (ex-info \"Error personalizado\" {:tipo :excepcion-especial}))</code>"
+  :id 20}
+ {:title "Cómo usar for en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>for</code> es una construcción útil para generar secuencias a partir de una o más colecciones. Permite iterar sobre colecciones y aplicar filtros y transformaciones.</p>
+         <h2>Uso básico de for</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>for</code> para generar una nueva lista con los cuadrados de los números:</p>
+         <code>(for [x [1 2 3 4 5]] (* x x)) ;; (1 4 9 16 25)</code>
+         <h2>Filtrar valores</h2>
+         <p>También podemos agregar condiciones para filtrar los elementos:</p>
+         <code>(for [x [1 2 3 4 5] :when (even? x)] x) ;; (2 4)</code>"
+  :id 21}
+ 
+ {:title "Cómo utilizar defmacro en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>defmacro</code> nos permite definir macros, que son funciones que transforman el código en tiempo de compilación. A continuación, veremos cómo usar macros en Clojure.</p>
+         <h2>Definir una macro simple</h2>
+         <p>Las macros se definen de manera similar a las funciones, pero en lugar de evaluar los argumentos antes de pasarlos, las macros operan sobre el código directamente:</p>
+         <code>(defmacro saludar [nombre] `(println \"Hola, ~{nombre}\"))</code>
+         <h2>Ejemplo de uso de la macro</h2>
+         <p>Ahora podemos llamar a la macro:</p>
+         <code>(saludar \"Juan\") ;; imprime: Hola, Juan</code>"
+  :id 22}
+ 
+ {:title "Cómo usar filter en Clojure – Resuelto"
+  :desc "<p>La función <code>filter</code> en Clojure nos permite seleccionar elementos de una colección que cumplen con una condición determinada.</p>
+         <h2>Uso básico de filter</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>filter</code> para obtener los números pares de una lista:</p>
+         <code>(filter even? [1 2 3 4 5 6]) ;; (2 4 6)</code>
+         <h2>Filtrar cadenas que contienen una subcadena</h2>
+         <p>También podemos filtrar cadenas que contienen una subcadena específica:</p>
+         <code>(filter #(clojure.string/includes? % \"a\") [\"apple\" \"banana\" \"cherry\"]) ;; (\"apple\" \"banana\")</code>"
+  :id 23}
+ 
+ {:title "Cómo utilizar let en Clojure – Resuelto"
+  :desc "<p>La expresión <code>let</code> en Clojure nos permite definir variables locales dentro de un bloque de código, facilitando el manejo de valores intermedios.</p>
+         <h2>Uso básico de let</h2>
+         <p>En el siguiente ejemplo, definimos variables locales con <code>let</code>:</p>
+         <code>(let [a 10 b 20] (+ a b)) ;; 30</code>
+         <h2>Usar let con cálculos más complejos</h2>
+         <p>También podemos hacer cálculos más complejos dentro de <code>let</code>:</p>
+         <code>(let [x 5 y 3] (+ (* x x) (* y y))) ;; 34</code>"
+  :id 24}
+ 
+ {:title "Cómo usar when en Clojure – Resuelto"
+  :desc "<p>La expresión <code>when</code> en Clojure es similar a <code>if</code>, pero solo se ejecuta una rama cuando la condición es verdadera. Si la condición es falsa, no se ejecuta ninguna rama.</p>
+         <h2>Uso básico de when</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>when</code> para ejecutar un bloque de código solo cuando la condición es verdadera:</p>
+         <code>(when (= 5 5) (println \"La condición es verdadera\"))</code>
+         <h2>Uso con múltiples expresiones</h2>
+         <p>También podemos usar varias expresiones dentro de <code>when</code>:</p>
+         <code>(when (> 5 3)\n  (println \"5 es mayor que 3\")\n  (println \"Condición verdadera\"))</code>"
+  :id 25}
+ 
+ {:title "Cómo usar def en Clojure – Resuelto"
+  :desc "<p>En Clojure, la expresión <code>def</code> nos permite definir variables globales o símbolos.</p>
+         <h2>Definir una variable global</h2>
+         <p>Podemos definir una variable global utilizando <code>def</code>:</p>
+         <code>(def x 10)</code>
+         <h2>Modificar el valor de una variable</h2>
+         <p>Una vez definida, podemos usar la variable en cualquier parte del código. Por ejemplo:</p>
+         <code>(def y (+ x 5)) ;; 15</code>"
+  :id 26}
+ 
+ {:title "Cómo utilizar eval en Clojure – Resuelto"
+  :desc "<p>En Clojure, la función <code>eval</code> nos permite evaluar código Clojure en tiempo de ejecución.</p>
+         <h2>Uso básico de eval</h2>
+         <p>El siguiente ejemplo evalúa una expresión dentro de una cadena:</p>
+         <code>(eval '(+ 1 2 3)) ;; 6</code>
+         <h2>Evaluar expresiones dinámicas</h2>
+         <p>También podemos usar <code>eval</code> para evaluar expresiones generadas dinámicamente:</p>
+         <code>(eval (list '+ 1 2 3)) ;; 6</code>"
+  :id 27}
+ 
+ {:title "Cómo manejar errores con try-catch-finally en Clojure – Resuelto"
+  :desc "<p>El bloque <code>try-catch-finally</code> en Clojure permite manejar excepciones, asegurando que el código se ejecute de manera segura.</p>
+         <h2>Uso básico de try-catch-finally</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>try-catch-finally</code> para manejar excepciones:</p>
+         <code>(try\n  (/ 10 0) ;; Esto lanza una excepción\n  (catch ArithmeticException e (println \"Error de división por cero\"))\n  (finally (println \"Bloque finalmente\")))</code>"
+  :id 28}
+ 
+ {:title "Cómo utilizar destructuración en Clojure – Resuelto"
+  :desc "<p>La destructuración en Clojure nos permite extraer valores de colecciones de manera más expresiva y eficiente. Es especialmente útil cuando trabajamos con mapas y listas.</p>
+         <h2>Destructuración con listas</h2>
+         <p>Podemos usar destructuración para extraer elementos de una lista:</p>
+         <code>(let [[a b] [1 2]] (+ a b)) ;; 3</code>
+         <h2>Destructuración con mapas</h2>
+         <p>También podemos usar destructuración para trabajar con mapas:</p>
+         <code>(let [{:keys [nombre edad]} {:nombre \"Juan\" :edad 30}] (str \"Nombre: \" nombre \", Edad: \" edad)) ;; \"Nombre: Juan, Edad: 30\"</code>"
+  :id 29}
+ 
+ {:title "Cómo trabajar con transacciones en Clojure – Resuelto"
+  :desc "<p>En Clojure, podemos trabajar con transacciones utilizando bibliotecas que nos permiten gestionar operaciones atómicas, como <code>clojure.java.jdbc</code>.</p>
+         <h2>Uso básico de transacciones</h2>
+         <p>El siguiente ejemplo muestra cómo realizar una transacción utilizando <code>clojure.java.jdbc</code>:</p>
+         <code>(require '[clojure.java.jdbc :as jdbc])\n\n(jdbc/with-db-transaction [tx db-spec]\n  (jdbc/insert! tx :usuarios {:nombre \"Juan\" :edad 30}))</code>"
+  :id 30}
+ {:title "Cómo usar reduce en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>reduce</code> es una función poderosa para reducir una colección a un único valor, aplicando una operación acumulativa sobre los elementos.</p>
+         <h2>Uso básico de reduce</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>reduce</code> para sumar los números de una lista:</p>
+         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
+         <h2>Reducir con una función personalizada</h2>
+         <p>También podemos usar una función personalizada para reducir los valores:</p>
+         <code>(reduce (fn [acc x] (+ acc (* x x))) 0 [1 2 3 4]) ;; 30</code>"
+  :id 31}
+ 
+ {:title "Cómo usar cond en Clojure – Resuelto"
+  :desc "<p>La función <code>cond</code> en Clojure se utiliza para manejar múltiples condiciones, funcionando de manera similar a una serie de <code>if</code> pero más legible cuando hay muchas condiciones.</p>
+         <h2>Uso básico de cond</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>cond</code> para evaluar condiciones:</p>
+         <code>(cond\n  (= 2 2) \"Primera condición\"\n  (= 3 3) \"Segunda condición\"\n  :else \"Ninguna condición coincide\") ;; \"Primera condición\"</code>
+         <h2>Evaluación de condiciones más complejas</h2>
+         <p>Podemos usar condiciones más complejas:</p>
+         <code>(cond\n  (> 5 3) \"5 es mayor que 3\"\n  (< 3 2) \"3 es menor que 2\"\n  :else \"Condición por defecto\") ;; \"5 es mayor que 3\"</code>"
+  :id 32}
+ 
+ {:title "Cómo trabajar con sets en Clojure – Resuelto"
+  :desc "<p>Los sets en Clojure son colecciones desordenadas de elementos únicos. Permiten realizar operaciones de conjunto como unión, intersección y diferencia.</p>
+         <h2>Crear un set</h2>
+         <p>Podemos crear un set utilizando <code>#{}</code>:</p>
+         <code>(def mi-set #{1 2 3 4})</code>
+         <h2>Operaciones con sets</h2>
+         <p>Podemos realizar operaciones con sets como unión, intersección y diferencia:</p>
+         <code>(clojure.set/union #{1 2 3} #{3 4 5}) ;; #{1 2 3 4 5}</code>
+         <code>(clojure.set/intersection #{1 2 3} #{2 3 4}) ;; #{2 3}</code>"
+  :id 33}
+ 
+ {:title "Cómo usar some en Clojure – Resuelto"
+  :desc "<p>La función <code>some</code> en Clojure se utiliza para encontrar el primer valor en una colección que cumple con una condición.</p>
+         <h2>Uso básico de some</h2>
+         <p>El siguiente ejemplo muestra cómo usar <code>some</code> para encontrar el primer número par en una lista:</p>
+         <code>(some #(when (even? %) %) [1 3 5 6 7]) ;; 6</code>
+         <h2>Uso con predicado personalizado</h2>
+         <p>Podemos usar <code>some</code> con predicados más complejos:</p>
+         <code>(some #(when (> % 10) %) [1 5 8 12 15]) ;; 12</code>"
+  :id 34}
+ 
+ {:title "Cómo usar atom en Clojure – Resuelto"
+  :desc "<p>Los <code>atom</code> en Clojure nos permiten trabajar con valores mutables de manera controlada, asegurando la coherencia en un entorno concurrente.</p>
+         <h2>Crear un atom</h2>
+         <p>Podemos crear un atom utilizando <code>atom</code> y proporcionándole un valor inicial:</p>
+         <code>(def a (atom 0))</code>
+         <h2>Modificar el valor de un atom</h2>
+         <p>Podemos modificar el valor de un atom utilizando <code>swap!</code> o <code>reset!</code>:</p>
+         <code>(swap! a inc) ;; Incrementa el valor de a en 1</code>"
+  :id 35}
+ 
+ {:title "Cómo usar refs en Clojure – Resuelto"
+  :desc "<p>Los <code>refs</code> en Clojure nos permiten coordinar el acceso a los datos mutables en un contexto transaccional.</p>
+         <h2>Crear un ref</h2>
+         <p>Podemos crear un ref utilizando <code>ref</code>:</p>
+         <code>(def r (ref 0))</code>
+         <h2>Modificar un ref dentro de una transacción</h2>
+         <p>Para modificar un ref de manera segura, usamos <code>dosync</code> dentro de una transacción:</p>
+         <code>(dosync (ref-set r 10))</code>"
+  :id 36}
+ 
+ {:title "Cómo utilizar deref en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>deref</code> es la función que se usa para obtener el valor de un <code>atom</code>, <code>ref</code>, <code>agent</code> o cualquier tipo de referencia mutable.</p>
+         <h2>Uso básico de deref</h2>
+         <p>Para obtener el valor de un atom o ref, usamos <code>@</code> o <code>deref</code>:</p>
+         <code>(@a) ;; devuelve el valor de a</code>
+         <code>(deref r) ;; devuelve el valor de r</code>"
+  :id 37}
+ 
+ {:title "Cómo usar agents en Clojure – Resuelto"
+  :desc "<p>Los <code>agents</code> en Clojure son referencias que permiten realizar cambios de manera asíncrona. Son útiles cuando necesitamos modificar un valor en paralelo sin bloquear el hilo principal.</p>
+         <h2>Crear un agent</h2>
+         <p>Podemos crear un agent utilizando <code>agent</code>:</p>
+         <code>(def a-agent (agent 0))</code>
+         <h2>Modificar el valor de un agent</h2>
+         <p>Para modificar el valor de un agent, usamos <code>send</code> o <code>send-off</code>:</p>
+         <code>(send a-agent inc) ;; Incrementa el valor de a-agent</code>"
+  :id 38}
+ 
+ {:title "Cómo usar letfn en Clojure – Resuelto"
+  :desc "<p>La expresión <code>letfn</code> en Clojure nos permite definir funciones locales dentro de un bloque, lo que es útil cuando necesitamos funciones que dependen de otras funciones definidas dentro del mismo bloque.</p>
+         <h2>Definir funciones con letfn</h2>
+         <p>Podemos definir varias funciones dentro de <code>letfn</code>:</p>
+         <code>(letfn [(suma [a b] (+ a b))\n         (multiplica [a b] (* a b))]\n  (println (suma 3 5))\n  (println (multiplica 3 5)))</code>"
+  :id 39}
+ 
+ {:title "Cómo usar fn en Clojure – Resuelto"
+  :desc "<p>La función <code>fn</code> en Clojure se utiliza para crear funciones anónimas, lo que nos permite definir funciones rápidas para ser utilizadas en un contexto local, como en una operación de mapeo o reducción.</p>
+         <h2>Definir una función con fn</h2>
+         <p>Podemos crear una función anónima utilizando <code>fn</code>, y se puede pasar como argumento a otras funciones o asignarla a una variable:</p>
+         <code>(def suma (fn [a b] (+ a b)))</code>
+         <p>En este ejemplo, hemos definido una función que suma dos números y la hemos asignado a la variable <code>suma</code>. Ahora podemos usarla de la siguiente forma:</p>
+         <code>(suma 3 4) ;; 7</code>
+         <h2>Usar funciones anónimas dentro de otras funciones</h2>
+         <p>Una de las principales aplicaciones de <code>fn</code> es su uso en funciones como <code>map</code>, <code>filter</code> o <code>reduce</code>. Por ejemplo, podemos usar una función anónima dentro de <code>map</code> para multiplicar cada número de una lista:</p>
+         <code>(map (fn [x] (* x 2)) [1 2 3 4]) ;; (2 4 6 8)</code>"
+  :id 40}
+ 
+ {:title "Cómo usar la función map en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>map</code> es una de las funciones más utilizadas para aplicar una función a cada elemento de una colección. Es una forma de transformar colecciones de manera eficiente y declarativa.</p>
+         <h2>Uso básico de map</h2>
+         <p>La función <code>map</code> toma una función y una colección y devuelve una nueva colección donde la función se aplica a cada elemento de la colección original:</p>
+         <code>(map inc [1 2 3]) ;; (2 3 4)</code>
+         <p>En este ejemplo, <code>inc</code> incrementa cada número de la lista en 1, y <code>map</code> devuelve una nueva lista con los valores transformados.</p>
+         <h2>Mapear múltiples colecciones</h2>
+         <p>Si pasamos múltiples colecciones a <code>map</code>, la función se aplicará a los elementos correspondientes de cada colección. Si las colecciones tienen longitudes diferentes, el resultado tendrá la longitud de la colección más corta:</p>
+         <code>(map + [1 2 3] [4 5 6]) ;; (5 7 9)</code>"
+  :id 41}
+ 
+ {:title "Cómo usar filter en Clojure – Resuelto"
+  :desc "<p>La función <code>filter</code> en Clojure es utilizada para filtrar elementos de una colección según una condición que se pasa como función. Devuelve una nueva colección que contiene solo aquellos elementos que cumplen con la condición.</p>
+         <h2>Uso básico de filter</h2>
+         <p>Podemos usar <code>filter</code> para extraer los elementos de una colección que cumplen con una condición. Por ejemplo, para obtener solo los números pares de una lista:</p>
+         <code>(filter even? [1 2 3 4 5 6]) ;; (2 4 6)</code>
+         <p>En este ejemplo, estamos usando el predicado <code>even?</code>, que devuelve <code>true</code> solo para números pares, y <code>filter</code> devuelve una nueva colección con solo los números pares de la lista original.</p>
+         <h2>Filtrar elementos con condiciones más complejas</h2>
+         <p>También podemos usar funciones personalizadas para filtrar elementos según condiciones más complejas:</p>
+         <code>(filter #(> % 10) [1 5 8 12 15]) ;; (12 15)</code>"
+  :id 42}
+ 
+ {:title "Cómo usar let en Clojure – Resuelto"
+  :desc "<p>La expresión <code>let</code> en Clojure se utiliza para crear variables locales en un bloque de código. Es útil cuando queremos tener valores intermedios en un proceso sin modificar el estado global del programa.</p>
+         <h2>Definir variables locales con let</h2>
+         <p>Podemos definir varias variables locales utilizando <code>let</code>, y luego usar esas variables dentro de un bloque de código:</p>
+         <code>(let [x 10\n      y 20]\n  (+ x y)) ;; 30</code>
+         <p>En este ejemplo, hemos definido las variables <code>x</code> y <code>y</code>, y luego las hemos sumado.</p>
+         <h2>Usar let con operaciones más complejas</h2>
+         <p>Podemos utilizar <code>let</code> para almacenar resultados intermedios en cálculos más complejos:</p>
+         <code>(let [a 2\n      b 3\n      c 5]\n  (+ (* a b) c)) ;; 11</code>"
+  :id 43}
+ 
+ {:title "Cómo usar destructuración en Clojure – Resuelto"
+  :desc "<p>La destructuración en Clojure nos permite extraer valores de colecciones complejas (como listas o mapas) de una manera más legible y directa. Es una forma de descomponer estructuras de datos en sus componentes más simples.</p>
+         <h2>Destructuración con listas</h2>
+         <p>Podemos utilizar destructuración para descomponer listas en valores individuales:</p>
+         <code>(let [[x y] [1 2]]\n  (+ x y)) ;; 3</code>
+         <p>En este caso, <code>[x y]</code> desestructura la lista <code>[1 2]</code> en las variables <code>x</code> y <code>y</code>, y luego las suma.</p>
+         <h2>Destructuración con mapas</h2>
+         <p>La destructuración también es útil con mapas, permitiéndonos extraer claves y valores:</p>
+         <code>(let [{:keys [a b]} {:a 1 :b 2 :c 3}]\n  (+ a b)) ;; 3</code>"
+  :id 44}
+ 
+ {:title "Cómo usar juxt en Clojure – Resuelto"
+  :desc "<p>La función <code>juxt</code> en Clojure se utiliza para crear una nueva función que aplica varias funciones a un valor y devuelve los resultados en una lista. Es útil cuando necesitamos aplicar varias transformaciones a un solo valor.</p>
+         <h2>Uso básico de juxt</h2>
+         <p>Podemos usar <code>juxt</code> para aplicar múltiples funciones a un valor de la siguiente manera:</p>
+         <code>(let [f (juxt inc dec)]\n  (f 5)) ;; (6 4)</code>
+         <p>En este ejemplo, hemos creado una función <code>f</code> que aplica <code>inc</code> y <code>dec</code> a un valor. Cuando la aplicamos a <code>5</code>, obtenemos el resultado <code>(6 4)</code>.</p>
+         <h2>Uso avanzado de juxt</h2>
+         <p>También podemos usar <code>juxt</code> con funciones más complejas para realizar múltiples transformaciones a un valor en un solo paso:</p>
+         <code>(let [f (juxt (fn [x] (* x 2)) (fn [x] (+ x 3)))]\n  (f 4)) ;; (8 7)</code>"
+  :id 45}
+ 
+ {:title "Cómo usar dosync en Clojure – Resuelto"
+  :desc "<p>La función <code>dosync</code> en Clojure se utiliza para realizar transacciones sobre <code>refs</code>, asegurando que las modificaciones sean atómicas y consistentes. Es útil cuando necesitamos realizar varias modificaciones de estado sin interferencias externas.</p>
+         <h2>Uso básico de dosync</h2>
+         <p>Podemos usar <code>dosync</code> para envolver varias operaciones que modifiquen un <code>ref</code>, garantizando que todas las modificaciones se realicen de forma coherente:</p>
+         <code>(def r (ref 0))\n(dosync (ref-set r 10))\n@r ;; 10</code>
+         <h2>Transacciones complejas con dosync</h2>
+         <p>También podemos usar <code>dosync</code> para realizar cambios complejos de forma atómica, asegurando que no haya efectos secundarios inesperados:</p>
+         <code>(def r1 (ref 0))\n(def r2 (ref 0))\n(dosync\n  (ref-set r1 10)\n  (ref-set r2 20))\n@r1 ;; 10\n@r2 ;; 20</code>"
+  :id 46}
+ {:title "Cómo usar reduce en Clojure – Resuelto"
+  :desc "<p>La función <code>reduce</code> en Clojure es utilizada para reducir una colección a un único valor. Se aplica una función acumuladora a los elementos de la colección de izquierda a derecha (o derecha a izquierda dependiendo del argumento) hasta que solo queda un resultado.</p>
+         <h2>Uso básico de reduce</h2>
+         <p>Podemos usar <code>reduce</code> para acumular valores en una operación. Por ejemplo, para sumar los elementos de una lista:</p>
+         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
+         <p>En este ejemplo, la función <code>+</code> se aplica de manera acumulativa a los elementos de la lista, sumándolos todos para obtener el resultado final.</p>
+         <h2>Reduce con una función personalizada</h2>
+         <p>Podemos también usar <code>reduce</code> con funciones más complejas. Por ejemplo, para concatenar cadenas de texto:</p>
+         <code>(reduce str [" Hola " " " " mundo "]) ;; " Hola mundo "</code>"
+  :id 47}
+ 
+ {:title "Cómo usar dos! en Clojure – Resuelto"
+  :desc "<p>La función <code>dos!</code> en Clojure se utiliza para modificar los valores de los <code>atoms</code> de manera segura y atómica dentro de un bloque transaccional. Al igual que <code>dosync</code> para <code>refs</code>, <code>dos!</code> garantiza que los cambios sean coherentes.</p>
+         <h2>Uso básico de dos!</h2>
+         <p>Podemos usar <code>dos!</code> para modificar de manera atómica el valor de un <code>atom</code>. En este ejemplo, incrementamos un valor almacenado en un <code>atom</code>:</p>
+         <code>(def a (atom 0))\n(dos! a inc)\n@a ;; 1</code>
+         <h2>Transacciones con múltiples atoms</h2>
+         <p>Podemos usar <code>dos!</code> para modificar varios <code>atoms</code> en una única transacción:</p>
+         <code>(def a (atom 0))\n(def b (atom 10))\n(dos! a inc b dec)\n@a ;; 1\n@b ;; 9</code>"
+  :id 48}
+ 
+ {:title "Cómo usar cond en Clojure – Resuelto"
+  :desc "<p>La función <code>cond</code> en Clojure es útil cuando queremos realizar múltiples comprobaciones de condiciones y devolver un valor basado en la primera condición que sea verdadera. Es similar a una estructura <code>if</code>...<code>else</code> encadenada.</p>
+         <h2>Uso básico de cond</h2>
+         <p>Podemos usar <code>cond</code> para probar diferentes condiciones:</p>
+         <code>(cond\n  (= x 0) \"cero\"\n  (= x 1) \"uno\"\n  :else \"otro\")</code>
+         <p>En este caso, si <code>x</code> es 0, devuelve <code>cero</code>, si es 1, devuelve <code>uno</code>, y si no se cumple ninguna de esas condiciones, se devuelve <code>otro</code>.</p>
+         <h2>Condiciones complejas con cond</h2>
+         <p>Podemos realizar evaluaciones más complejas en cada cláusula de <code>cond</code>:</p>
+         <code>(cond\n  (> x 10) \"mayor que 10\"\n  (< x 5) \"menor que 5\"\n  :else \"entre 5 y 10\")</code>"
+  :id 49}
+ 
+ {:title "Cómo usar comp en Clojure – Resuelto"
+  :desc "<p>La función <code>comp</code> en Clojure se utiliza para componer varias funciones en una sola función. Esto es útil cuando necesitamos aplicar múltiples transformaciones a un valor en una secuencia de pasos encadenados.</p>
+         <h2>Uso básico de comp</h2>
+         <p>Podemos usar <code>comp</code> para componer dos o más funciones. Por ejemplo, si queremos aplicar primero <code>inc</code> y luego <code>str</code> a un número:</p>
+         <code>(let [f (comp str inc)]\n  (f 5)) ;; \"6\"</code>
+         <p>En este caso, primero se aplica <code>inc</code> para incrementar el valor, y luego <code>str</code> convierte el número en una cadena.</p>
+         <h2>Composición con varias funciones</h2>
+         <p>También podemos componer más de dos funciones:</p>
+         <code>(let [f (comp #(* % 2) inc str)]\n  (f 5)) ;; \"12\"</code>"
+  :id 50}
+ 
+ {:title "Cómo usar the function transduce in Clojure – Resuelto"
+  :desc "<p>La función <code>transduce</code> en Clojure es una versión más avanzada de <code>reduce</code>, diseñada para trabajar con transductores. Los transductores permiten componer transformaciones de datos de manera eficiente.</p>
+         <h2>Uso básico de transduce</h2>
+         <p>Podemos usar <code>transduce</code> para transformar datos de una colección aplicando un transductor:</p>
+         <code>(transduce (map inc) + 0 [1 2 3 4]) ;; 14</code>
+         <p>En este ejemplo, <code>map inc</code> es el transductor, que incrementa cada elemento de la lista, y luego <code>reduce</code> los elementos con <code>+</code>.</p>
+         <h2>Uso avanzado de transduce</h2>
+         <p>Podemos usar <code>transduce</code> con transductores más complejos para realizar transformaciones más sofisticadas:</p>
+         <code>(transduce (comp (filter even?) (map #(* % 2))) + 0 [1 2 3 4 5 6]) ;; 24</code>"
+  :id 51}
+ 
+ {:title "Cómo usar defn en Clojure – Resuelto"
+  :desc "<p>La función <code>defn</code> es la manera estándar en Clojure para definir funciones con nombre. Permite crear funciones reutilizables que pueden ser invocadas en cualquier lugar del código.</p>
+         <h2>Uso básico de defn</h2>
+         <p>Podemos definir una función simple con <code>defn</code> de la siguiente forma:</p>
+         <code>(defn suma [a b] (+ a b))</code>
+         <p>En este ejemplo, hemos definido una función llamada <code>suma</code> que toma dos parámetros <code>a</code> y <code>b</code> y devuelve su suma.</p>
+         <h2>Definir funciones con parámetros opcionales</h2>
+         <p>También podemos definir funciones que aceptan parámetros opcionales. Por ejemplo:</p>
+         <code>(defn greet\n  ([name] (str \"Hello, \" name))\n  ([name lang] (str \"Hello, \" name \"! \" lang)))</code>"
+  :id 52}
+ 
+ {:title "Cómo usar defmacro en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>defmacro</code> se utiliza para definir macros. Las macros en Clojure permiten manipular código a nivel de sintaxis, permitiendo crear nuevas construcciones que pueden ser más expresivas o más eficientes que las construcciones estándar del lenguaje.</p>
+         <h2>Uso básico de defmacro</h2>
+         <p>Podemos definir una macro usando <code>defmacro</code>. Aquí tenemos un ejemplo sencillo de una macro que intercambia dos valores:</p>
+         <code>(defmacro swap [a b]\n  `(let [tmp# ~a]\n     (set! ~a ~b)\n     (set! ~b tmp#)))</code>
+         <p>En este ejemplo, la macro <code>swap</code> genera código para intercambiar dos valores.</p>
+         <h2>Usar macros en el código</h2>
+         <p>Podemos usar la macro <code>swap</code> de la siguiente manera:</p>
+         <code>(def x 5)\n(def y 10)\n(swap x y)\n[x y] ;; [10 5]</code>"
+  :id 53}
+ 
+ {:title "Cómo usar defrecord en Clojure – Resuelto"
+  :desc "<p>La función <code>defrecord</code> se utiliza en Clojure para definir tipos de datos personalizados (registros) que pueden tener campos con valores asociados. Se utiliza principalmente cuando necesitamos representar estructuras de datos complejas con nombre.</p>
+         <h2>Uso básico de defrecord</h2>
+         <p>Podemos definir un nuevo tipo de datos usando <code>defrecord</code>:</p>
+         <code>(defrecord Persona [nombre edad])</code>
+         <p>En este caso, hemos definido un nuevo tipo llamado <code>Persona</code> con dos campos: <code>nombre</code> y <code>edad</code>.</p>
+         <h2>Crear instancias de un record</h2>
+         <p>Para crear instancias del record, utilizamos el nombre del record como función:</p>
+         <code>(def p (->Persona \"Juan\" 30))</code>"
+  :id 54}
+ 
+ {:title "Cómo usar with-open en Clojure – Resuelto"
+  :desc "<p>La función <code>with-open</code> en Clojure se utiliza para trabajar con recursos externos (como archivos o conexiones de red) de manera segura. Asegura que los recursos se cierren automáticamente cuando ya no se necesiten.</p>
+         <h2>Uso básico de with-open</h2>
+         <p>Podemos usar <code>with-open</code> para leer de un archivo de manera segura. Aquí hay un ejemplo simple:</p>
+         <code>(with-open [rdr (clojure.java.io/reader \"archivo.txt\")]\n  (println (slurp rdr)))</code>"
+  :id 55}
+ 
+ {:title "Cómo usar doseq en Clojure – Resuelto"
+  :desc "<p>La función <code>doseq</code> se utiliza en Clojure para iterar sobre una colección de manera eficiente, ejecutando una acción para cada elemento. Es similar a un <code>for</code>, pero con efectos secundarios.</p>
+         <h2>Uso básico de doseq</h2>
+         <p>Podemos usar <code>doseq</code> para realizar una acción sobre cada elemento de una colección:</p>
+         <code>(doseq [x [1 2 3 4 5]]\n  (println (* x x)))</code>
+         <p>En este caso, estamos imprimiendo el cuadrado de cada número en la lista.</p>"
+  :id 56}
+ 
+ {:title "Cómo usar transduce con un transductor personalizado en Clojure – Resuelto"
+  :desc "<p>La función <code>transduce</code> en Clojure puede usarse con transductores personalizados. Los transductores son funciones que permiten transformar datos de manera eficiente, y son útiles cuando necesitamos combinar varias operaciones en una sola.</p>
+         <h2>Crear un transductor personalizado</h2>
+         <p>Para crear un transductor personalizado, usamos la función <code>comp</code> junto con transformaciones como <code>filter</code> o <code>map</code>:</p>
+         <code>(def custom-transducer\n  (comp (filter odd?) (map #(* % 2))))</code>
+         <h2>Usar el transductor con transduce</h2>
+         <p>Podemos usar nuestro transductor personalizado para transformar datos:</p>
+         <code>(transduce custom-transducer + 0 [1 2 3 4 5 6]) ;; 24</code>"
+  :id 57}
+ 
+ {:title "Cómo usar multi-methods en Clojure – Resuelto"
+  :desc "<p>Los multi-métodos en Clojure permiten definir métodos con múltiples dispatchers, lo que nos permite crear funciones con lógica especializada dependiendo de los tipos de los argumentos.</p>
+         <h2>Uso básico de multi-methods</h2>
+         <p>Podemos definir un multi-método usando <code>defmulti</code> y luego implementar diferentes métodos utilizando <code>defmethod</code>:</p>
+         <code>(defmulti saludar :idioma)\n(defmethod saludar :espanol [persona] (str \"Hola, \" (:nombre persona)))\n(defmethod saludar :ingles [persona] (str \"Hello, \" (:nombre persona)))</code>"
+  :id 58}
+ 
+ {:title "Cómo usar futures en Clojure – Resuelto"
+  :desc "<p>Los <code>futures</code> en Clojure permiten realizar operaciones de manera concurrente. Se pueden usar para ejecutar tareas en segundo plano y obtener el resultado de esas tareas cuando estén disponibles.</p>
+         <h2>Uso básico de futures</h2>
+         <p>Podemos usar <code>future</code> para ejecutar código de manera asíncrona:</p>
+         <code>(def f (future (+ 1 2 3)))\n@f ;; 6</code>"
+  :id 59}
+ 
+ {:title "Cómo usar set! en Clojure – Resuelto"
+  :desc "<p>La función <code>set!</code> en Clojure se utiliza para modificar valores mutables como las referencias. Sin embargo, debe usarse con precaución debido a que altera el estado de manera inmutable.</p>
+         <h2>Uso básico de set!</h2>
+         <p>Podemos usar <code>set!</code> para cambiar el valor de una referencia mutable:</p>
+         <code>(def x 10)\n(set! x 20)\n x ;; 20</code>"
+  :id 60}
+ 
+ {:title "Cómo usar thread-last en Clojure – Resuelto"
+  :desc "<p>La macro <code>thread-last</code> en Clojure permite pasar el resultado de una expresión como último argumento de una serie de funciones. Esto es útil cuando se realizan múltiples transformaciones encadenadas.</p>
+         <h2>Uso básico de thread-last</h2>
+         <p>Podemos usar <code>thread-last</code> para encadenar varias funciones:</p>
+         <code>(->> [1 2 3 4]\n  (map inc)\n  (filter even?))</code>"
+  :id 61}
+ 
+ {:title "Cómo usar memoization en Clojure – Resuelto"
+  :desc "<p>La memoización es una técnica para optimizar el rendimiento de funciones recursivas al almacenar en caché los resultados de llamadas anteriores. En Clojure, podemos usar la función <code>memoize</code> para hacerlo fácilmente.</p>
+         <h2>Uso básico de memoize</h2>
+         <p>Podemos memoizar una función usando <code>memoize</code>:</p>
+         <code>(def fib (memoize (fn [n] (if (< n 2) n (+ (fib (- n 1)) (fib (- n 2)))))))\n(fib 10) ;; 55</code>"
+  :id 62}
+ 
+ {:title "Cómo usar reify en Clojure – Resuelto"
+  :desc "<p>La función <code>reify</code> en Clojure permite crear una instancia de un protocolo o una interfaz. Es una manera de definir comportamientos de objetos sin necesidad de clases concretas.</p>
+         <h2>Uso básico de reify</h2>
+         <p>Podemos usar <code>reify</code> para crear un objeto con un protocolo:</p>
+         <code>(def p (reify MiProtocolo\n             (mi-metodo [this] (println \"Método ejecutado\"))))</code>"
+  :id 63}
+ 
+ {:title "Cómo usar swap! en Clojure – Resuelto"
+  :desc "<p>La función <code>swap!</code> en Clojure se usa para modificar el valor de un <code>atom</code> de manera atómica, asegurando que los cambios sean consistentes, incluso en presencia de concurrencia.</p>
+         <h2>Uso básico de swap!</h2>
+         <p>Podemos usar <code>swap!</code> para modificar el valor de un <code>atom</code>:</p>
+         <code>(def a (atom 0))\n(swap! a inc)\n@a ;; 1</code>"
+  :id 64}
+  {:title "Cómo usar defn en Clojure – Resuelto"
+  :desc "<p>La función <code>defn</code> en Clojure se usa para definir funciones. Permite especificar argumentos y el cuerpo de la función de manera concisa.</p>
+         <h2>Uso básico de defn</h2>
+         <p>Podemos definir una función usando <code>defn</code>:</p>
+         <code>(defn saludar [nombre] (str \"Hola, \" nombre))</code>"
+  :id 65}
+ 
+ {:title "Cómo usar reduce en Clojure – Resuelto"
+  :desc "<p>La función <code>reduce</code> en Clojure permite reducir una colección a un solo valor aplicando una función a los elementos de la colección.</p>
+         <h2>Uso básico de reduce</h2>
+         <p>Podemos usar <code>reduce</code> para sumar los números en una lista:</p>
+         <code>(reduce + [1 2 3 4 5]) ;; 15</code>"
+  :id 66}
+ 
+ {:title "Cómo usar split-at en Clojure – Resuelto"
+  :desc "<p>La función <code>split-at</code> en Clojure divide una colección en dos partes: una con los primeros N elementos y otra con el resto.</p>
+         <h2>Uso básico de split-at</h2>
+         <p>Podemos dividir una lista en dos partes:</p>
+         <code>(split-at 3 [1 2 3 4 5]) ;; ([1 2 3] [4 5])</code>"
+  :id 67}
+ 
+ {:title "Cómo usar cond en Clojure – Resuelto"
+  :desc "<p>La forma <code>cond</code> en Clojure permite realizar múltiples comprobaciones condicionales y devolver un valor correspondiente a la primera condición verdadera.</p>
+         <h2>Uso básico de cond</h2>
+         <p>Podemos usar <code>cond</code> para comprobar varias condiciones:</p>
+         <code>(cond\n  (= x 1) \"Uno\"\n  (= x 2) \"Dos\"\n  :else \"Otro\")</code>"
+  :id 68}
+ 
+ {:title "Cómo usar let en Clojure – Resuelto"
+  :desc "<p>La forma <code>let</code> en Clojure se usa para declarar variables locales dentro de un bloque de código. Es útil cuando necesitamos usar valores temporales.</p>
+         <h2>Uso básico de let</h2>
+         <p>Podemos usar <code>let</code> para asignar valores a variables temporales:</p>
+         <code>(let [x 10 y 20] (+ x y)) ;; 30</code>"
+  :id 69}
+ 
+ {:title "Cómo usar conj en Clojure – Resuelto"
+  :desc "<p>La función <code>conj</code> en Clojure agrega un elemento al principio de una colección. Si la colección es un conjunto, el elemento se agrega solo si no está presente.</p>
+         <h2>Uso básico de conj</h2>
+         <p>Podemos usar <code>conj</code> para agregar elementos a una lista o conjunto:</p>
+         <code>(conj [1 2 3] 4) ;; (4 1 2 3)</code>"
+  :id 70}
+ 
+ {:title "Cómo usar map en Clojure – Resuelto"
+  :desc "<p>La función <code>map</code> en Clojure permite aplicar una función a cada elemento de una colección.</p>
+         <h2>Uso básico de map</h2>
+         <p>Podemos usar <code>map</code> para transformar los elementos de una lista:</p>
+         <code>(map inc [1 2 3]) ;; (2 3 4)</code>"
+  :id 71}
+ 
+ {:title "Cómo usar mapv en Clojure – Resuelto"
+  :desc "<p>La función <code>mapv</code> en Clojure es similar a <code>map</code>, pero devuelve una vector en lugar de una secuencia perezosa.</p>
+         <h2>Uso básico de mapv</h2>
+         <p>Podemos usar <code>mapv</code> para obtener una lista transformada:</p>
+         <code>(mapv inc [1 2 3]) ;; [2 3 4]</code>"
+  :id 72}
+ 
+ {:title "Cómo usar nth en Clojure – Resuelto"
+  :desc "<p>La función <code>nth</code> en Clojure permite acceder a un elemento de una colección en una posición dada. Si la posición es inválida, se puede proporcionar un valor por defecto.</p>
+         <h2>Uso básico de nth</h2>
+         <p>Podemos usar <code>nth</code> para obtener el tercer elemento de una lista:</p>
+         <code>(nth [1 2 3 4] 2) ;; 3</code>"
+  :id 73}
+ 
+ {:title "Cómo usar defmacro en Clojure – Resuelto"
+  :desc "<p>La forma <code>defmacro</code> en Clojure se usa para definir macros, que son funciones que manipulan código antes de que se ejecute.</p>
+         <h2>Uso básico de defmacro</h2>
+         <p>Podemos usar <code>defmacro</code> para crear una macro que multiplica dos números:</p>
+         <code>(defmacro multiplicar [a b] `(* ~a ~b))\n(multiplicar 2 3) ;; 6</code>"
+  :id 74}
+ 
+ {:title "Cómo usar mapcat en Clojure – Resuelto"
+  :desc "<p>La función <code>mapcat</code> en Clojure es similar a <code>map</code>, pero aplanando las colecciones resultantes.</p>
+         <h2>Uso básico de mapcat</h2>
+         <p>Podemos usar <code>mapcat</code> para aplanar los resultados de <code>map</code>:</p>
+         <code>(mapcat #(vector % (+ % 1)) [1 2 3]) ;; (1 2 2 3 3 4)</code>"
+  :id 75}
+ 
+ {:title "Cómo usar some en Clojure – Resuelto"
+  :desc "<p>La función <code>some</code> en Clojure devuelve el primer elemento de una colección que cumple con una condición, o <code>nil</code> si no se encuentra ninguno.</p>
+         <h2>Uso básico de some</h2>
+         <p>Podemos usar <code>some</code> para encontrar el primer número mayor que 3:</p>
+         <code>(some #(when (> % 3) %) [1 2 3 4 5]) ;; 4</code>"
+  :id 76}
+ 
+ {:title "Cómo usar doto en Clojure – Resuelto"
+  :desc "<p>La función <code>doto</code> en Clojure permite ejecutar múltiples efectos secundarios sobre un objeto sin necesidad de repetirlo.</p>
+         <h2>Uso básico de doto</h2>
+         <p>Podemos usar <code>doto</code> para llamar a varios métodos sobre un objeto:</p>
+         <code>(doto (StringBuilder.)\n  (.append \"Hola \")\n  (.append \"Mundo\")) ;; Hola Mundo</code>"
+  :id 77}
+ 
+ {:title "Cómo usar try-catch en Clojure – Resuelto"
+  :desc "<p>En Clojure, podemos manejar excepciones utilizando <code>try-catch</code> de manera similar a otros lenguajes.</p>
+         <h2>Uso básico de try-catch</h2>
+         <p>Podemos usar <code>try-catch</code> para capturar una excepción:</p>
+         <code>(try\n  (/ 1 0)\n  (catch ArithmeticException e\n    (println \"Error: División por cero\")))</code>"
+  :id 78}
+ 
+ {:title "Cómo usar every? en Clojure – Resuelto"
+  :desc "<p>La función <code>every?</code> en Clojure devuelve <code>true</code> si todos los elementos de una colección cumplen con una condición.</p>
+         <h2>Uso básico de every?</h2>
+         <p>Podemos usar <code>every?</code> para comprobar si todos los números son positivos:</p>
+         <code>(every? pos? [1 2 3 4]) ;; true</code>"
+  :id 79}
+ 
+ {:title "Cómo usar reduce-kv en Clojure – Resuelto"
+  :desc "<p>La función <code>reduce-kv</code> en Clojure permite reducir un mapa, pasando tanto la clave como el valor al acumulador.</p>
+         <h2>Uso básico de reduce-kv</h2>
+         <p>Podemos usar <code>reduce-kv</code> para sumar los valores de un mapa:</p>
+         <code>(reduce-kv (fn [acc k v] (+ acc v)) 0 {:a 1 :b 2 :c 3}) ;; 6</code>"
+  :id 80}]
