@@ -19,3 +19,7 @@
 .cpcache/
 .clj-kondo/.cache
 .lsp/
+# Local Netlify folder
+.netlify
+
+/resources/public/ads.txt

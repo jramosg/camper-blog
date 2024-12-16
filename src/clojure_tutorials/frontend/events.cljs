@@ -17,7 +17,6 @@
 (rf/reg-event-db
  ::articles-loaded
  (fn [db [_ articles]]
-   (prn "loaded!" articles)
    (assoc db :articles (reduce #(assoc %1 (str (:id %2)) %2) {} articles))))
 
 (rf/reg-event-db
@@ -28,7 +27,6 @@
 (rf/reg-event-db
  ::add-route
  (fn [db [_ route]]
-   (prn"routeee" route)
    (assoc db :route route)))
 
 (rf/reg-event-db

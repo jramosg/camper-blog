@@ -1,0 +1,8 @@
+# Disallow specific pages
+User-agent: *
+Disallow: /politica-de-privacidad
+Disallow: /politica-de-cookies
+Disallow: /sobre-nosotros
+
+# Sitemap location
+Sitemap: https://solucionesclojure.com/sitemap.xml

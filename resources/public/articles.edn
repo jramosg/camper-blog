@@ -18,7 +18,7 @@
          <h2>Conclusión</h2>
          <p>El manejo de excepciones en Clojure es sencillo y flexible, permitiendo capturar errores específicos y agregar contexto útil. Con las herramientas como try, catch, finally y ex-info, podemos construir aplicaciones más robustas y confiables. ¡Experimenta con estos ejemplos y adapta estas prácticas a tus proyectos!</p>"
   :id 1}
- 
+
  {:title "Cómo trabajar con cadenas en Clojure – Resuelto"
   :desc "<p>Las cadenas en Clojure son inmutables y se gestionan con una serie de funciones útiles para su manipulación. Veremos cómo crear, modificar y operar con cadenas en este artículo.</p>
          <h2>Crear cadenas</h2>
@@ -36,7 +36,7 @@
          <p>En Clojure, podemos concatenar cadenas utilizando la función <code>str</code> o simplemente el operador de adición <code>+</code>:</p>
          <code>(+ \"Hola, \" \"mundo!\")</code>"
   :id 2}
- 
+
  {:title "Cómo verificar una lista vacía en Clojure – Resuelto"
   :desc "<p>En Clojure, las listas son estructuras de datos fundamentales, y a menudo necesitamos verificar si una lista está vacía. Afortunadamente, Clojure proporciona funciones integradas para realizar esta tarea.</p>
          <h2>Usando la función empty?</h2>
@@ -47,7 +47,7 @@
          <p>Otra opción es utilizar la función <code>count</code> para obtener la cantidad de elementos en la lista. Si el valor es 0, la lista está vacía.</p>
          <code>(= (count []) 0) ;; true</code>"
   :id 3}
- 
+
  {:title "Cómo escribir una lista en un archivo en Clojure – Resuelto"
   :desc "<p>En Clojure, escribir datos en archivos es una tarea común y se puede hacer utilizando las funciones del sistema de entrada/salida (I/O) estándar. A continuación, te mostramos cómo escribir una lista en un archivo.</p>
          <h2>Escribir usando clojure.java.io</h2>
@@ -57,7 +57,7 @@
          <h2>Explicación</h2>
          <p>En este ejemplo, <code>with-open</code> se asegura de que el archivo se cierre automáticamente después de escribir en él. Utilizamos <code>doseq</code> para iterar sobre la lista e imprimir cada elemento en una nueva línea.</p>"
   :id 4}
- 
+
  {:title "Cómo convertir un número entero a cadena en Clojure – Resuelto"
   :desc "<p>En Clojure, convertir un número entero a una cadena es una operación sencilla que se puede realizar con la función <code>str</code>. A continuación te mostramos cómo hacerlo.</p>
          <h2>Usando str</h2>
@@ -65,7 +65,7 @@
          <code>(str 123) ;; \"123\"</code>
          <p>Esto convierte el número entero 123 en la cadena \"123\".</p>"
   :id 5}
- 
+
  {:title "Cómo leer un archivo en Clojure – Resuelto"
   :desc "<p>Leer archivos es una operación común en Clojure, y puedes hacerlo utilizando funciones integradas. Te mostramos cómo leer un archivo de texto línea por línea.</p>
          <h2>Leer archivo con clojure.java.io</h2>
@@ -75,7 +75,7 @@
          <h2>Explicación</h2>
          <p>En este ejemplo, <code>with-open</code> asegura que el archivo se cierre después de leerlo, y <code>line-seq</code> se usa para leer cada línea del archivo.</p>"
   :id 6}
- 
+
  {:title "Cómo filtrar elementos de una lista en Clojure – Resuelto"
   :desc "<p>Filtrar listas es una tarea común en la programación funcional. En Clojure, podemos hacerlo usando la función <code>filter</code>, que permite seleccionar elementos según una condición.</p>
          <h2>Filtrar con una predicado</h2>
@@ -84,7 +84,7 @@
          <h2>Explicación</h2>
          <p>En este caso, el predicado es <code>even?</code>, que filtra los números pares de la lista.</p>"
   :id 7}
- 
+
  {:title "Cómo trabajar con mapas en Clojure – Resuelto"
   :desc "<p>Los mapas son estructuras clave-valor muy comunes en Clojure. En este artículo, exploraremos cómo crear, modificar y acceder a los elementos de un mapa.</p>
          <h2>Crear un mapa</h2>
@@ -94,14 +94,14 @@
          <p>Para acceder a un valor, simplemente usamos la clave entre paréntesis:</p>
          <code>(:nombre mi-mapa) ;; \"Juan\"</code>"
   :id 8}
- 
+
  {:title "Cómo combinar listas en Clojure – Resuelto"
   :desc "<p>Combinar listas es una operación común en Clojure. Para ello, podemos usar la función <code>concat</code>, que combina dos o más secuencias en una sola.</p>
          <h2>Concatenar con concat</h2>
          <p>La función <code>concat</code> toma dos o más secuencias y las combina en una nueva secuencia:</p>
          <code>(concat [1 2 3] [4 5 6]) ;; (1 2 3 4 5 6)</code>"
   :id 9}
- 
+
  {:title "Cómo trabajar con conj en Clojure – Resuelto"
   :desc "<p>En Clojure, la función <code>conj</code> se utiliza para agregar elementos a una colección. Dependiendo del tipo de colección, se comporta de manera diferente.</p>
          <h2>Conj para listas</h2>
@@ -120,7 +120,7 @@
          <p>Podemos proporcionar un valor inicial para la reducción. Este valor será el primer elemento con el cual se empieza a acumular:</p>
          <code>(reduce + 10 [1 2 3 4 5]) ;; 25</code>"
   :id 11}
- 
+
  {:title "Cómo manejar colecciones en Clojure – Resuelto"
   :desc "<p>En Clojure, las colecciones son inmutables y muy poderosas. A continuación, exploramos las operaciones básicas de manejo de colecciones como listas, vectores y conjuntos.</p>
          <h2>Lista</h2>
@@ -139,7 +139,7 @@
            <li><code>conj</code>: Añade un elemento a la colección.</li>
          </ul>"
   :id 12}
- 
+
  {:title "Cómo usar map en Clojure – Resuelto"
   :desc "<p>La función <code>map</code> en Clojure aplica una función a cada elemento de una secuencia y devuelve una nueva secuencia con los resultados. Es similar al método <code>map</code> de otros lenguajes funcionales.</p>
          <h2>Uso básico de map</h2>
@@ -149,7 +149,7 @@
          <p>También podemos usar <code>map</code> con varias colecciones. La función proporcionada se aplica a los elementos correspondientes de las secuencias:</p>
          <code>(map + [1 2 3] [4 5 6]) ;; (5 7 9)</code>"
   :id 13}
- 
+
  {:title "Cómo ordenar una lista en Clojure – Resuelto"
   :desc "<p>En Clojure, podemos ordenar colecciones utilizando la función <code>sort</code> para listas y vectores. A continuación se muestra cómo ordenar una lista de números.</p>
          <h2>Ordenación ascendente</h2>
@@ -159,7 +159,7 @@
          <p>Podemos usar <code>reverse</code> después de ordenar para obtener una ordenación descendente:</p>
          <code>(reverse (sort [3 1 4 5 2])) ;; (5 4 3 2 1)</code>"
   :id 14}
- 
+
  {:title "Cómo utilizar clojure.string/join – Resuelto"
   :desc "<p>En Clojure, la función <code>clojure.string/join</code> nos permite concatenar una secuencia de elementos en una sola cadena, separándolos por un delimitador.</p>
          <h2>Uso básico de join</h2>
@@ -169,7 +169,7 @@
          <p>También podemos usar cualquier otro delimitador. En este caso, usamos una coma:</p>
          <code>(clojure.string/join \",\" [\"manzana\" \"banana\" \"cereza\"]) ;; \"manzana,banana,cereza\"</code>"
   :id 15}
- 
+
  {:title "Cómo trabajar con defn en Clojure – Resuelto"
   :desc "<p>La función <code>defn</code> en Clojure nos permite definir funciones. A continuación veremos cómo usar <code>defn</code> para crear funciones simples.</p>
          <h2>Definir una función simple</h2>
@@ -179,16 +179,16 @@
          <p>Para llamar a la función <code>sumar</code>, simplemente proporcionamos los argumentos:</p>
          <code>(sumar 3 5) ;; 8</code>"
   :id 16}
- 
- {:title "Cómo usar cond en Clojure – Resuelto"
-  :desc "<p>En Clojure, <code>cond</code> es una expresión condicional que permite manejar múltiples condiciones de manera clara y concisa, similar a un <code>switch</code> o <code>if-else</code> en otros lenguajes.</p>
-         <h2>Uso básico de cond</h2>
-         <p>El siguiente ejemplo muestra cómo usar <code>cond</code> para evaluar varias condiciones:</p>
-         <code>(cond\n  (= 3 3) \"Es igual\"\n  (< 3 2) \"Es menor\"\n  :else \"Es otro\")</code>
-         <h2>Explicación</h2>
-         <p>En este ejemplo, la primera condición es verdadera, por lo que el resultado será \"Es igual\".</p>"
+
+ {:title "Cómo usar if-let en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>if-let</code> es una forma útil de evaluar una condición y al mismo tiempo realizar una desestructuración de un valor, lo cual es ideal cuando estamos trabajando con valores opcionales o nulos.</p>
+          <h2>Uso básico de if-let</h2>
+          <p>El siguiente ejemplo muestra cómo usar <code>if-let</code> para comprobar si una variable está definida y realizar una operación basada en ello:</p>
+          <code>(if-let [x (some-function)]\n  (println \"Valor encontrado:\" x)\n  (println \"Valor no encontrado\"))</code>
+          <h2>Explicación</h2>
+          <p>Si <code>some-function</code> devuelve un valor, se ejecuta la primera rama de la condicional, y si no, se ejecuta la segunda.</p>"
   :id 17}
- 
+
  {:title "Cómo utilizar list? en Clojure – Resuelto"
   :desc "<p>En Clojure, podemos verificar si una colección es una lista utilizando la función <code>list?</code>.</p>
          <h2>Uso de list?</h2>
@@ -196,7 +196,7 @@
          <code>(list? '(1 2 3)) ;; true</code>
          <code>(list? [1 2 3]) ;; false</code>"
   :id 18}
- 
+
  {:title "Cómo manejar fechas en Clojure – Resuelto"
   :desc "<p>En Clojure, podemos trabajar con fechas utilizando las bibliotecas estándar o bibliotecas externas como <code>clj-time</code>.</p>
          <h2>Uso de java.util.Date</h2>
@@ -205,13 +205,16 @@
          <h2>Uso de clj-time</h2>
          <p>Para un manejo más avanzado de fechas, podemos utilizar <code>clj-time</code>, una biblioteca que ofrece una API más fácil de usar para trabajar con fechas y horas.</p>"
   :id 19}
- 
- {:title "Cómo manejar excepciones personalizadas en Clojure – Resuelto"
-  :desc "<p>En Clojure, podemos definir nuestras propias excepciones para situaciones específicas mediante la creación de excepciones personalizadas.</p>
-         <h2>Definir una excepción personalizada</h2>
-         <p>Para crear una excepción personalizada, podemos usar <code>ex-info</code>, que nos permite asociar datos adicionales con la excepción.</p>
-         <code>(throw (ex-info \"Error personalizado\" {:tipo :excepcion-especial}))</code>"
+
+ {:title "Cómo usar delay en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>delay</code> se utiliza para definir valores que no se calculan hasta que se accede a ellos. Esto puede ser útil para diferir el cálculo de un valor hasta que sea necesario, ayudando a optimizar el rendimiento.</p>
+          <h2>Uso básico de delay</h2>
+          <p>Podemos usar <code>delay</code> para diferir el cálculo de una expresión:</p>
+          <code>(def mi-retardo (delay (+ 2 3)))</code>
+          <p>El valor de <code>mi-retardo</code> no se calcula hasta que se accede a él:</p>
+          <code>(@mi-retardo) ;; 5</code>"
   :id 20}
+
  {:title "Cómo usar for en Clojure – Resuelto"
   :desc "<p>En Clojure, <code>for</code> es una construcción útil para generar secuencias a partir de una o más colecciones. Permite iterar sobre colecciones y aplicar filtros y transformaciones.</p>
          <h2>Uso básico de for</h2>
@@ -221,7 +224,7 @@
          <p>También podemos agregar condiciones para filtrar los elementos:</p>
          <code>(for [x [1 2 3 4 5] :when (even? x)] x) ;; (2 4)</code>"
   :id 21}
- 
+
  {:title "Cómo utilizar defmacro en Clojure – Resuelto"
   :desc "<p>En Clojure, <code>defmacro</code> nos permite definir macros, que son funciones que transforman el código en tiempo de compilación. A continuación, veremos cómo usar macros en Clojure.</p>
          <h2>Definir una macro simple</h2>
@@ -231,7 +234,7 @@
          <p>Ahora podemos llamar a la macro:</p>
          <code>(saludar \"Juan\") ;; imprime: Hola, Juan</code>"
   :id 22}
- 
+
  {:title "Cómo usar filter en Clojure – Resuelto"
   :desc "<p>La función <code>filter</code> en Clojure nos permite seleccionar elementos de una colección que cumplen con una condición determinada.</p>
          <h2>Uso básico de filter</h2>
@@ -241,7 +244,7 @@
          <p>También podemos filtrar cadenas que contienen una subcadena específica:</p>
          <code>(filter #(clojure.string/includes? % \"a\") [\"apple\" \"banana\" \"cherry\"]) ;; (\"apple\" \"banana\")</code>"
   :id 23}
- 
+
  {:title "Cómo utilizar let en Clojure – Resuelto"
   :desc "<p>La expresión <code>let</code> en Clojure nos permite definir variables locales dentro de un bloque de código, facilitando el manejo de valores intermedios.</p>
          <h2>Uso básico de let</h2>
@@ -251,7 +254,7 @@
          <p>También podemos hacer cálculos más complejos dentro de <code>let</code>:</p>
          <code>(let [x 5 y 3] (+ (* x x) (* y y))) ;; 34</code>"
   :id 24}
- 
+
  {:title "Cómo usar when en Clojure – Resuelto"
   :desc "<p>La expresión <code>when</code> en Clojure es similar a <code>if</code>, pero solo se ejecuta una rama cuando la condición es verdadera. Si la condición es falsa, no se ejecuta ninguna rama.</p>
          <h2>Uso básico de when</h2>
@@ -261,7 +264,7 @@
          <p>También podemos usar varias expresiones dentro de <code>when</code>:</p>
          <code>(when (> 5 3)\n  (println \"5 es mayor que 3\")\n  (println \"Condición verdadera\"))</code>"
   :id 25}
- 
+
  {:title "Cómo usar def en Clojure – Resuelto"
   :desc "<p>En Clojure, la expresión <code>def</code> nos permite definir variables globales o símbolos.</p>
          <h2>Definir una variable global</h2>
@@ -271,7 +274,7 @@
          <p>Una vez definida, podemos usar la variable en cualquier parte del código. Por ejemplo:</p>
          <code>(def y (+ x 5)) ;; 15</code>"
   :id 26}
- 
+
  {:title "Cómo utilizar eval en Clojure – Resuelto"
   :desc "<p>En Clojure, la función <code>eval</code> nos permite evaluar código Clojure en tiempo de ejecución.</p>
          <h2>Uso básico de eval</h2>
@@ -281,14 +284,14 @@
          <p>También podemos usar <code>eval</code> para evaluar expresiones generadas dinámicamente:</p>
          <code>(eval (list '+ 1 2 3)) ;; 6</code>"
   :id 27}
- 
+
  {:title "Cómo manejar errores con try-catch-finally en Clojure – Resuelto"
   :desc "<p>El bloque <code>try-catch-finally</code> en Clojure permite manejar excepciones, asegurando que el código se ejecute de manera segura.</p>
          <h2>Uso básico de try-catch-finally</h2>
          <p>El siguiente ejemplo muestra cómo usar <code>try-catch-finally</code> para manejar excepciones:</p>
          <code>(try\n  (/ 10 0) ;; Esto lanza una excepción\n  (catch ArithmeticException e (println \"Error de división por cero\"))\n  (finally (println \"Bloque finalmente\")))</code>"
   :id 28}
- 
+
  {:title "Cómo utilizar destructuración en Clojure – Resuelto"
   :desc "<p>La destructuración en Clojure nos permite extraer valores de colecciones de manera más expresiva y eficiente. Es especialmente útil cuando trabajamos con mapas y listas.</p>
          <h2>Destructuración con listas</h2>
@@ -298,23 +301,63 @@
          <p>También podemos usar destructuración para trabajar con mapas:</p>
          <code>(let [{:keys [nombre edad]} {:nombre \"Juan\" :edad 30}] (str \"Nombre: \" nombre \", Edad: \" edad)) ;; \"Nombre: Juan, Edad: 30\"</code>"
   :id 29}
- 
+
  {:title "Cómo trabajar con transacciones en Clojure – Resuelto"
   :desc "<p>En Clojure, podemos trabajar con transacciones utilizando bibliotecas que nos permiten gestionar operaciones atómicas, como <code>clojure.java.jdbc</code>.</p>
          <h2>Uso básico de transacciones</h2>
          <p>El siguiente ejemplo muestra cómo realizar una transacción utilizando <code>clojure.java.jdbc</code>:</p>
          <code>(require '[clojure.java.jdbc :as jdbc])\n\n(jdbc/with-db-transaction [tx db-spec]\n  (jdbc/insert! tx :usuarios {:nombre \"Juan\" :edad 30}))</code>"
   :id 30}
- {:title "Cómo usar reduce en Clojure – Resuelto"
-  :desc "<p>En Clojure, <code>reduce</code> es una función poderosa para reducir una colección a un único valor, aplicando una operación acumulativa sobre los elementos.</p>
-         <h2>Uso básico de reduce</h2>
-         <p>El siguiente ejemplo muestra cómo usar <code>reduce</code> para sumar los números de una lista:</p>
-         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
-         <h2>Reducir con una función personalizada</h2>
-         <p>También podemos usar una función personalizada para reducir los valores:</p>
-         <code>(reduce (fn [acc x] (+ acc (* x x))) 0 [1 2 3 4]) ;; 30</code>"
+ {:title "Cómo usar clojure.core.async en Clojure – Resuelto"
+  :desc "<p><code>clojure.core.async</code> es una biblioteca de Clojure que implementa un modelo de concurrencia inspirado en el sistema de canales de Go. Facilita la coordinación entre procesos ligeros (también conocidos como <em>goroutines</em>) mediante el uso de canales que actúan como tuberías para transmitir datos entre estos procesos.</p>
+  <h2>Uso básico de <code>clojure.core.async</code></h2>
+  <p>Veamos un ejemplo básico para ilustrar cómo funcionan los canales y los procesos asíncronos:</p>
+  <pre><code>(require '[clojure.core.async :refer [go chan &gt;! &lt;! close!]])\n\n;; Creamos un canal\n(def c (chan))\n\n;; Proceso productor: envía datos al canal\n(go\n  (doseq [x (range 5)]\n    (&gt! (async/timeout 500)) ; Simula un retraso de 500 ms\n    (&gt;! c x))\n  (close! c))\n\n;; Proceso consumidor: recibe datos del canal\n(go\n  (loop []\n    (if-let [v (&lt;! c)]\n      (do\n        (println \"Recibido:\" v)\n        (recur))\n      (println \"Canal cerrado, fin del consumo.\"))))</code></pre>
+
+  <h2>Explicación del ejemplo</h2>
+  <p>En este ejemplo:</p>
+  <ul>
+    <li><code>c</code> es un canal que conecta los procesos productor y consumidor.</li>
+    <li>El productor (<code>go</code>) envía valores al canal de manera asíncrona usando <code>&gt;!</code>, con un retraso de 500 ms entre envíos para simular latencia.</li>
+    <li>El consumidor (<code>go</code>) recibe valores del canal usando <code>&lt;!</code> y procesa los datos en un bucle hasta que el canal se cierra con <code>close!</code>.</li>
+    <li>El uso de <code>async/timeout</code> permite agregar retrasos no bloqueantes.</li>
+  </ul>
+
+  <h2>Buffering en canales</h2>
+  <p>
+    Los canales pueden tener un tamaño de búfer para almacenar datos temporalmente. Esto permite desacoplar los productores de los consumidores en términos de velocidad.
+    Veamos un ejemplo donde un canal usa un búfer de tamaño fijo:
+  </p>
+  <pre><code>(require '[clojure.core.async :refer [chan &gt;! &lt;! go]])\n\n;; Canal con búfer de tamaño 3\n(def buffered-chan (chan 3))\n\n(go\n  (doseq [x (range 5)]\n    (println \"Produciendo:\" x)\n    (&gt;! buffered-chan x)))\n\n(go\n  (loop []\n    (if-let [v (&lt;! buffered-chan)]\n      (do\n        (println \"Consumiendo:\" v)\n        (recur)))))</code></pre>
+
+  <p>
+    En este ejemplo, el canal <code>buffered-chan</code> puede contener hasta 3 elementos antes de bloquear al productor. Esto asegura que los datos no se pierdan si el consumidor es más lento.
+  </p>
+
+  <h2>Pipeline de procesamiento</h2>
+  <p>
+    Una característica poderosa de <code>clojure.core.async</code> es la capacidad de construir pipelines para procesar datos en etapas.
+    Aquí tienes un ejemplo de un pipeline con múltiples etapas:
+  </p>
+  <pre><code>(require '[clojure.core.async :refer [pipeline-blocking chan &gt;! &lt;!]])\n\n;; Crear un canal de entrada y salida\n(def input-chan (chan))\n(def output-chan (chan))\n\n;; Pipeline con dos etapas de transformación\n(pipeline-blocking 4\n                   output-chan\n                   (map #(str % \" procesado\"))\n                   input-chan)\n\n;; Producir datos\n(go\n  (doseq [x (range 5)]\n    (&gt;! input-chan x))\n  (close! input-chan))\n\n;; Consumir datos procesados\n(go\n  (loop []\n    (if-let [v (&lt;! output-chan)]\n      (do\n        (println \"Resultado:\" v)\n        (recur))\n      (println \"Pipeline completado.\"))))</code></pre>
+
+  <p>
+    En este caso, los datos producidos en el canal de entrada <code>input-chan</code> pasan por una etapa de transformación
+    (<code>map #(str % \" procesado\")</code>), y los resultados finales se envían al canal de salida <code>output-chan</code>.
+  </p>
+
+  <h2>Ventajas avanzadas de <code>clojure.core.async</code></h2>
+  <ul>
+    <li>Facilita el desarrollo de sistemas altamente concurrentes y desacoplados mediante un enfoque funcional.</li>
+    <li>Los pipelines permiten procesar datos de manera eficiente en múltiples etapas, con paralelismo controlado.</li>
+    <li>Reduce la necesidad de usar primitivas de sincronización como <code>locks</code> o <code>semaphores</code>, simplificando el código y evitando errores difíciles de depurar.</li>
+  </ul>
+
+  <p>
+    <code>clojure.core.async</code> es una herramienta indispensable para aplicaciones donde la concurrencia y el manejo eficiente de tareas asíncronas son requisitos clave.
+  </p>"
   :id 31}
- 
+
  {:title "Cómo usar cond en Clojure – Resuelto"
   :desc "<p>La función <code>cond</code> en Clojure se utiliza para manejar múltiples condiciones, funcionando de manera similar a una serie de <code>if</code> pero más legible cuando hay muchas condiciones.</p>
          <h2>Uso básico de cond</h2>
@@ -324,7 +367,7 @@
          <p>Podemos usar condiciones más complejas:</p>
          <code>(cond\n  (> 5 3) \"5 es mayor que 3\"\n  (< 3 2) \"3 es menor que 2\"\n  :else \"Condición por defecto\") ;; \"5 es mayor que 3\"</code>"
   :id 32}
- 
+
  {:title "Cómo trabajar con sets en Clojure – Resuelto"
   :desc "<p>Los sets en Clojure son colecciones desordenadas de elementos únicos. Permiten realizar operaciones de conjunto como unión, intersección y diferencia.</p>
          <h2>Crear un set</h2>
@@ -335,7 +378,7 @@
          <code>(clojure.set/union #{1 2 3} #{3 4 5}) ;; #{1 2 3 4 5}</code>
          <code>(clojure.set/intersection #{1 2 3} #{2 3 4}) ;; #{2 3}</code>"
   :id 33}
- 
+
  {:title "Cómo usar some en Clojure – Resuelto"
   :desc "<p>La función <code>some</code> en Clojure se utiliza para encontrar el primer valor en una colección que cumple con una condición.</p>
          <h2>Uso básico de some</h2>
@@ -345,7 +388,7 @@
          <p>Podemos usar <code>some</code> con predicados más complejos:</p>
          <code>(some #(when (> % 10) %) [1 5 8 12 15]) ;; 12</code>"
   :id 34}
- 
+
  {:title "Cómo usar atom en Clojure – Resuelto"
   :desc "<p>Los <code>atom</code> en Clojure nos permiten trabajar con valores mutables de manera controlada, asegurando la coherencia en un entorno concurrente.</p>
          <h2>Crear un atom</h2>
@@ -355,7 +398,7 @@
          <p>Podemos modificar el valor de un atom utilizando <code>swap!</code> o <code>reset!</code>:</p>
          <code>(swap! a inc) ;; Incrementa el valor de a en 1</code>"
   :id 35}
- 
+
  {:title "Cómo usar refs en Clojure – Resuelto"
   :desc "<p>Los <code>refs</code> en Clojure nos permiten coordinar el acceso a los datos mutables en un contexto transaccional.</p>
          <h2>Crear un ref</h2>
@@ -365,7 +408,7 @@
          <p>Para modificar un ref de manera segura, usamos <code>dosync</code> dentro de una transacción:</p>
          <code>(dosync (ref-set r 10))</code>"
   :id 36}
- 
+
  {:title "Cómo utilizar deref en Clojure – Resuelto"
   :desc "<p>En Clojure, <code>deref</code> es la función que se usa para obtener el valor de un <code>atom</code>, <code>ref</code>, <code>agent</code> o cualquier tipo de referencia mutable.</p>
          <h2>Uso básico de deref</h2>
@@ -373,7 +416,7 @@
          <code>(@a) ;; devuelve el valor de a</code>
          <code>(deref r) ;; devuelve el valor de r</code>"
   :id 37}
- 
+
  {:title "Cómo usar agents en Clojure – Resuelto"
   :desc "<p>Los <code>agents</code> en Clojure son referencias que permiten realizar cambios de manera asíncrona. Son útiles cuando necesitamos modificar un valor en paralelo sin bloquear el hilo principal.</p>
          <h2>Crear un agent</h2>
@@ -383,14 +426,14 @@
          <p>Para modificar el valor de un agent, usamos <code>send</code> o <code>send-off</code>:</p>
          <code>(send a-agent inc) ;; Incrementa el valor de a-agent</code>"
   :id 38}
- 
+
  {:title "Cómo usar letfn en Clojure – Resuelto"
   :desc "<p>La expresión <code>letfn</code> en Clojure nos permite definir funciones locales dentro de un bloque, lo que es útil cuando necesitamos funciones que dependen de otras funciones definidas dentro del mismo bloque.</p>
          <h2>Definir funciones con letfn</h2>
          <p>Podemos definir varias funciones dentro de <code>letfn</code>:</p>
          <code>(letfn [(suma [a b] (+ a b))\n         (multiplica [a b] (* a b))]\n  (println (suma 3 5))\n  (println (multiplica 3 5)))</code>"
   :id 39}
- 
+
  {:title "Cómo usar fn en Clojure – Resuelto"
   :desc "<p>La función <code>fn</code> en Clojure se utiliza para crear funciones anónimas, lo que nos permite definir funciones rápidas para ser utilizadas en un contexto local, como en una operación de mapeo o reducción.</p>
          <h2>Definir una función con fn</h2>
@@ -402,7 +445,7 @@
          <p>Una de las principales aplicaciones de <code>fn</code> es su uso en funciones como <code>map</code>, <code>filter</code> o <code>reduce</code>. Por ejemplo, podemos usar una función anónima dentro de <code>map</code> para multiplicar cada número de una lista:</p>
          <code>(map (fn [x] (* x 2)) [1 2 3 4]) ;; (2 4 6 8)</code>"
   :id 40}
- 
+
  {:title "Cómo usar la función map en Clojure – Resuelto"
   :desc "<p>En Clojure, <code>map</code> es una de las funciones más utilizadas para aplicar una función a cada elemento de una colección. Es una forma de transformar colecciones de manera eficiente y declarativa.</p>
          <h2>Uso básico de map</h2>
@@ -413,18 +456,17 @@
          <p>Si pasamos múltiples colecciones a <code>map</code>, la función se aplicará a los elementos correspondientes de cada colección. Si las colecciones tienen longitudes diferentes, el resultado tendrá la longitud de la colección más corta:</p>
          <code>(map + [1 2 3] [4 5 6]) ;; (5 7 9)</code>"
   :id 41}
- 
- {:title "Cómo usar filter en Clojure – Resuelto"
-  :desc "<p>La función <code>filter</code> en Clojure es utilizada para filtrar elementos de una colección según una condición que se pasa como función. Devuelve una nueva colección que contiene solo aquellos elementos que cumplen con la condición.</p>
-         <h2>Uso básico de filter</h2>
-         <p>Podemos usar <code>filter</code> para extraer los elementos de una colección que cumplen con una condición. Por ejemplo, para obtener solo los números pares de una lista:</p>
-         <code>(filter even? [1 2 3 4 5 6]) ;; (2 4 6)</code>
-         <p>En este ejemplo, estamos usando el predicado <code>even?</code>, que devuelve <code>true</code> solo para números pares, y <code>filter</code> devuelve una nueva colección con solo los números pares de la lista original.</p>
-         <h2>Filtrar elementos con condiciones más complejas</h2>
-         <p>También podemos usar funciones personalizadas para filtrar elementos según condiciones más complejas:</p>
-         <code>(filter #(> % 10) [1 5 8 12 15]) ;; (12 15)</code>"
+
+ {:title "Cómo usar partition en Clojure – Resuelto"
+  :desc "<p>La función <code>partition</code> en Clojure permite dividir una colección en subcolecciones de un tamaño específico.</p>
+          <h2>Uso básico de partition</h2>
+          <p>Podemos usar <code>partition</code> para dividir una lista en grupos de un tamaño determinado. Por ejemplo, para dividir una lista de números en sublistas de 2 elementos:</p>
+          <pre><code>(partition 2 [1 2 3 4 5 6]) ;; ((1 2) (3 4) (5 6))</code></pre>
+          <h2>Uso con colecciones de longitud impar</h2>
+          <p>Si la longitud de la colección no es un múltiplo exacto del tamaño del grupo, el último grupo tendrá menos elementos:</p>
+          <pre><code>(partition 3 [1 2 3 4 5]) ;; ((1 2 3) (4 5))</code></pre>"
   :id 42}
- 
+
  {:title "Cómo usar let en Clojure – Resuelto"
   :desc "<p>La expresión <code>let</code> en Clojure se utiliza para crear variables locales en un bloque de código. Es útil cuando queremos tener valores intermedios en un proceso sin modificar el estado global del programa.</p>
          <h2>Definir variables locales con let</h2>
@@ -435,7 +477,7 @@
          <p>Podemos utilizar <code>let</code> para almacenar resultados intermedios en cálculos más complejos:</p>
          <code>(let [a 2\n      b 3\n      c 5]\n  (+ (* a b) c)) ;; 11</code>"
   :id 43}
- 
+
  {:title "Cómo usar destructuración en Clojure – Resuelto"
   :desc "<p>La destructuración en Clojure nos permite extraer valores de colecciones complejas (como listas o mapas) de una manera más legible y directa. Es una forma de descomponer estructuras de datos en sus componentes más simples.</p>
          <h2>Destructuración con listas</h2>
@@ -446,7 +488,7 @@
          <p>La destructuración también es útil con mapas, permitiéndonos extraer claves y valores:</p>
          <code>(let [{:keys [a b]} {:a 1 :b 2 :c 3}]\n  (+ a b)) ;; 3</code>"
   :id 44}
- 
+
  {:title "Cómo usar juxt en Clojure – Resuelto"
   :desc "<p>La función <code>juxt</code> en Clojure se utiliza para crear una nueva función que aplica varias funciones a un valor y devuelve los resultados en una lista. Es útil cuando necesitamos aplicar varias transformaciones a un solo valor.</p>
          <h2>Uso básico de juxt</h2>
@@ -457,7 +499,7 @@
          <p>También podemos usar <code>juxt</code> con funciones más complejas para realizar múltiples transformaciones a un valor en un solo paso:</p>
          <code>(let [f (juxt (fn [x] (* x 2)) (fn [x] (+ x 3)))]\n  (f 4)) ;; (8 7)</code>"
   :id 45}
- 
+
  {:title "Cómo usar dosync en Clojure – Resuelto"
   :desc "<p>La función <code>dosync</code> en Clojure se utiliza para realizar transacciones sobre <code>refs</code>, asegurando que las modificaciones sean atómicas y consistentes. Es útil cuando necesitamos realizar varias modificaciones de estado sin interferencias externas.</p>
          <h2>Uso básico de dosync</h2>
@@ -467,17 +509,18 @@
          <p>También podemos usar <code>dosync</code> para realizar cambios complejos de forma atómica, asegurando que no haya efectos secundarios inesperados:</p>
          <code>(def r1 (ref 0))\n(def r2 (ref 0))\n(dosync\n  (ref-set r1 10)\n  (ref-set r2 20))\n@r1 ;; 10\n@r2 ;; 20</code>"
   :id 46}
- {:title "Cómo usar reduce en Clojure – Resuelto"
-  :desc "<p>La función <code>reduce</code> en Clojure es utilizada para reducir una colección a un único valor. Se aplica una función acumuladora a los elementos de la colección de izquierda a derecha (o derecha a izquierda dependiendo del argumento) hasta que solo queda un resultado.</p>
-         <h2>Uso básico de reduce</h2>
-         <p>Podemos usar <code>reduce</code> para acumular valores en una operación. Por ejemplo, para sumar los elementos de una lista:</p>
-         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
-         <p>En este ejemplo, la función <code>+</code> se aplica de manera acumulativa a los elementos de la lista, sumándolos todos para obtener el resultado final.</p>
-         <h2>Reduce con una función personalizada</h2>
-         <p>Podemos también usar <code>reduce</code> con funciones más complejas. Por ejemplo, para concatenar cadenas de texto:</p>
-         <code>(reduce str [" Hola " " " " mundo "]) ;; " Hola mundo "</code>"
+ {:title "Cómo trabajar con agentes en Clojure – Resuelto"
+  :desc "<p>Los agentes en Clojure permiten gestionar el estado mutable de manera asincrónica y segura en un entorno concurrente. Los agentes son ideales para gestionar el estado compartido en un programa concurrente sin la necesidad de usar bloqueos o sincronización manual.</p>
+          <h2>Uso básico de agentes</h2>
+          <p>Podemos crear un agente y modificar su estado de manera asíncrona. En el siguiente ejemplo, se crea un agente con un valor inicial y se actualiza con una función:</p>
+          <pre><code>(def a (agent 0))\n\n(send a + 1) ;; El estado del agente es ahora 1</code></pre>
+          <h2>Esperando el valor final del agente</h2>
+          <p>Podemos esperar a que un agente termine de procesar todas sus actualizaciones antes de continuar:</p>
+          <pre><code>(await a) ;; Espera hasta que el agente haya terminado todos los cambios</code></pre>
+          <h2>Ventajas de usar agentes</h2>
+          <p>El uso de agentes permite un modelo más limpio y sencillo para manejar el estado mutable sin bloquear hilos ni introducir errores de sincronización, lo que mejora el rendimiento y la escalabilidad en aplicaciones concurrentes.</p>"
   :id 47}
- 
+
  {:title "Cómo usar dos! en Clojure – Resuelto"
   :desc "<p>La función <code>dos!</code> en Clojure se utiliza para modificar los valores de los <code>atoms</code> de manera segura y atómica dentro de un bloque transaccional. Al igual que <code>dosync</code> para <code>refs</code>, <code>dos!</code> garantiza que los cambios sean coherentes.</p>
          <h2>Uso básico de dos!</h2>
@@ -487,18 +530,17 @@
          <p>Podemos usar <code>dos!</code> para modificar varios <code>atoms</code> en una única transacción:</p>
          <code>(def a (atom 0))\n(def b (atom 10))\n(dos! a inc b dec)\n@a ;; 1\n@b ;; 9</code>"
   :id 48}
- 
- {:title "Cómo usar cond en Clojure – Resuelto"
-  :desc "<p>La función <code>cond</code> en Clojure es útil cuando queremos realizar múltiples comprobaciones de condiciones y devolver un valor basado en la primera condición que sea verdadera. Es similar a una estructura <code>if</code>...<code>else</code> encadenada.</p>
-         <h2>Uso básico de cond</h2>
-         <p>Podemos usar <code>cond</code> para probar diferentes condiciones:</p>
-         <code>(cond\n  (= x 0) \"cero\"\n  (= x 1) \"uno\"\n  :else \"otro\")</code>
-         <p>En este caso, si <code>x</code> es 0, devuelve <code>cero</code>, si es 1, devuelve <code>uno</code>, y si no se cumple ninguna de esas condiciones, se devuelve <code>otro</code>.</p>
-         <h2>Condiciones complejas con cond</h2>
-         <p>Podemos realizar evaluaciones más complejas en cada cláusula de <code>cond</code>:</p>
-         <code>(cond\n  (> x 10) \"mayor que 10\"\n  (< x 5) \"menor que 5\"\n  :else \"entre 5 y 10\")</code>"
+
+ {:title "Cómo usar mapcat en Clojure – Resuelto"
+  :desc "<p>La función <code>mapcat</code> en Clojure combina los efectos de <code>map</code> y <code>concat</code>. Aplica una función a cada elemento de una colección y luego concatena los resultados.</p>
+          <h2>Uso básico de mapcat</h2>
+          <p>Podemos usar <code>mapcat</code> para transformar una colección de colecciones en una sola colección. Por ejemplo, para generar una lista con números:</p>
+          <code>(mapcat #(range % (+ % 3)) [1 5 9]) ;; (1 2 3 5 6 7 9 10 11)</code>
+          <h2>Combinación de secuencias con mapcat</h2>
+          <p>En este ejemplo, <code>mapcat</code> toma cada número de la lista, genera una secuencia con tres elementos a partir de él, y concatena todas las secuencias generadas:</p>
+          <code>(mapcat #(range % (+ % 2)) [3 6]) ;; (3 4 6 7)</code>"
   :id 49}
- 
+
  {:title "Cómo usar comp en Clojure – Resuelto"
   :desc "<p>La función <code>comp</code> en Clojure se utiliza para componer varias funciones en una sola función. Esto es útil cuando necesitamos aplicar múltiples transformaciones a un valor en una secuencia de pasos encadenados.</p>
          <h2>Uso básico de comp</h2>
@@ -509,7 +551,7 @@
          <p>También podemos componer más de dos funciones:</p>
          <code>(let [f (comp #(* % 2) inc str)]\n  (f 5)) ;; \"12\"</code>"
   :id 50}
- 
+
  {:title "Cómo usar the function transduce in Clojure – Resuelto"
   :desc "<p>La función <code>transduce</code> en Clojure es una versión más avanzada de <code>reduce</code>, diseñada para trabajar con transductores. Los transductores permiten componer transformaciones de datos de manera eficiente.</p>
          <h2>Uso básico de transduce</h2>
@@ -520,7 +562,7 @@
          <p>Podemos usar <code>transduce</code> con transductores más complejos para realizar transformaciones más sofisticadas:</p>
          <code>(transduce (comp (filter even?) (map #(* % 2))) + 0 [1 2 3 4 5 6]) ;; 24</code>"
   :id 51}
- 
+
  {:title "Cómo usar defn en Clojure – Resuelto"
   :desc "<p>La función <code>defn</code> es la manera estándar en Clojure para definir funciones con nombre. Permite crear funciones reutilizables que pueden ser invocadas en cualquier lugar del código.</p>
          <h2>Uso básico de defn</h2>
@@ -531,7 +573,7 @@
          <p>También podemos definir funciones que aceptan parámetros opcionales. Por ejemplo:</p>
          <code>(defn greet\n  ([name] (str \"Hello, \" name))\n  ([name lang] (str \"Hello, \" name \"! \" lang)))</code>"
   :id 52}
- 
+
  {:title "Cómo usar defmacro en Clojure – Resuelto"
   :desc "<p>En Clojure, <code>defmacro</code> se utiliza para definir macros. Las macros en Clojure permiten manipular código a nivel de sintaxis, permitiendo crear nuevas construcciones que pueden ser más expresivas o más eficientes que las construcciones estándar del lenguaje.</p>
          <h2>Uso básico de defmacro</h2>
@@ -542,7 +584,7 @@
          <p>Podemos usar la macro <code>swap</code> de la siguiente manera:</p>
          <code>(def x 5)\n(def y 10)\n(swap x y)\n[x y] ;; [10 5]</code>"
   :id 53}
- 
+
  {:title "Cómo usar defrecord en Clojure – Resuelto"
   :desc "<p>La función <code>defrecord</code> se utiliza en Clojure para definir tipos de datos personalizados (registros) que pueden tener campos con valores asociados. Se utiliza principalmente cuando necesitamos representar estructuras de datos complejas con nombre.</p>
          <h2>Uso básico de defrecord</h2>
@@ -553,14 +595,14 @@
          <p>Para crear instancias del record, utilizamos el nombre del record como función:</p>
          <code>(def p (->Persona \"Juan\" 30))</code>"
   :id 54}
- 
+
  {:title "Cómo usar with-open en Clojure – Resuelto"
   :desc "<p>La función <code>with-open</code> en Clojure se utiliza para trabajar con recursos externos (como archivos o conexiones de red) de manera segura. Asegura que los recursos se cierren automáticamente cuando ya no se necesiten.</p>
          <h2>Uso básico de with-open</h2>
          <p>Podemos usar <code>with-open</code> para leer de un archivo de manera segura. Aquí hay un ejemplo simple:</p>
          <code>(with-open [rdr (clojure.java.io/reader \"archivo.txt\")]\n  (println (slurp rdr)))</code>"
   :id 55}
- 
+
  {:title "Cómo usar doseq en Clojure – Resuelto"
   :desc "<p>La función <code>doseq</code> se utiliza en Clojure para iterar sobre una colección de manera eficiente, ejecutando una acción para cada elemento. Es similar a un <code>for</code>, pero con efectos secundarios.</p>
          <h2>Uso básico de doseq</h2>
@@ -568,7 +610,7 @@
          <code>(doseq [x [1 2 3 4 5]]\n  (println (* x x)))</code>
          <p>En este caso, estamos imprimiendo el cuadrado de cada número en la lista.</p>"
   :id 56}
- 
+
  {:title "Cómo usar transduce con un transductor personalizado en Clojure – Resuelto"
   :desc "<p>La función <code>transduce</code> en Clojure puede usarse con transductores personalizados. Los transductores son funciones que permiten transformar datos de manera eficiente, y son útiles cuando necesitamos combinar varias operaciones en una sola.</p>
          <h2>Crear un transductor personalizado</h2>
@@ -578,163 +620,1003 @@
          <p>Podemos usar nuestro transductor personalizado para transformar datos:</p>
          <code>(transduce custom-transducer + 0 [1 2 3 4 5 6]) ;; 24</code>"
   :id 57}
- 
+
  {:title "Cómo usar multi-methods en Clojure – Resuelto"
   :desc "<p>Los multi-métodos en Clojure permiten definir métodos con múltiples dispatchers, lo que nos permite crear funciones con lógica especializada dependiendo de los tipos de los argumentos.</p>
          <h2>Uso básico de multi-methods</h2>
          <p>Podemos definir un multi-método usando <code>defmulti</code> y luego implementar diferentes métodos utilizando <code>defmethod</code>:</p>
          <code>(defmulti saludar :idioma)\n(defmethod saludar :espanol [persona] (str \"Hola, \" (:nombre persona)))\n(defmethod saludar :ingles [persona] (str \"Hello, \" (:nombre persona)))</code>"
   :id 58}
- 
+
  {:title "Cómo usar futures en Clojure – Resuelto"
   :desc "<p>Los <code>futures</code> en Clojure permiten realizar operaciones de manera concurrente. Se pueden usar para ejecutar tareas en segundo plano y obtener el resultado de esas tareas cuando estén disponibles.</p>
          <h2>Uso básico de futures</h2>
          <p>Podemos usar <code>future</code> para ejecutar código de manera asíncrona:</p>
          <code>(def f (future (+ 1 2 3)))\n@f ;; 6</code>"
   :id 59}
- 
+
  {:title "Cómo usar set! en Clojure – Resuelto"
   :desc "<p>La función <code>set!</code> en Clojure se utiliza para modificar valores mutables como las referencias. Sin embargo, debe usarse con precaución debido a que altera el estado de manera inmutable.</p>
          <h2>Uso básico de set!</h2>
          <p>Podemos usar <code>set!</code> para cambiar el valor de una referencia mutable:</p>
          <code>(def x 10)\n(set! x 20)\n x ;; 20</code>"
   :id 60}
- 
+
  {:title "Cómo usar thread-last en Clojure – Resuelto"
   :desc "<p>La macro <code>thread-last</code> en Clojure permite pasar el resultado de una expresión como último argumento de una serie de funciones. Esto es útil cuando se realizan múltiples transformaciones encadenadas.</p>
          <h2>Uso básico de thread-last</h2>
          <p>Podemos usar <code>thread-last</code> para encadenar varias funciones:</p>
          <code>(->> [1 2 3 4]\n  (map inc)\n  (filter even?))</code>"
   :id 61}
- 
+
  {:title "Cómo usar memoization en Clojure – Resuelto"
   :desc "<p>La memoización es una técnica para optimizar el rendimiento de funciones recursivas al almacenar en caché los resultados de llamadas anteriores. En Clojure, podemos usar la función <code>memoize</code> para hacerlo fácilmente.</p>
          <h2>Uso básico de memoize</h2>
          <p>Podemos memoizar una función usando <code>memoize</code>:</p>
          <code>(def fib (memoize (fn [n] (if (< n 2) n (+ (fib (- n 1)) (fib (- n 2)))))))\n(fib 10) ;; 55</code>"
   :id 62}
- 
+
  {:title "Cómo usar reify en Clojure – Resuelto"
   :desc "<p>La función <code>reify</code> en Clojure permite crear una instancia de un protocolo o una interfaz. Es una manera de definir comportamientos de objetos sin necesidad de clases concretas.</p>
          <h2>Uso básico de reify</h2>
          <p>Podemos usar <code>reify</code> para crear un objeto con un protocolo:</p>
          <code>(def p (reify MiProtocolo\n             (mi-metodo [this] (println \"Método ejecutado\"))))</code>"
   :id 63}
- 
+
  {:title "Cómo usar swap! en Clojure – Resuelto"
   :desc "<p>La función <code>swap!</code> en Clojure se usa para modificar el valor de un <code>atom</code> de manera atómica, asegurando que los cambios sean consistentes, incluso en presencia de concurrencia.</p>
          <h2>Uso básico de swap!</h2>
          <p>Podemos usar <code>swap!</code> para modificar el valor de un <code>atom</code>:</p>
          <code>(def a (atom 0))\n(swap! a inc)\n@a ;; 1</code>"
   :id 64}
-  {:title "Cómo usar defn en Clojure – Resuelto"
-  :desc "<p>La función <code>defn</code> en Clojure se usa para definir funciones. Permite especificar argumentos y el cuerpo de la función de manera concisa.</p>
-         <h2>Uso básico de defn</h2>
-         <p>Podemos definir una función usando <code>defn</code>:</p>
-         <code>(defn saludar [nombre] (str \"Hola, \" nombre))</code>"
+ {:title "Cómo usar clojure.core/as-> para mejorar la legibilidad del código – Resuelto"
+  :desc "<p>La función <code>as-></code> en Clojure permite aplicar transformaciones a una variable de manera más legible y ordenada, especialmente cuando se encadenan múltiples operaciones en una secuencia.</p>
+         <h2>Uso básico de as-></h2>
+         <p>Podemos usar <code>as-></code> para pasar el resultado de una operación como primer argumento a la siguiente función, de forma más legible que con una cadena de llamadas anidadas:</p>
+         <pre><code>(as-> 5\n  (+ % 3)\n  (* % 2)) ;; 16</code></pre>
+         <h2>Ventajas de as-></h2>
+         <p><code>as-></code> mejora la claridad de las transformaciones encadenadas, ya que podemos seguir un flujo lógico sin perder la comprensión del flujo de datos. Es útil cuando las operaciones requieren varias transformaciones y es preferible no usar muchas variables intermedias.</p>
+         <h2>Conclusión</h2>
+         <p>Usar <code>as-></code> hace que el código sea más claro y facilita la comprensión de las transformaciones de datos, manteniendo la legibilidad y evitando el uso de variables intermedias innecesarias.</p>"
   :id 65}
- 
- {:title "Cómo usar reduce en Clojure – Resuelto"
-  :desc "<p>La función <code>reduce</code> en Clojure permite reducir una colección a un solo valor aplicando una función a los elementos de la colección.</p>
-         <h2>Uso básico de reduce</h2>
-         <p>Podemos usar <code>reduce</code> para sumar los números en una lista:</p>
-         <code>(reduce + [1 2 3 4 5]) ;; 15</code>"
+
+ {:title "Cómo usar clojure.set para manejar conjuntos en Clojure – Resuelto"
+  :desc "<p>La biblioteca <code>clojure.set</code> en Clojure proporciona funciones útiles para trabajar con conjuntos, permitiendo operaciones como la unión, intersección y diferencia de conjuntos.</p>
+          <h2>Operaciones básicas con conjuntos</h2>
+          <p>Podemos crear dos conjuntos y realizar operaciones sobre ellos. En este ejemplo, creamos dos conjuntos y calculamos su intersección:</p>
+          <pre><code>(def set1 #{1 2 3 4})\n(def set2 #{3 4 5 6})\n(intersection set1 set2) ;; #{3 4}</code></pre>
+          <h2>Unión de conjuntos</h2>
+          <p>La operación de unión devuelve todos los elementos de ambos conjuntos sin duplicados:</p>
+          <pre><code>(union set1 set2) ;; #{1 2 3 4 5 6}</code></pre>
+          <h2>Diferencia de conjuntos</h2>
+          <p>La diferencia de conjuntos devuelve los elementos del primer conjunto que no están en el segundo:</p>
+          <pre><code>(difference set1 set2) ;; #{1 2}</code></pre>
+          <h2>Beneficios de usar conjuntos</h2>
+          <p>El uso de conjuntos permite trabajar de manera eficiente con elementos únicos, y las funciones proporcionadas por <code>clojure.set</code> facilitan la realización de diversas operaciones matemáticas entre conjuntos de manera sencilla y optimizada.</p>"
   :id 66}
- 
+
  {:title "Cómo usar split-at en Clojure – Resuelto"
   :desc "<p>La función <code>split-at</code> en Clojure divide una colección en dos partes: una con los primeros N elementos y otra con el resto.</p>
          <h2>Uso básico de split-at</h2>
          <p>Podemos dividir una lista en dos partes:</p>
          <code>(split-at 3 [1 2 3 4 5]) ;; ([1 2 3] [4 5])</code>"
   :id 67}
- 
- {:title "Cómo usar cond en Clojure – Resuelto"
-  :desc "<p>La forma <code>cond</code> en Clojure permite realizar múltiples comprobaciones condicionales y devolver un valor correspondiente a la primera condición verdadera.</p>
-         <h2>Uso básico de cond</h2>
-         <p>Podemos usar <code>cond</code> para comprobar varias condiciones:</p>
-         <code>(cond\n  (= x 1) \"Uno\"\n  (= x 2) \"Dos\"\n  :else \"Otro\")</code>"
+
+ {:title "Cómo usar iteración con for en Clojure – Resuelto"
+  :desc "<p>La forma <code>for</code> en Clojure se utiliza para realizar iteraciones y generar secuencias mediante una expresión generadora.</p>
+          <h2>Uso básico de for</h2>
+          <p>Podemos usar <code>for</code> para crear una secuencia basada en un rango de valores:</p>
+          <code>(for [x (range 5)] (* x x)) ;; (0 1 4 9 16)</code>
+          <h2>Generar valores complejos con for</h2>
+          <p>También podemos usar <code>for</code> con más de un generador para generar secuencias más complejas:</p>
+          <code>(for [x (range 3) y (range 3)] (+ x y)) ;; (0 1 2 1 2 3 2 3 4)</code>"
   :id 68}
- 
- {:title "Cómo usar let en Clojure – Resuelto"
-  :desc "<p>La forma <code>let</code> en Clojure se usa para declarar variables locales dentro de un bloque de código. Es útil cuando necesitamos usar valores temporales.</p>
-         <h2>Uso básico de let</h2>
-         <p>Podemos usar <code>let</code> para asignar valores a variables temporales:</p>
-         <code>(let [x 10 y 20] (+ x y)) ;; 30</code>"
+
+ {:title "Cómo usar condp en Clojure – Resuelto"
+  :desc "<p>La función <code>condp</code> en Clojure es similar a <code>cond</code>, pero permite comparar un valor contra diferentes condiciones usando un predicado especificado.</p>
+          <h2>Uso básico de condp</h2>
+          <p>Podemos usar <code>condp</code> para verificar el valor de una variable contra varias condiciones:</p>
+          <pre><code>(condp = 5\n 1 \"Uno\"\n 5 \"Cinco\"\n 10 \"Diez\") ;; \"Cinco\"</code></pre>
+          <h2>Uso con otros predicados</h2>
+          <p>También podemos usar <code>condp</code> con otros predicados, como <code>></code> o <code><</code>:</p>
+          <pre><code>(condp > 5\n 3 \"Menor\"\n 7 \"Mayor\") ;; \"Mayor\"</code></pre>"
   :id 69}
- 
+
  {:title "Cómo usar conj en Clojure – Resuelto"
   :desc "<p>La función <code>conj</code> en Clojure agrega un elemento al principio de una colección. Si la colección es un conjunto, el elemento se agrega solo si no está presente.</p>
          <h2>Uso básico de conj</h2>
          <p>Podemos usar <code>conj</code> para agregar elementos a una lista o conjunto:</p>
          <code>(conj [1 2 3] 4) ;; (4 1 2 3)</code>"
   :id 70}
- 
- {:title "Cómo usar map en Clojure – Resuelto"
-  :desc "<p>La función <code>map</code> en Clojure permite aplicar una función a cada elemento de una colección.</p>
-         <h2>Uso básico de map</h2>
-         <p>Podemos usar <code>map</code> para transformar los elementos de una lista:</p>
-         <code>(map inc [1 2 3]) ;; (2 3 4)</code>"
+
+ {:title "Cómo trabajar con estructuras de datos inmutables en Clojure – Resuelto"
+  :desc "<p>En Clojure, las estructuras de datos son inmutables por defecto. Esto significa que, en lugar de modificar directamente una estructura, creamos una nueva con los cambios deseados.</p>
+          <h2>Uso básico de estructuras inmutables</h2>
+          <p>Por ejemplo, podemos crear una lista inmutable y luego agregarle un nuevo elemento:</p>
+          <pre><code>(def mi-lista '(1 2 3))\n(def nueva-lista (cons 0 mi-lista)) ;; (0 1 2 3)</code></pre>
+          <h2>Trabajando con mapas inmutables</h2>
+          <p>Del mismo modo, los mapas en Clojure son inmutables. Si queremos agregar o modificar un valor, creamos un nuevo mapa:</p>
+          <pre><code>(def mi-mapa {:a 1 :b 2})\n(def nuevo-mapa (assoc mi-mapa :c 3)) ;; {:a 1 :b 2 :c 3}</code></pre>
+          <h2>Beneficios de la inmutabilidad</h2>
+          <p>La inmutabilidad ofrece una mayor seguridad en los programas concurrentes, ya que no hay necesidad de preocuparse por los cambios en estructuras de datos compartidas.</p>"
   :id 71}
- 
+
+
  {:title "Cómo usar mapv en Clojure – Resuelto"
   :desc "<p>La función <code>mapv</code> en Clojure es similar a <code>map</code>, pero devuelve una vector en lugar de una secuencia perezosa.</p>
          <h2>Uso básico de mapv</h2>
          <p>Podemos usar <code>mapv</code> para obtener una lista transformada:</p>
          <code>(mapv inc [1 2 3]) ;; [2 3 4]</code>"
   :id 72}
- 
+
  {:title "Cómo usar nth en Clojure – Resuelto"
   :desc "<p>La función <code>nth</code> en Clojure permite acceder a un elemento de una colección en una posición dada. Si la posición es inválida, se puede proporcionar un valor por defecto.</p>
          <h2>Uso básico de nth</h2>
          <p>Podemos usar <code>nth</code> para obtener el tercer elemento de una lista:</p>
          <code>(nth [1 2 3 4] 2) ;; 3</code>"
   :id 73}
- 
- {:title "Cómo usar defmacro en Clojure – Resuelto"
-  :desc "<p>La forma <code>defmacro</code> en Clojure se usa para definir macros, que son funciones que manipulan código antes de que se ejecute.</p>
-         <h2>Uso básico de defmacro</h2>
-         <p>Podemos usar <code>defmacro</code> para crear una macro que multiplica dos números:</p>
-         <code>(defmacro multiplicar [a b] `(* ~a ~b))\n(multiplicar 2 3) ;; 6</code>"
+
+ {:title "Cómo usar clojure.test para pruebas unitarias en Clojure – Resuelto"
+  :desc "<p><code>clojure.test</code> es la librería estándar de Clojure para realizar pruebas unitarias. Permite definir pruebas automatizadas y comprobar que el código funcione correctamente bajo diferentes condiciones.</p>
+         <h2>Uso básico de clojure.test</h2>
+         <p>Primero, necesitamos incluir <code>clojure.test</code> en nuestro archivo de código. Luego, podemos definir una función de prueba utilizando <code>deftest</code> y comprobar si una expresión devuelve el valor esperado con <code>is</code>.</p>
+         <pre><code>(ns mi-prueba\n  (:require [clojure.test :refer :all]))\n\n(deftest prueba-suma\n  (is (= (+ 1 2) 3)))\n\n(run-tests 'mi-prueba)</code></pre>
+         <h2>Ejecutando pruebas</h2>
+         <p>Después de definir las pruebas, puedes ejecutarlas con <code>run-tests</code>. Si las pruebas pasan, no se imprimirá nada. Si alguna falla, se mostrará un mensaje de error indicando qué prueba falló.</p>
+         <h2>Pruebas más complejas</h2>
+         <p>También puedes usar <code>is</code> para verificar condiciones más complejas, como funciones que lanzan excepciones o verificaciones con <code>thrown?</code>.</p>
+         <pre><code>(deftest prueba-excepcion\n  (is (thrown? ArithmeticException (/ 1 0))))</code></pre>
+         <h2>Conclusión</h2>
+         <p>El uso de <code>clojure.test</code> para pruebas unitarias es una práctica recomendada en Clojure, lo que te permite garantizar que tu código funcione correctamente a medida que lo desarrollas. Asegúrate de incluir pruebas para verificar todas las condiciones posibles.</p>"
   :id 74}
- 
- {:title "Cómo usar mapcat en Clojure – Resuelto"
-  :desc "<p>La función <code>mapcat</code> en Clojure es similar a <code>map</code>, pero aplanando las colecciones resultantes.</p>
-         <h2>Uso básico de mapcat</h2>
-         <p>Podemos usar <code>mapcat</code> para aplanar los resultados de <code>map</code>:</p>
-         <code>(mapcat #(vector % (+ % 1)) [1 2 3]) ;; (1 2 2 3 3 4)</code>"
+
+
+ {:title "Cómo usar threading macro (->) en Clojure – Resuelto"
+  :desc "<p>La macro <code>-></code> en Clojure permite encadenar llamadas a funciones de manera más clara y legible, pasando el valor de una expresión como primer argumento de cada función sucesiva.</p>
+          <h2>Uso básico de threading macro</h2>
+          <p>Podemos usar <code>-></code> para encadenar funciones de forma más legible:</p>
+          <code>(-> 5 (+ 2) (* 3)) ;; 21</code>
+          <h2>Explicación</h2>
+          <p>En este caso, el valor inicial <code>5</code> se pasa como primer argumento a la función <code>(+ 2)</>, resultando en 7, luego ese resultado se pasa a la función <code>(* 3)</>, resultando en 21.</p>"
   :id 75}
- 
- {:title "Cómo usar some en Clojure – Resuelto"
-  :desc "<p>La función <code>some</code> en Clojure devuelve el primer elemento de una colección que cumple con una condición, o <code>nil</code> si no se encuentra ninguno.</p>
-         <h2>Uso básico de some</h2>
-         <p>Podemos usar <code>some</code> para encontrar el primer número mayor que 3:</p>
-         <code>(some #(when (> % 3) %) [1 2 3 4 5]) ;; 4</code>"
+
+ {:title "Cómo usar iterate en Clojure – Resuelto"
+  :desc "<p>La función <code>iterate</code> en Clojure genera una secuencia perezosa de valores aplicando una función a cada valor previo, comenzando con un valor inicial.</p>
+          <h2>Uso básico de iterate</h2>
+          <p>Podemos usar <code>iterate</code> para crear una secuencia infinita de números naturales:</p>
+          <code>(take 5 (iterate inc 1)) ;; (1 2 3 4 5)</code>"
   :id 76}
- 
+
  {:title "Cómo usar doto en Clojure – Resuelto"
   :desc "<p>La función <code>doto</code> en Clojure permite ejecutar múltiples efectos secundarios sobre un objeto sin necesidad de repetirlo.</p>
          <h2>Uso básico de doto</h2>
          <p>Podemos usar <code>doto</code> para llamar a varios métodos sobre un objeto:</p>
          <code>(doto (StringBuilder.)\n  (.append \"Hola \")\n  (.append \"Mundo\")) ;; Hola Mundo</code>"
   :id 77}
- 
+
  {:title "Cómo usar try-catch en Clojure – Resuelto"
   :desc "<p>En Clojure, podemos manejar excepciones utilizando <code>try-catch</code> de manera similar a otros lenguajes.</p>
          <h2>Uso básico de try-catch</h2>
          <p>Podemos usar <code>try-catch</code> para capturar una excepción:</p>
          <code>(try\n  (/ 1 0)\n  (catch ArithmeticException e\n    (println \"Error: División por cero\")))</code>"
   :id 78}
- 
+
  {:title "Cómo usar every? en Clojure – Resuelto"
   :desc "<p>La función <code>every?</code> en Clojure devuelve <code>true</code> si todos los elementos de una colección cumplen con una condición.</p>
          <h2>Uso básico de every?</h2>
          <p>Podemos usar <code>every?</code> para comprobar si todos los números son positivos:</p>
          <code>(every? pos? [1 2 3 4]) ;; true</code>"
   :id 79}
- 
+
  {:title "Cómo usar reduce-kv en Clojure – Resuelto"
   :desc "<p>La función <code>reduce-kv</code> en Clojure permite reducir un mapa, pasando tanto la clave como el valor al acumulador.</p>
          <h2>Uso básico de reduce-kv</h2>
          <p>Podemos usar <code>reduce-kv</code> para sumar los valores de un mapa:</p>
          <code>(reduce-kv (fn [acc k v] (+ acc v)) 0 {:a 1 :b 2 :c 3}) ;; 6</code>"
-  :id 80}]
+  :id 80}
+ {:title "Cómo usar clojure.core.async para programación concurrente en Clojure – Resuelto"
+  :desc "<p><code>clojure.core.async</code> es una biblioteca en Clojure que proporciona abstracciones de concurrencia basadas en canales y procesos.</p>
+          <h2>Uso básico de clojure.core.async</h2>
+          <p>Podemos crear un canal y usarlo para pasar datos entre procesos concurrentes:</p>
+          <pre><code>(require '[clojure.core.async :as async])\n(def ch (async/chan))\n(async/go (async/&gt;! ch \"Hola, mundo!\"))\n(async/go (println (async/&gt! ch)))</code></pre>
+          <h2>Explicación</h2>
+          <p>En el código anterior, se crea un canal <code>ch</code> y luego se lanzan dos procesos concurrentes usando <code>go</code>. Uno pone un valor en el canal y el otro lo lee e imprime.</p>
+          <h2>Conclusión</h2>
+          <p><code>clojure.core.async</code> es una poderosa herramienta para manejar concurrencia en Clojure. Permite escribir código concurrente de manera sencilla usando canales y procesos que pueden comunicarse entre sí.</p>"
+  :id 81}
+
+ {:title "Cómo usar merge en Clojure – Resuelto"
+  :desc "<p>La función <code>merge</code> en Clojure se utiliza para combinar varios mapas en uno solo. Si las claves se repiten, el valor más reciente reemplaza al anterior.</p>
+         <h2>Uso básico de merge</h2>
+         <p>Podemos fusionar dos mapas:</p>
+         <code>(merge {:a 1 :b 2} {:b 3 :c 4}) ;; {:a 1 :b 3 :c 4}</code>"
+  :id 82}
+
+ {:title "Cómo usar some? en Clojure – Resuelto"
+  :desc "<p>La función <code>some?</code> en Clojure verifica si al menos un elemento de una colección cumple con una condición.</p>
+         <h2>Uso básico de some?</h2>
+         <p>Podemos verificar si hay un número mayor que 5 en una lista:</p>
+         <code>(some #(> % 5) [1 2 3 4 5 6]) ;; true</code>"
+  :id 83}
+
+ {:title "Cómo usar partial en Clojure para aplicar funciones parcialmente – Resuelto"
+  :desc "<p>La función <code>partial</code> en Clojure permite crear nuevas funciones al aplicar parcialmente los argumentos de una función original. Esto es útil cuando deseas fijar algunos valores de entrada y dejar que otros sean proporcionados posteriormente.</p>
+         <h2>Uso básico de partial</h2>
+         <p>Puedes usar <code>partial</code> para crear funciones más específicas a partir de una función general. Por ejemplo:</p>
+         <code>(def add (partial + 3))\n(add 5) ;; 8</code>
+         <p>En este ejemplo, la función <code>add</code> es una versión parcial de la función <code>+</code>, donde el primer argumento siempre es 3.</p>
+         <h2>Aplicaciones comunes de partial</h2>
+         <ul>
+           <li>Crear funciones específicas a partir de funciones generales.</li>
+           <li>Reducir la complejidad al trabajar con funciones que requieren muchos parámetros.</li>
+           <li>Facilitar la reutilización de funciones en diferentes contextos.</li>
+         </ul>
+         <h2>Ejemplo avanzado con partial</h2>
+         <p>Supongamos que tenemos una función que toma tres parámetros y queremos crear una versión que siempre fija uno de los parámetros:</p>
+         <code>(def multiply (partial * 2))\n(multiply 5) ;; 10</code>
+         <h2>Conclusión</h2>
+         <p>La función <code>partial</code> en Clojure es una herramienta poderosa para crear funciones más específicas al aplicar parcialmente argumentos. Esto hace que tu código sea más flexible y reutilizable.</p>"
+  :id 84}
+
+
+ {:title "Cómo usar transduce en Clojure – Resuelto"
+  :desc "<p>La función <code>transduce</code> en Clojure permite aplicar una transformación a una colección utilizando un acumulador de manera eficiente.</p>
+         <h2>Uso básico de transduce</h2>
+         <p>Podemos usar <code>transduce</code> para sumar los números en una lista:</p>
+         <code>(transduce + conj 0 [1 2 3 4 5]) ;; 15</code>"
+  :id 85}
+
+ {:title "Cómo usar flatten en Clojure – Resuelto"
+  :desc "<p>La función <code>flatten</code> en Clojure convierte una colección anidada en una sola colección plana, eliminando cualquier estructura de anidamiento.</p>
+         <h2>Uso básico de flatten</h2>
+         <p>Podemos aplanar una lista de listas:</p>
+         <code>(flatten [[1 2] [3 4] [5 6]]) ;; (1 2 3 4 5 6)</code>"
+  :id 86}
+
+ {:title "Cómo usar vector en Clojure – Resuelto"
+  :desc "<p>La función <code>vector</code> en Clojure crea un nuevo vector a partir de una colección de elementos.</p>
+         <h2>Uso básico de vector</h2>
+         <p>Podemos convertir una lista en un vector:</p>
+         <code>(vector 1 2 3 4) ;; [1 2 3 4]</code>"
+  :id 87}
+
+ {:title "Cómo usar transacciones en Clojure para manejo de estados – Resuelto"
+  :desc "<p>Las transacciones en Clojure permiten asegurar que una serie de operaciones se ejecuten de manera atómica, especialmente útil en entornos concurrentes y al trabajar con estructuras de datos compartidas.</p>
+         <h2>Uso básico de transacciones</h2>
+         <p>Podemos usar una transacción para asegurarnos de que múltiples cambios en una estructura de datos sean realizados de manera segura:</p>
+         <code>(def my-state (atom {:count 0}))\n(swap! my-state update :count inc)\n(swap! my-state update :count inc) ;; {:count 2}</code>
+         <p>En este ejemplo, la transacción asegura que ambos incrementos en el valor de <code>:count</code> sean realizados de manera atómica.</p>
+         <h2>Aplicaciones comunes de las transacciones</h2>
+         <ul>
+           <li>Modificación de estados compartidos sin interferencias.</li>
+           <li>Operaciones en entornos concurrentes, donde varios hilos pueden estar accediendo y modificando datos al mismo tiempo.</li>
+           <li>Asegurarse de que los valores cambiados sean consistentes después de cada operación.</li>
+         </ul>
+         <h2>Ejemplo avanzado de transacciones</h2>
+         <p>Supongamos que necesitamos mantener una cuenta que se actualiza en múltiples pasos. Podemos garantizar que cada paso se ejecute sin interferencias:</p>
+         <code>(swap! my-state\n  (fn [state] (-> state\n                (update :count inc)\n                (update :count inc))))</code>
+         <h2>Conclusión</h2>
+         <p>Las transacciones en Clojure son fundamentales cuando se trata de manejar datos mutables de manera segura y atómica, especialmente en sistemas concurrentes. El uso de <code>swap!</code> y otras funciones relacionadas proporciona una forma segura de actualizar el estado de tus aplicaciones.</p>"
+  :id 88}
+
+
+ {:title "Cómo usar future en Clojure – Resuelto"
+  :desc "<p>La función <code>future</code> en Clojure permite ejecutar código en un hilo separado, devolviendo un objeto que puede contener el resultado de la ejecución en el futuro.</p>
+         <h2>Uso básico de future</h2>
+         <p>Podemos usar <code>future</code> para calcular un valor en un hilo de manera concurrente:</p>
+         <code>(def f (future (+ 1 2)))\n(deref f) ;; 3</code>"
+  :id 89}
+
+ {:title "Cómo usar memoize en Clojure – Resuelto"
+  :desc "<p>La función <code>memoize</code> en Clojure permite optimizar las funciones que realizan cálculos costosos, almacenando en caché los resultados de las llamadas anteriores para evitar cómputos repetidos.</p>
+          <h2>Uso básico de memoize</h2>
+          <p>Podemos usar <code>memoize</code> para mejorar el rendimiento de una función que realiza cálculos repetitivos. Por ejemplo:</p>
+          <code>(def calculo-costoso (memoize (fn [x] (* x x))))</code>
+          <p>Al llamar a <code>calculo-costoso</code> varias veces con los mismos argumentos, se utilizará el resultado almacenado en la caché:</p>
+          <code>(calculo-costoso 5) ;; 25</code>"
+  :id 90}
+
+ {:title "Cómo usar deref en Clojure – Resuelto"
+  :desc "<p>La función <code>deref</code> en Clojure permite obtener el valor de una referencia, como un átomo o una promesa.</p>
+         <h2>Uso básico de deref</h2>
+         <p>Podemos usar <code>deref</code> para obtener el valor almacenado en un átomo:</p>
+         <code>(deref a) ;; 1</code>"
+  :id 91}
+
+ {:title "Cómo usar atoms con dos valores en Clojure – Resuelto"
+  :desc "<p>En Clojure, los átomos pueden almacenar más de un valor. Esto se puede lograr utilizando una estructura de datos más compleja, como un mapa o un vector.</p>
+         <h2>Uso de átomos con varios valores</h2>
+         <p>Podemos usar un átomo para almacenar un mapa con múltiples valores:</p>
+         <code>(def a (atom {:x 10 :y 20}))\n(swap! a assoc :x 30) ;; {:x 30 :y 20}</code>"
+  :id 92}
+
+ {:title "Cómo usar slice en Clojure – Resuelto"
+  :desc "<p>La función <code>slice</code> en Clojure permite extraer una porción de una secuencia en un rango específico de índices.</p>
+         <h2>Uso básico de slice</h2>
+         <p>Podemos obtener una sublista de un rango de elementos:</p>
+         <code>(slice [1 2 3 4 5] 1 3) ;; (2 3 4)</code>"
+  :id 93}
+
+ {:title "Cómo usar prn en Clojure – Resuelto"
+  :desc "<p>La función <code>prn</code> en Clojure imprime un objeto en la consola, seguido de un salto de línea. Es útil para depuración.</p>
+         <h2>Uso básico de prn</h2>
+         <p>Podemos usar <code>prn</code> para imprimir una cadena o cualquier otro valor:</p>
+         <code>(prn \"Hola, Mundo!\") ;; Hola, Mundo!</code>"
+  :id 94}
+
+ {:title "Cómo usar alter-var-root en Clojure – Resuelto"
+  :desc "<p>La función <code>alter-var-root</code> en Clojure permite cambiar el valor de una variable global de manera segura.</p>
+         <h2>Uso básico de alter-var-root</h2>
+         <p>Podemos modificar una variable global utilizando <code>alter-var-root</code>:</p>
+         <code>(alter-var-root #'x (constantly 42))</code>"
+  :id 95}
+
+ {:title "Cómo usar ref en Clojure – Resuelto"
+  :desc "<p>En Clojure, los <code>ref</code>s son referencias que permiten realizar transacciones sobre sus valores de manera segura en un entorno concurrente.</p>
+         <h2>Uso básico de ref</h2>
+         <p>Podemos crear una referencia y modificar su valor dentro de una transacción:</p>
+         <code>(def r (ref 0))\n(dosync (alter r inc)) ;; 1</code>"
+  :id 96}
+
+ {:title "Cómo utilizar thread-last en Clojure para manipulación de secuencias – Resuelto"
+  :desc "<p>La macro <code>->></code> o thread-last en Clojure es muy útil para realizar operaciones secuenciales donde cada operación toma el resultado de la anterior como su primer argumento.</p>
+         <h2>Uso básico de thread-last</h2>
+         <p>Con la macro <code>->></code>, podemos encadenar operaciones de manera que el resultado de cada paso se pase como el último argumento de la siguiente operación.</p>
+         <code>(->> [1 2 3 4 5]\n     (map inc)\n     (filter even?))</code>
+         <p>Este código primero incrementa cada elemento de la lista y luego filtra los números pares, devolviendo <code>(2 4 6)</code>.</p>
+         <h2>Ventajas del uso de thread-last</h2>
+         <ul>
+           <li>Facilita la lectura del código cuando se aplican múltiples transformaciones a secuencias.</li>
+           <li>Permite pasar el resultado intermedio de una operación como último argumento de la siguiente operación, lo que resulta en un flujo de trabajo más fluido.</li>
+         </ul>
+         <h2>Ejemplo avanzado</h2>
+         <p>Consideremos una secuencia de operaciones más compleja:</p>
+         <code>(->> (range 1 10)\n     (map #(* % 2))\n     (filter #(> % 5))\n     (reduce +))</code>
+         <p>Este código genera los números del 1 al 9, los multiplica por 2, filtra aquellos mayores que 5 y luego los reduce a su suma total.</p>
+         <h2>Conclusión</h2>
+         <p>El uso de <code>->></code> en Clojure puede mejorar la legibilidad y la claridad de tu código, especialmente cuando se trata de operaciones secuenciales sobre colecciones. Es una excelente herramienta para la manipulación de datos de manera declarativa y funcional.</p>"
+  :id 97}
+
+ {:title "Cómo usar remove en Clojure – Resuelto"
+  :desc "<p>La función <code>remove</code> en Clojure permite eliminar los elementos que cumplen con una condición de una colección.</p>
+         <h2>Uso básico de remove</h2>
+         <p>Podemos eliminar todos los elementos mayores que 2 de una lista:</p>
+         <code>(remove #(> % 2) [1 2 3 4 5]) ;; (1 2)</code>"
+  :id 98}
+
+ {:title "Cómo usar <code>some</code> en Clojure – Resuelto"
+  :desc "<p>La función <code>some</code> en Clojure devuelve el primer elemento que satisface una predicación, o <code>null</code> si ningún elemento cumple la condición.</p>
+          <h2>Uso básico de some</h2>
+          <p>Podemos usar <code>some</code> para encontrar el primer número par en una lista:</p>
+          <pre><code>(some even? [1 2 3 4 5]) ;; 2</code></pre>
+          <h2>Buscar con predicado personalizado</h2>
+          <p>También podemos usar un predicado personalizado para encontrar el primer número mayor que 3:</p>
+          <pre><code>(some #(> % 3) [1 2 3 4 5]) ;; 4</code></pre>
+          <h2>Usos comunes de `some`</h2>
+          <p><code>some</code> es útil cuando necesitamos encontrar rápidamente un valor en una colección que cumpla con un criterio específico, como buscar un valor en una lista o determinar si un elemento existe en un conjunto.</p>"
+  :id 99}
+
+ {:title "Cómo usar group-by en Clojure – Resuelto"
+  :desc "<p>La función <code>group-by</code> en Clojure agrupa los elementos de una colección según el resultado de una función.</p>
+         <h2>Uso básico de group-by</h2>
+         <p>Podemos agrupar una lista de números por su paridad:</p>
+         <code>(group-by even? [1 2 3 4 5 6]) ;; {false [1 3 5], true [2 4 6]}</code>"
+  :id 100}
+ {:title "Cómo manejar concurrencia en Clojure con agentes – Resuelto"
+  :desc "<p>Los agentes en Clojure son una poderosa herramienta para manejar cambios de estado de forma asíncrona y segura. Este artículo explica cómo utilizarlos en escenarios prácticos.</p>
+           <h2>¿Qué son los agentes?</h2>
+           <p>Un agente es una referencia mutable que gestiona cambios de estado a través de acciones encoladas. Se usa para operaciones independientes de larga duración.</p>
+           <h2>Ejemplo básico</h2>
+           <p>Definimos un agente y realizamos operaciones asíncronas sobre su estado:</p>
+           <code>(def mi-agente (agent 0))\n(send mi-agente + 10)\n(println @mi-agente) ;; Salida: 10</code>
+           <h2>Errores en agentes</h2>
+           <p>Cuando ocurre un error, el agente entra en un estado de fallo. Podemos reiniciarlo manualmente:</p>
+           <code>(restart-agent mi-agente 0)</code>
+           <h2>Conclusión</h2>
+           <p>Los agentes son ideales para tareas independientes y permiten manejar concurrencia de forma sencilla en Clojure. Aprovecha esta herramienta para construir sistemas robustos.</p>"
+  :id 101}
+
+ {:title "Cómo estructurar proyectos grandes en Clojure – Resuelto"
+  :desc "<p>A medida que los proyectos de Clojure crecen en tamaño y complejidad, una estructura clara y modular se vuelve esencial. Este artículo aborda las mejores prácticas para organizar proyectos grandes.</p>
+           <h2>Estructura de carpetas recomendada</h2>
+           <p>Una estructura típica incluye directorios separados para código fuente, pruebas y configuraciones:</p>
+           <code>src/\n  my_project/\n    core.clj\n    utils.clj\ntest/\n  my_project/\n    core_test.clj\nresources/\n</code>
+           <h2>División por contextos</h2>
+           <p>Organiza tu código por dominios o funcionalidades, como <code>user-management</code>, <code>billing</code>, etc.:</p>
+           <code>src/\n  user_management/\n  billing/</code>
+           <h2>Utiliza namespaces descriptivos</h2>
+           <p>Los namespaces deben reflejar la estructura lógica del proyecto:</p>
+           <code>(ns my_project.user-management)</code>
+           <h2>Conclusión</h2>
+           <p>Una buena organización permite mantener la escalabilidad y la legibilidad del código. Sigue estas prácticas para proyectos más grandes y exitosos.</p>"
+  :id 102}
+
+ {:title "Cómo usar Middleware en Clojure con Ring – Resuelto"
+  :desc "<p>El middleware en Ring es una forma de manejar capas de lógica en aplicaciones web de Clojure. Este artículo explica cómo funcionan y cómo implementarlos.</p>
+           <h2>¿Qué es un Middleware?</h2>
+           <p>Es una función que envuelve un handler para añadir funcionalidades adicionales, como autenticación, logging, o manejo de errores.</p>
+           <h2>Ejemplo básico</h2>
+           <p>Creemos un middleware que loguea cada solicitud:</p>
+           <code>(defn logger [handler]\n  (fn [request]\n    (println \"Request recibido:\" request)\n    (handler request)))</code>
+           <h2>Encadenar Middlewares</h2>
+           <p>Usamos <code>wrap</code> para combinar múltiples middlewares:</p>
+           <code>(def app (-> handler logger wrap-authentication wrap-session))</code>
+           <h2>Conclusión</h2>
+           <p>El middleware es fundamental para manejar funcionalidades transversales en aplicaciones web. Úsalo para mantener tu código modular y organizado.</p>"
+  :id 103}
+
+ {:title "Cómo crear macros DSL en Clojure – Resuelto"
+  :desc "<p>Un Lenguaje Específico de Dominio (DSL) permite crear abstracciones específicas para un dominio. Este artículo muestra cómo usar macros en Clojure para construir DSLs potentes.</p>
+           <h2>¿Qué es un DSL?</h2>
+           <p>Un DSL es una capa de lenguaje construida sobre un lenguaje base para simplificar problemas específicos. Ejemplo: SQL sobre un motor de bases de datos.</p>
+           <h2>Construcción básica de un DSL</h2>
+           <p>Definimos macros para construir sentencias específicas:</p>
+           <code>(defmacro select [table & fields]\n  `(str \"SELECT \" ~(clojure.string/join \", \" fields) \" FROM \" ~table))</code>
+           <p>Uso:</p>
+           <code>(select \"users\" \"id\" \"name\") ;; Salida: \"SELECT id, name FROM users\"</code>
+           <h2>Conclusión</h2>
+           <p>Los DSLs pueden hacer que tu código sea más expresivo y específico para problemas concretos. Experimenta con macros para personalizar soluciones.</p>"
+  :id 104}
+
+ {:title "Cómo integrar sistemas asíncronos con core.async en Clojure – Resuelto"
+  :desc "<p><code>core.async</code> en Clojure permite manejar concurrencia de forma elegante y asíncrona utilizando canales y procesos. Este artículo explora cómo aprovecharlo para integraciones complejas.</p>
+           <h2>Canales básicos</h2>
+           <p>Los canales son estructuras de datos que permiten comunicación entre procesos:</p>
+           <code>(require '[clojure.core.async :refer [chan put! take!]])\n(def c (chan))\n(put! c \"mensaje\")\n(take! c println)</code>
+           <h2>Procesos go</h2>
+           <p>Usamos bloques <code>go</code> para ejecutar código concurrentemente:</p>
+           <code>(go\n  (let [mensaje (&gt! c)]\n    (println \"Recibido:\" mensaje)))</code>
+           <h2>Integraciones complejas</h2>
+           <p>Podemos combinar canales para manejar múltiples flujos de datos, como APIs, archivos, y colas de mensajes.</p>
+           <h2>Conclusión</h2>
+           <p><code>core.async</code> es ideal para manejar sistemas distribuidos y asíncronos. Dominarlo te permitirá construir sistemas altamente escalables.</p>"
+  :id 105}
+
+ {:title "Cómo construir aplicaciones CLI con Clojure – Resuelto"
+  :desc "<p>Las herramientas de línea de comandos son útiles para automatizar tareas o ejecutar procesos. Este artículo muestra cómo crear aplicaciones CLI con Clojure.</p>
+           <h2>Usando clojure.tools.cli</h2>
+           <p><code>clojure.tools.cli</code> permite manejar argumentos de línea de comandos de manera sencilla:</p>
+           <code>(require '[clojure.tools.cli :refer [parse-opts]])\n\n(def opts\n  [[\"-n\" \"--name NAME\" \"Nombre del usuario\"]])\n\n(defn -main [& args]\n  (let [parsed (parse-opts args opts)]\n    (println \"Hola,\" (:name (:options parsed)))))</code>
+           <h2>Empaquetar la aplicación</h2>
+           <p>Usamos <code>depstar</code> para generar un archivo JAR ejecutable:</p>
+           <code>clj -T:build</code>
+           <h2>Conclusión</h2>
+           <p>Crear aplicaciones CLI en Clojure es sencillo y potente. Con esta técnica, puedes construir herramientas útiles para diversos escenarios.</p>"
+  :id 106}
+
+ {:title "Cómo usar transducers para procesamiento eficiente – Resuelto"
+  :desc "<p>Los transducers en Clojure permiten procesar colecciones de manera eficiente, evitando pasos intermedios y mejorando el rendimiento. Aprende cómo aprovecharlos en este artículo.</p>
+           <h2>¿Qué son los transducers?</h2>
+           <p>Son funciones puras que transforman datos independientemente del contexto de colección. Se usan con <code>transduce</code>:</p>
+           <code>(transduce (comp (filter even?) (map inc)) conj [] [1 2 3 4]) ;; [3 5]</code>
+           <h2>Ventajas</h2>
+           <p>Elimina colecciones temporales, reduciendo uso de memoria. Ideal para pipelines de datos grandes.</p>
+           <h2>Conclusión</h2>
+           <p>Los transducers son una herramienta esencial para procesar datos de forma eficiente. Experimenta con ellos para mejorar el rendimiento en tus proyectos.</p>"
+  :id 107}
+ {:title "Cómo usar EDN en Clojure para datos serializables – Resuelto"
+  :desc "<p>EDN (Extensible Data Notation) es un formato de datos legible por humanos y nativo de Clojure, ideal para compartir y almacenar datos. En este artículo, aprenderás cómo utilizarlo eficazmente.</p>
+           <h2>¿Qué es EDN?</h2>
+           <p>EDN es similar a JSON pero más expresivo, soportando tipos como palabras clave (<code>:clave</code>) y símbolos. Es perfecto para configuraciones y datos complejos.</p>
+           <h2>Lectura y escritura de EDN</h2>
+           <p>Podemos leer datos EDN desde archivos o cadenas:</p>
+           <code>(require '[clojure.edn :as edn])\n(def datos (edn/read-string \"{:clave 42, :nombre \\\"Clojure\\\"}\"))</code>
+           <p>Y escribirlos usando <code>pr-str</code>:</p>
+           <code>(spit \"datos.edn\" (pr-str datos))</code>
+           <h2>Uso práctico</h2>
+           <p>EDN es útil para configuración de proyectos y comunicación entre sistemas basados en Clojure.</p>
+           <h2>Conclusión</h2>
+           <p>Adopta EDN en tus proyectos para trabajar con datos de manera idiomática y eficiente.</p>"
+  :id 108}
+
+ {:title "Cómo usar recur en funciones recursivas – Resuelto"
+  :desc "<p><code>recur</code> es una herramienta clave en Clojure para implementar recursión segura y evitar desbordamientos de pila. Este artículo explica su uso detallado.</p>
+           <h2>¿Qué es recur?</h2>
+           <p><code>recur</code> reinicia una función o un bucle sin consumir más espacio en la pila. Ideal para iteraciones en lugar de bucles tradicionales.</p>
+           <h2>Ejemplo básico</h2>
+           <p>Calculemos la suma de una lista de números:</p>
+           <code>(defn suma [nums total]\n  (if (empty? nums)\n    total\n    (recur (rest nums) (+ total (first nums)))))\n\n(suma [1 2 3 4] 0) ;; 10</code>
+           <h2>Reglas para usar recur</h2>
+           <p>Debe ser la última expresión en la función, garantizando que no se acumule estado en la pila.</p>
+           <h2>Conclusión</h2>
+           <p><code>recur</code> hace que la recursión sea eficiente y segura en Clojure. Úsalo para optimizar tus algoritmos recursivos.</p>"
+  :id 109}
+
+ {:title "Cómo usar reduce para acumular datos – Resuelto"
+  :desc "<p>La función <code>reduce</code> es una herramienta poderosa para procesar colecciones y construir resultados acumulativos en Clojure. Este artículo profundiza en su uso.</p>
+           <h2>¿Qué es reduce?</h2>
+           <p><code>reduce</code> toma una función, un valor inicial y una colección, aplicando la función de manera acumulativa:</p>
+           <code>(reduce + 0 [1 2 3 4]) ;; 10</code>
+           <h2>Ejemplo avanzado</h2>
+           <p>Contemos ocurrencias de elementos en una lista:</p>
+           <code>(reduce (fn [acc x] (update acc x (fnil inc 0))) {} [:a :b :a :c :b])\n;; {:a 2, :b 2, :c 1}</code>
+           <h2>Ventajas</h2>
+           <p>Es más flexible que <code>map</code> o <code>filter</code>, permitiendo cálculos personalizados.</p>
+           <h2>Conclusión</h2>
+           <p>Dominar <code>reduce</code> te permitirá resolver problemas complejos con colecciones en Clojure de forma elegante.</p>"
+  :id 110}
+
+ {:title "Cómo usar multimethods para comportamiento polimórfico – Resuelto"
+  :desc "<p>Los multimétodos en Clojure ofrecen una manera flexible de manejar comportamiento polimórfico basado en múltiples criterios. Aprende cómo implementarlos en este artículo.</p>
+           <h2>¿Qué son los multimétodos?</h2>
+           <p>Son funciones despachadas dinámicamente según un valor calculado por una función de despacho.</p>
+           <h2>Ejemplo básico</h2>
+           <p>Implementemos un sistema que maneja diferentes tipos de transporte:</p>
+           <code>(defmulti costo :tipo)\n(defmethod costo :coche [_] 5)\n(defmethod costo :bicicleta [_] 0)\n(defmethod costo :default [_] 10)\n\n(costo {:tipo :bicicleta}) ;; 0</code>
+           <h2>Ventajas</h2>
+           <p>Los multimétodos son más dinámicos que los protocolos y permiten una extensión sin modificar el código existente.</p>
+           <h2>Conclusión</h2>
+           <p>Úsalos para sistemas flexibles y extensibles, especialmente cuando el comportamiento depende de múltiples variables.</p>"
+  :id 111}
+
+ {:title "Cómo usar pmap para paralelizar cálculos – Resuelto"
+  :desc "<p><code>pmap</code> permite realizar cálculos paralelos en Clojure con simplicidad, aprovechando múltiples núcleos de CPU. Aprende a implementarlo de manera eficiente.</p>
+           <h2>¿Qué es pmap?</h2>
+           <p>Es una versión paralela de <code>map</code>, diseñada para dividir el trabajo entre hilos:</p>
+           <code>(pmap inc (range 10))</code>
+           <h2>Ejemplo práctico</h2>
+           <p>Calculemos la raíz cuadrada de una lista de números:</p>
+           <code>(pmap #(Math/sqrt %) [1 4 9 16]) ;; (1.0 2.0 3.0 4.0)</code>
+           <h2>Precauciones</h2>
+           <p>No es ideal para colecciones pequeñas, ya que tiene sobrecarga de sincronización.</p>
+           <h2>Conclusión</h2>
+           <p>Usa <code>pmap</code> para paralelizar tareas computacionalmente intensivas y mejorar el rendimiento.</p>"
+  :id 112}
+
+ {:title "Cómo usar ref y alter para transacciones coordinadas – Resuelto"
+  :desc "<p>En Clojure, <code>ref</code> y <code>alter</code> son herramientas esenciales para manejar cambios coordinados en estados compartidos. Aprende a utilizarlas en este artículo.</p>
+           <h2>¿Qué es ref?</h2>
+           <p>Un <code>ref</code> es una referencia mutable que permite transacciones coordinadas usando STM (Software Transactional Memory).</p>
+           <h2>Ejemplo básico</h2>
+           <p>Implementemos un sistema bancario simple:</p>
+           <code>(def cuenta (ref 100))\n(dosync (alter cuenta + 50))\n@cuenta ;; 150</code>
+           <h2>Ventajas</h2>
+           <p>Garantizan consistencia incluso en entornos concurrentes complejos.</p>
+           <h2>Conclusión</h2>
+           <p>Los <code>ref</code> son ideales para estados compartidos que requieren actualizaciones consistentes y seguras.</p>"
+  :id 113}
+
+ {:title "Cómo manejar errores con try y catch en Clojure – Resuelto"
+  :desc "<p>El manejo de errores es crucial para la robustez de una aplicación. En este artículo, exploramos cómo usar <code>try</code>, <code>catch</code> y <code>finally</code> en Clojure.</p>
+           <h2>Ejemplo básico</h2>
+           <p>Capturamos una excepción para evitar que el programa falle:</p>
+           <code>(try\n  (/ 1 0)\n  (catch ArithmeticException e (println \"Error:\" (.getMessage e))))</code>
+           <h2>Bloque finally</h2>
+           <p>Usamos <code>finally</code> para ejecutar limpieza de recursos:</p>
+           <code>(try\n  (println \"Cálculo iniciado\")\n  (/ 1 0)\n  (catch Exception e (println \"Error\"))\n  (finally (println \"Fin del cálculo\")))</code>
+           <h2>Conclusión</h2>
+           <p>Maneja errores de manera explícita para crear sistemas más robustos y confiables.</p>"
+  :id 114}
+ {:title "Cómo usar Compojure para construir rutas en aplicaciones web con Clojure"
+  :desc "<p><code>Compojure</code> es una biblioteca popular en Clojure que nos permite definir rutas de manera sencilla y declarativa para aplicaciones web. Es ampliamente utilizada junto con bibliotecas como Ring para manejar solicitudes HTTP.</p>
+   
+           <h2>1. Instalación de Compojure</h2>
+           <p>Para usar Compojure, primero debemos agregar la dependencia a nuestro proyecto. En <code>deps.edn</code>:</p>
+           <code>{:deps {compojure/compojure {:mvn/version \"1.6.2\"}}}</code>
+           <p>Si estás usando Leiningen, agrégalo a <code>project.clj</code>:</p>
+           <code>:dependencies [[compojure \"1.6.2\"]]</code>
+   
+           <h2>2. Definición de rutas básicas</h2>
+           <p>Un ejemplo básico de cómo definir rutas con Compojure:</p>
+           <code>(require '[compojure.core :refer [defroutes GET POST]])<br>(defroutes app-routes<br>(GET \"/\" [] \"¡Bienvenido a mi aplicación!\")<br>(POST \"/submit\" [nombre] (str \"Hola, \" nombre)))</code>
+           <p>En este ejemplo:</p>
+           <ul>
+             <li><code>GET</code> maneja solicitudes HTTP GET.</li>
+             <li><code>POST</code> maneja solicitudes HTTP POST y permite acceder a parámetros del formulario.</li>
+           </ul>
+   
+           <h2>3. Integración con Ring</h2>
+           <p>Compojure se integra fácilmente con <code>Ring</code>, la biblioteca base para manejar solicitudes y respuestas HTTP en Clojure. Un ejemplo completo:</p>
+           <code>(require '[ring.adapter.jetty :refer [run-jetty]])<br>(run-jetty app-routes {:port 3000})</code>
+           <p>Este código inicia un servidor en el puerto 3000.</p>
+   
+           <h2>4. Manejo de middleware</h2>
+           <p>Compojure permite usar middlewares para agregar funcionalidades a las solicitudes o respuestas. Ejemplo de middleware de logging:</p>
+           <code>(require '[ring.middleware.params :refer [wrap-params]])<br>(def app (wrap-params app-routes))</code>
+           <p>Con esto, todas las rutas ahora aceptan parámetros automáticamente.</p>
+   
+           <h2>5. Ventajas de usar Compojure</h2>
+           <p>Algunas razones por las que Compojure es una excelente opción:</p>
+           <ul>
+             <li>Definición de rutas concisa y legible.</li>
+             <li>Fácil integración con Ring y middlewares.</li>
+             <li>Compatible con otras bibliotecas del ecosistema de Clojure.</li>
+           </ul>
+   
+           <p>Con Compojure, construir aplicaciones web en Clojure es rápido, eficiente y divertido.</p>"
+  :id 115}
+ {:title "Cómo manejar tipos de datos en Clojure – Resuelto"
+  :desc "<p>Clojure es un lenguaje funcional que maneja diferentes tipos de datos, como números, cadenas, listas, vectores, conjuntos, y mapas. Entender estos tipos es clave para desarrollar en Clojure.</p>
+         <h2>Tipos de datos básicos</h2>
+         <p>Clojure tiene tipos básicos como enteros, decimales y cadenas:</p>
+         <code>(def a 42) ;; entero</code>
+         <code>(def b 3.14) ;; decimal</code>
+         <code>(def c \"Texto\") ;; cadena</code>"
+  :id 116}
+
+ {:title "Cómo usar clojure.walk para modificar estructuras de datos – Resuelto"
+  :desc "<p>La biblioteca <code>clojure.walk</code> permite recorrer y modificar estructuras de datos en Clojure de manera recursiva. Es muy útil para manipular colecciones complejas.</p>
+         <h2>Transformar una estructura</h2>
+         <p>Usamos <code>clojure.walk/postwalk</code> para aplicar una función a cada elemento de la estructura:</p>
+         <code>(clojure.walk/postwalk #(if (number? %) (* % 2) %) [1 2 \"Texto\" 3]) ;; (2 4 \"Texto\" 6)</code>"
+  :id 117}
+
+ {:title "Cómo hacer testing en Clojure con Midje – Resuelto"
+  :desc "<p>Midje es una librería popular para hacer testing en Clojure. Permite escribir pruebas de una forma declarativa y legible.</p>
+         <h2>Instalación de Midje</h2>
+         <p>Primero, añadimos Midje a las dependencias:</p>
+         <code>[midje \"1.9.9\"]</code>
+         <h2>Escribir una prueba con Midje</h2>
+         <p>Para escribir una prueba, usamos la macro <code>fact</code>:</p>
+         <code>(fact (+ 1 1) => 2)</code>"
+  :id 118}
+
+ {:title "Cómo trabajar con fechas y horas en Clojure – Resuelto"
+  :desc "<p>Trabajar con fechas y horas en Clojure es sencillo usando la librería <code>clojure.java-time</code>, que proporciona una interfaz moderna para trabajar con el paquete <code>java.time</code> de Java.</p>
+         <h2>Obtener la fecha actual</h2>
+         <p>Usamos la función <code>now</code> para obtener la fecha y hora actual:</p>
+         <code>(clojure.java-time/local-date-time)</code>
+         <h2>Formatear una fecha</h2>
+         <p>Podemos formatear una fecha usando <code>format</code>:</p>
+         <code>(clojure.java-time/format \"yyyy-MM-dd\" (clojure.java-time/local-date-time))</code>"
+  :id 119}
+
+ {:title "Cómo utilizar clojure.test para realizar pruebas unitarias – Resuelto"
+  :desc "<p><code>clojure.test</code> es la librería estándar de Clojure para pruebas unitarias. Permite definir pruebas de manera sencilla y estructurada.</p>
+         <h2>Escribir una prueba</h2>
+         <p>Usamos la macro <code>deftest</code> para definir una prueba:</p>
+         <code>(deftest suma-prueba\n  (is (= (+ 1 2) 3)))</code>
+         <h2>Ejecutar las pruebas</h2>
+         <p>Para ejecutar las pruebas, usamos el comando <code>run-tests</code>:</p>
+         <code>(run-tests)</code>"
+  :id 120}
+
+ {:title "Cómo usar defrecord para definir tipos de datos en Clojure – Resuelto"
+  :desc "<p><code>defrecord</code> en Clojure se utiliza para definir tipos de datos inmutables que se comportan como objetos.</p>
+         <h2>Definir un tipo de dato con defrecord</h2>
+         <p>Podemos definir un tipo de dato con campos usando <code>defrecord</code>:</p>
+         <code>(defrecord Persona [nombre edad])</code>
+         <h2>Crear una instancia de un record</h2>
+         <p>Una vez definido el record, creamos una instancia de él:</p>
+         <code>(def juan (->Persona \"Juan\" 30))</code>"
+  :id 121}
+
+ {:title "Cómo utilizar clojure.core.async para tareas concurrentes – Resuelto"
+  :desc "<p>La biblioteca <code>clojure.core.async</code> proporciona un conjunto de herramientas para realizar programación concurrente de forma eficiente usando canales y bloques asíncronos.</p>
+         <h2>Crear un canal</h2>
+         <p>Creamos un canal con la función <code>chan</code>:</p>
+         <code>(def c (chan))</code>
+         <h2>Enviar datos a un canal</h2>
+         <p>Para enviar datos, usamos la función <code>put!</code>:</p>
+         <code>(put! c \"mensaje\")</code>"
+  :id 122}
+
+ {:title "Cómo usar ref y dos en Clojure – Resuelto"
+  :desc "<p>En Clojure, <code>ref</code> se utiliza para manejar el estado mutable de manera coherente y segura, mientras que <code>dos</code> es una función que ayuda a gestionar cambios simultáneos en el estado de múltiples referencias.</p>
+          <h2>Uso básico de ref</h2>
+          <p>Podemos crear una referencia con <code>ref</code> y modificar su valor de manera transaccional:</p>
+          <code>(def saldo (ref 100))</code>
+          <h2>Modificar el valor de ref</h2>
+          <p>Para cambiar el valor de una referencia, usamos la función <code>dos</code>:</p>
+          <code>(dos saldo #(do (+ % 50)))</code>"
+  :id 123}
+
+ {:title "Cómo usar destructuring en Clojure – Resuelto"
+  :desc "<p>Destructuring es una característica de Clojure que permite descomponer colecciones como listas, mapas y vectores en variables con un solo paso.</p>
+         <h2>Uso de destructuring con listas</h2>
+         <p>Podemos usar destructuring para extraer elementos de una lista:</p>
+         <code>(let [[a b] [1 2]]\n  (+ a b)) ;; 3</code>
+         <h2>Destructuring con mapas</h2>
+         <p>De igual forma, podemos usar destructuring con mapas:</p>
+         <code>(let [{:keys [nombre edad]} {:nombre \"Juan\" :edad 30}]\n  nombre) ;; \"Juan\"</code>"
+  :id 124}
+
+ {:title "Cómo usar multimétodos en Clojure – Resuelto"
+  :desc "<p>Los multimétodos en Clojure permiten definir diferentes implementaciones para una misma función según las características de los argumentos.</p>
+         <h2>Definir un multimétodo</h2>
+         <p>Definimos un multimétodo usando <code>defmulti</code> y luego varias implementaciones con <code>defmethod</code>:</p>
+         <code>(defmulti saludo (fn [x] (:tipo x)))</code>
+         <code>(defmethod saludo :formal [persona] (str \"Hola, \" (:nombre persona)))</code>"
+  :id 125}
+
+ {:title "Cómo usar clojure.string para manipular cadenas – Resuelto"
+  :desc "<p>La librería <code>clojure.string</code> proporciona funciones útiles para manipular cadenas de texto, como la conversión a mayúsculas o la eliminación de espacios.</p>
+         <h2>Convertir una cadena a mayúsculas</h2>
+         <p>Podemos convertir una cadena a mayúsculas con <code>upper-case</code>:</p>
+         <code>(clojure.string/upper-case \"hola\") ;; \"HOLA\"</code>
+         <h2>Eliminar espacios</h2>
+         <p>Usamos <code>trim</code> para eliminar los espacios al inicio y al final de una cadena:</p>
+         <code>(clojure.string/trim \"  hola  \") ;; \"hola\"</code>"
+  :id 126}
+
+ {:title "Cómo manejar excepciones en Clojure – Avanzado"
+  :desc "<p>El manejo de excepciones en Clojure permite capturar y gestionar errores mediante las funciones <code>try</code>, <code>catch</code> y <code>finally</code>. Además, Clojure ofrece herramientas para crear excepciones personalizadas.</p>
+         <h2>Crear excepciones personalizadas</h2>
+         <p>Con <code>ex-info</code>, podemos lanzar excepciones que contienen más detalles sobre el error:</p>
+         <code>(throw (ex-info \"Algo salió mal\" {:codigo 400}))</code>
+         <h2>Capturar excepciones</h2>
+         <p>Usamos <code>catch</code> para capturar excepciones y manejarlas de forma específica:</p>
+         <code>(try\n  ...\n  (catch Exception e\n    (println \"Error:\" (.getMessage e))))</code>"
+  :id 127}
+
+ {:title "Cómo implementar un servidor HTTP en Clojure – Resuelto"
+  :desc "<p>Clojure proporciona varias formas de crear servidores HTTP, siendo <code>ring</code> uno de los enfoques más populares para la construcción de aplicaciones web.</p>
+         <h2>Configurar un servidor básico</h2>
+         <p>Podemos crear un servidor HTTP básico con <code>ring</code>:</p>
+         <code>(defn handler [request]\n  {:status 200 :headers {\"Content-Type\" \"text/plain\"} :body \"Hola Mundo\"})</code>
+         <h2>Iniciar el servidor</h2>
+         <p>Para iniciar el servidor, usamos la función <code>run-jetty</code>:</p>
+         <code>(run-jetty handler {:port 3000})</code>"
+  :id 128}
+
+ {:title "Cómo usar clojure.test para pruebas de propiedades – Resuelto"
+  :desc "<p>Además de las pruebas unitarias, <code>clojure.test</code> permite realizar pruebas de propiedades, lo cual nos ayuda a verificar el comportamiento general de funciones sin necesidad de escribir casos específicos.</p>
+         <h2>Escribir una prueba de propiedad</h2>
+         <p>Podemos usar la función <code>is</code> para verificar propiedades:</p>
+         <code>(is (even? (+ 2 2))) ;; Verifica que el resultado sea par</code>
+         <h2>Generar datos de prueba aleatorios</h2>
+         <p>Usamos generadores de datos aleatorios para probar una propiedad con diferentes entradas:</p>
+         <code>(use 'clojure.test.check)\n\n(defspec suma-es-commutativa\n  100\n  (for-all [a int? b int?]\n    (= (+ a b) (+ b a))))</code>"
+  :id 129}
+
+ {:title "Cómo usar clojure.core.memoize para cachear resultados – Resuelto"
+  :desc "<p><code>clojure.core.memoize</code> es una librería que permite cachear resultados de funciones, mejorando el rendimiento al evitar cálculos repetidos.</p>
+         <h2>Cachear una función</h2>
+         <p>Podemos cachear el resultado de una función utilizando <code>memo-ize</code>:</p>
+         <code>(def mi-funcion (memoize (fn [x] (Thread/sleep 1000) (* x x))))</code>
+         <h2>Usar la función cacheada</h2>
+         <p>El primer cálculo tarda, pero los siguientes serán mucho más rápidos:</p>
+         <code>(mi-funcion 5) ;; Primero tarda</code>
+         <code>(mi-funcion 5) ;; Más rápido por el cache</code>"
+  :id 130}
+
+ {:title "Cómo usar clojure.core.match para patrones en Clojure – Resuelto"
+  :desc "<p><code>clojure.core.match</code> permite realizar coincidencias de patrones de forma más intuitiva y legible que utilizando condicionales tradicionales.</p>
+         <h2>Instalación de core.match</h2>
+         <p>Primero, añadimos la dependencia:</p>
+         <code>[clojure.core.match \"0.3.0\"]</code>
+         <h2>Ejemplo básico de match</h2>
+         <p>Podemos usar <code>match</code> para hacer coincidir valores:</p>
+         <code>(match x\n  1 \"uno\"\n  2 \"dos\"\n  :default \"otro\")</code>"
+  :id 131}
+
+ {:title "Cómo trabajar con funciones de orden superior en Clojure – Resuelto"
+  :desc "<p>En Clojure, las funciones de orden superior son aquellas que aceptan o devuelven otras funciones. Esto es fundamental para el estilo funcional del lenguaje.</p>
+         <h2>Funciones como argumentos</h2>
+         <p>Las funciones pueden ser pasadas como argumentos:</p>
+         <code>(map inc [1 2 3]) ;; Incrementa cada elemento</code>
+         <h2>Funciones que retornan funciones</h2>
+         <p>También podemos crear funciones que devuelvan otras funciones:</p>
+         <code>(defn multiplicador [n] (fn [x] (* x n)))</code>"
+  :id 132}
+ {:title "Cómo optimizar el uso de reduce en Clojure – Resuelto"
+  :desc "<p><code>reduce</code> es una función fundamental en Clojure para reducir colecciones a un solo valor. Sin embargo, su uso puede ser ineficiente si no se emplean las mejores prácticas.</p>
+         <h2>Uso básico de reduce</h2>
+         <p>Al usar <code>reduce</code>, debemos proporcionar una función y una colección:</p>
+         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
+         <h2>Optimización de reduce con transducción</h2>
+         <p>Podemos mejorar la eficiencia utilizando transducciones. Las transducciones permiten combinar las funciones de transformación y reducción de manera más eficiente:</p>
+         <code>(transduce (map inc) + [1 2 3 4 5]) ;; 20</code>"
+  :id 133}
+
+ {:title "Cómo manejar colecciones inmutables en Clojure – Resuelto"
+  :desc "<p>Clojure es un lenguaje funcional que hace un uso extensivo de colecciones inmutables, lo que implica que no se puede modificar directamente una colección después de su creación.</p>
+         <h2>Creación de colecciones inmutables</h2>
+         <p>Las colecciones en Clojure son inmutables por defecto. Por ejemplo, un vector:</p>
+         <code>(def mi-vector [1 2 3])</code>
+         <h2>Modificación de colecciones inmutables</h2>
+         <p>Para modificar una colección, usamos funciones que devuelven una nueva versión de la colección:</p>
+         <code>(conj mi-vector 4) ;; [1 2 3 4]</code>"
+  :id 134}
+
+ {:title "Cómo utilizar las funciones de orden superior en Clojure – Resuelto"
+  :desc "<p>Las funciones de orden superior (HOF) son funciones que pueden recibir otras funciones como parámetros o devolverlas como resultados. Esta característica es fundamental en la programación funcional.</p>
+         <h2>Funciones como parámetros</h2>
+         <p>Podemos pasar funciones como argumentos a otras funciones:</p>
+         <code>(map inc [1 2 3]) ;; [2 3 4]</code>
+         <h2>Funciones que devuelven otras funciones</h2>
+         <p>También es posible que una función devuelva otra función:</p>
+         <code>(defn multiplicador [n] (fn [x] (* x n)))</code>"
+  :id 135}
+
+ {:title "Cómo trabajar con secuencias perezosas en Clojure – Resuelto"
+  :desc "<p>Clojure soporta secuencias perezosas, lo que significa que los valores solo se calculan cuando se necesitan, lo que puede mejorar el rendimiento y la eficiencia de memoria.</p>
+         <h2>Generar secuencias perezosas</h2>
+         <p>Las secuencias perezosas se generan automáticamente al usar funciones como <code>map</code>, <code>filter</code> o <code>range</code>:</p>
+         <code>(def secuencia (map inc (range 10)))</code>
+         <h2>Evaluación perezosa</h2>
+         <p>Podemos forzar la evaluación de una secuencia perezosa utilizando <code>doall</code>:</p>
+         <code>(doall secuencia)</code>"
+  :id 136}
+
+ {:title "Cómo implementar concurrencia en Clojure – Resuelto"
+  :desc "<p>Clojure proporciona varias herramientas para manejar la concurrencia de manera segura y eficiente. Esto incluye agentes, átomos y futuros.</p>
+         <h2>Uso de agentes</h2>
+         <p>Los agentes son una forma de gestionar estados de manera asincrónica. Un ejemplo básico:</p>
+         <code>(def a (agent 0))</code>
+         <code>(send a + 1)</code>
+         <h2>Uso de átomos</h2>
+         <p>Los átomos son otra forma de manejar estados mutables de manera controlada:</p>
+         <code>(def atom (atom 0))</code>
+         <code>(swap! atom inc) ;; Incrementa el valor del átomo</code>"
+  :id 137}
+
+ {:title "Cómo usar macros en Clojure – Resuelto"
+  :desc "<p>Las macros en Clojure permiten manipular el código de manera metaprogramática, es decir, crear funciones que transformen otras funciones antes de que sean evaluadas.</p>
+         <h2>Definición de una macro</h2>
+         <p>Una macro se define de forma similar a una función, pero usando <code>defmacro</code>:</p>
+         <code>(defmacro saludo [nombre] `(str \"Hola, \" ~nombre))</code>
+         <h2>Uso de la macro</h2>
+         <p>Cuando llamamos a la macro, el código es transformado antes de ser evaluado:</p>
+         <code>(saludo \"Juan\") ;; \"Hola, Juan\"</code>"
+  :id 138}
+
+ {:title "Cómo integrar Clojure con bases de datos SQL – Resuelto"
+  :desc "<p>Clojure ofrece bibliotecas como <code>clojure.java.jdbc</code> para interactuar con bases de datos SQL. Esto permite realizar operaciones CRUD fácilmente desde Clojure.</p>
+         <h2>Conectar con una base de datos</h2>
+         <p>Podemos conectarnos a una base de datos SQL usando <code>clojure.java.jdbc</code>:</p>
+         <code>(require '[clojure.java.jdbc :as jdbc])</code>
+         <code>(def db-spec {:dbtype \"postgresql\" :dbname \"mi_base_de_datos\"})</code>
+         <h2>Realizar una consulta</h2>
+         <p>Podemos ejecutar consultas SQL con la función <code>query</code>:</p>
+         <code>(jdbc/query db-spec [\"SELECT * FROM usuarios\"])</code>"
+  :id 139}
+
+ {:title "Cómo usar Clojure para crear aplicaciones web en tiempo real – Resuelto"
+  :desc "<p>Clojure es una opción poderosa para crear aplicaciones web en tiempo real. Con herramientas como <code>core.async</code> y <code>ring</code>, podemos construir aplicaciones altamente concurrentes.</p>
+         <h2>Uso de core.async para comunicación asíncrona</h2>
+         <p>Con <code>core.async</code>, podemos crear canales para comunicación entre hilos:</p>
+         <code>(require '[clojure.core.async :as async])</code>
+         <code>(def canal (async/chan))</code>
+         <h2>Integración con Ring</h2>
+         <p>Podemos integrar <code>core.async</code> con Ring para manejar solicitudes concurrentes:</p>
+         <code>(defn handler [request]\n  (async/go\n    (async/&gt;! canal \"Mensaje recibido\")))</code>"
+  :id 140}
+
+ {:title "Cómo utilizar ClojureScript en el navegador – Resuelto"
+  :desc "<p>ClojureScript es una variante de Clojure que se compila a JavaScript. Esto permite ejecutar código Clojure directamente en el navegador.</p>
+         <h2>Configuración de ClojureScript en el navegador</h2>
+         <p>Para usar ClojureScript, necesitamos configurarlo con herramientas como <code>figwheel</code> o <code>shadow-cljs</code>.</p>
+         <h2>Ejemplo básico</h2>
+         <p>Podemos escribir código ClojureScript directamente en un archivo <code>cljs</code> y compilarlo a JavaScript:</p>
+         <code>(defn saludo []\n  (js/alert \"Hola desde ClojureScript\"))</code>"
+  :id 141}
+
+ {:title "Cómo gestionar dependencias en Clojure – Resuelto"
+  :desc "<p>En Clojure, la gestión de dependencias se realiza mediante el uso de <code>leiningen</code> o <code>deps.edn</code>. Estas herramientas permiten declarar y gestionar las bibliotecas necesarias para el proyecto.</p>
+         <h2>Uso de Leiningen</h2>
+         <p>Con Leiningen, podemos declarar dependencias en el archivo <code>project.clj</code>:</p>
+         <code>(:dependencies [[org.clojure/clojure \"1.10.3\"]])</code>
+         <h2>Uso de deps.edn</h2>
+         <p>En proyectos más simples, podemos usar <code>deps.edn</code> para declarar las dependencias:</p>
+         <code>{:deps {org.clojure/clojure {:mvn/version \"1.10.3\"}}}</code>"
+  :id 142}
+
+ {:title "Cómo usar clojure.spec para validación de datos – Resuelto"
+  :desc "<p><code>clojure.spec</code> es una librería que permite especificar y validar datos, asegurando que nuestros programas se comporten correctamente al recibir datos bien formateados.</p>
+         <h2>Definir un spec</h2>
+         <p>Podemos definir un spec para una estructura de datos con la función <code>defspec</code>:</p>
+         <code>(s/def ::nombre string?)</code>
+         <h2>Validación de datos</h2>
+         <p>La función <code>s/valid?</code> permite validar si los datos cumplen con el spec:</p>
+         <code>(s/valid? ::nombre \"Juan\") ;; true</code>"
+  :id 143}
+ {:title "Cómo crear funciones recursivas en Clojure – Resuelto"
+  :desc "<p>La recursión es una técnica común en Clojure, donde una función se llama a sí misma para resolver problemas. Es fundamental comprender cómo escribir funciones recursivas para procesar listas, árboles o estructuras más complejas.</p>
+         <h2>Función recursiva simple</h2>
+         <p>Un ejemplo básico de recursión es la función factorial:</p>
+         <code>(defn factorial [n]\n  (if (zero? n) 1 (* n (factorial (dec n)))))</code>
+         <h2>Usar recursión con acumuladores</h2>
+         <p>La recursión de cola es una forma optimizada de recursión donde se utiliza un acumulador para mejorar la eficiencia:</p>
+         <code>(defn factorial-acc [n acc]\n  (if (zero? n)\n    acc\n    (factorial-acc (dec n) (* acc n))))</code>"
+  :id 144}
+ {:title "Cómo usar reduce con mapas en Clojure – Resuelto"
+  :desc "<p>La función <code>reduce</code> en Clojure no solo se usa con listas, también podemos aplicarla a mapas para transformar sus claves y valores en un solo resultado acumulado. Esta técnica es útil cuando necesitamos operar sobre una colección de pares clave-valor.</p>
+          <h2>Uso básico de reduce con mapas</h2>
+          <p>Podemos usar <code>reduce</code> para sumar los valores de un mapa:</p>
+          <code>(reduce (fn [acc [k v]] (+ acc v)) 0 {:a 1 :b 2 :c 3}) ;; 6</code>
+          <h2>Transformar claves y valores en un mapa con reduce</h2>
+          <p>También podemos transformar las claves y valores mientras los reducimos. Aquí un ejemplo que crea un mapa con las claves convertidas a mayúsculas:</p>
+          <code>(reduce (fn [acc [k v]] (assoc acc (clojure.string/upper-case (name k)) v)) {} {:a 1 :b 2}) ;; {\"A\" 1, \"B\" 2}</code>"
+  :id 145}
+
+ {:title "Cómo trabajar con archivos en Clojure – Resuelto"
+  :desc "<p>Clojure proporciona varias funciones útiles para trabajar con archivos, incluyendo la lectura, escritura y manipulación de archivos en el sistema de archivos.</p>
+         <h2>Leer un archivo</h2>
+         <p>Usamos la función <code>slurp</code> para leer un archivo de texto de forma sencilla:</p>
+         <code>(slurp \"archivo.txt\")</code>
+         <h2>Escribir en un archivo</h2>
+         <p>Para escribir en un archivo, usamos la función <code>spit</code>:</p>
+         <code>(spit \"archivo.txt\" \"Contenido a escribir\")</code>"
+  :id 146}
+ {:title "Cómo manejar excepciones personalizadas en Clojure – Resuelto"
+  :desc "<p>Clojure permite crear excepciones personalizadas mediante la función <code>ex-info</code>, que ofrece la posibilidad de asociar datos adicionales a las excepciones, facilitando el diagnóstico y la gestión de errores.</p>
+         <h2>Definir una excepción personalizada</h2>
+         <p>Podemos lanzar una excepción personalizada con <code>ex-info</code> y pasar un mapa con detalles adicionales:</p>
+         <code>(throw (ex-info \"Error en la conexión\" {:url \"http://example.com\"}))</code>
+         <h2>Capturar y manejar excepciones personalizadas</h2>
+         <p>Cuando se captura una excepción personalizada, podemos acceder a los datos adicionales:</p>
+         <code>(try\n  (throw (ex-info \"Error\" {:detalle \"Datos no válidos\"}))\n  (catch Exception e\n    (println (ex-data e))))</code>"
+  :id 147}
+ {:title "Cómo usar reduce en Clojure para agregaciones – Resuelto"
+  :desc "<p>La función <code>reduce</code> en Clojure permite reducir una secuencia a un solo valor aplicando una función acumulativa sobre sus elementos. Es muy útil para realizar operaciones de agregación o acumulación.</p>
+         <h2>Uso básico de <code>reduce</code></h2>
+         <p>Un ejemplo típico de <code>reduce</code> es sumar los elementos de una lista:</p>
+         <code>(reduce + [1 2 3 4 5]) ;; 15</code>
+         <h2>Uso de <code>reduce</code> con operaciones complejas</h2>
+         <p>También podemos usar <code>reduce</code> para realizar operaciones más complejas, como la multiplicación de todos los elementos:</p>
+         <code>(reduce * [1 2 3 4 5]) ;; 120</code>"
+  :id 148}
+
+ {:title "Cómo trabajar con hilos en Clojure – Resuelto"
+  :desc "<p>Clojure proporciona varias herramientas para trabajar con hilos, permitiendo la ejecución concurrente de tareas para aprovechar múltiples núcleos de procesador.</p>
+         <h2>Crear un hilo</h2>
+         <p>Para crear un hilo, usamos la función <code>future</code>, que permite ejecutar una tarea en un hilo separado:</p>
+         <code>(def hilo (future (println \"Hola desde el hilo\")))</code>
+         <h2>Esperar el resultado de un hilo</h2>
+         <p>Para obtener el valor devuelto por el hilo, usamos la función <code>deref</code>:</p>
+         <code>(deref hilo) ;; Imprime el resultado del hilo</code>"
+  :id 149}
+ {:title "Cómo usar let en Clojure para binding de valores – Resuelto"
+  :desc "<p>La forma de declarar y asociar valores a variables en Clojure es mediante <code>let</code>, una estructura que permite binding local de valores para su uso en un bloque de código.</p>
+         <h2>Uso básico de <code>let</code></h2>
+         <p>Con <code>let</code> podemos asignar valores a variables y usarlas dentro de una expresión:</p>
+         <code>(let [x 10 y 20] (+ x y)) ;; 30</code>
+         <h2>Destructuración con <code>let</code></h2>
+         <p>También podemos usar <code>let</code> para destructurar colecciones:</p>
+         <code>(let [[a b] [1 2]] (+ a b)) ;; 3</code>"
+  :id 150}
+ {:title "Cómo escribir JSON en Clojure – Comparativa entre Cheshire y clojure.data.json"
+  :desc "<p>Escribir JSON es una tarea común en Clojure, especialmente cuando necesitamos serializar datos para enviarlos a APIs o almacenarlos. En esta guía, compararemos dos de las bibliotecas más populares: <code>cheshire</code> y <code>clojure.data.json</code>. Ambas permiten convertir mapas de Clojure a cadenas JSON.</p>
+   
+           <h2>1. Escribir JSON con <code>cheshire</code></h2>
+           <p>La biblioteca <code>cheshire</code> es conocida por su rapidez y flexibilidad. Un ejemplo básico para convertir un mapa de Clojure a JSON:</p>
+           <code>(require '[cheshire.core :as json])<br>(json/generate-string {:nombre \"Juan\" :edad 30}) ;; \"{\\\"nombre\\\":\\\"Juan\\\",\\\"edad\\\":30}\"</code>
+           <p>Además, permite personalizar la serialización, como el formato de fechas:</p>
+           <code>(json/generate-string {:fecha (java.util.Date.)} {:date-format \"yyyy-MM-dd\"})</code>
+   
+           <h2>2. Escribir JSON con <code>clojure.data.json</code></h2>
+           <p>La biblioteca oficial <code>clojure.data.json</code> también nos permite convertir mapas a JSON. Ejemplo básico:</p>
+           <code>(require '[clojure.data.json :as json])<br>(json/write-str {:nombre \"Juan\" :edad 30}) ;; \"{\\\"nombre\\\":\\\"Juan\\\",\\\"edad\\\":30}\"</code>
+           <p>También permite ciertas personalizaciones, aunque menos flexibles que <code>cheshire</code>:</p>
+           <code>(json/write-str {:fecha (java.util.Date.)}) ;; Error, no soporta fechas directamente</code>
+   
+           <h2>3. Comparativa entre <code>cheshire</code> y <code>clojure.data.json</code></h2>
+           <p>A continuación, se presenta una comparación de estas bibliotecas para escribir JSON:</p>
+           <ul>
+             <li><strong>Velocidad:</strong> <code>cheshire</code> suele ser más rápida, gracias a su implementación basada en Jackson.</li>
+             <li><strong>Facilidad de uso:</strong> <code>cheshire</code> ofrece más opciones, como serialización de fechas y configuraciones avanzadas.</li>
+             <li><strong>Dependencias:</strong> <code>clojure.data.json</code> tiene menos dependencias, siendo ideal para proyectos ligeros.</li>
+             <li><strong>Popularidad:</strong> <code>cheshire</code> es más popular debido a su rendimiento y flexibilidad.</li>
+           </ul>
+           <p>En general, <code>cheshire</code> es una excelente opción para la mayoría de los proyectos, mientras que <code>clojure.data.json</code> es adecuada para casos donde se prioricen dependencias mínimas.</p>"
+  :id 151}
+  {:title "Cómo leer JSON en Clojure – clojure.data.json vs Cheshire"
+   :desc "<p>Trabajar con JSON es una tarea común en el desarrollo de aplicaciones, y en Clojure, existen varias bibliotecas disponibles para manejar JSON. Las dos opciones más populares son <code>clojure.data.json</code> y <code>cheshire</code>. En este artículo, exploraremos cómo leer JSON con ambas y compararemos sus características.</p>
+           <h2>1. Leer JSON con <code>cheshire</code></h2>
+           <p>La biblioteca <code>cheshire</code> es una de las más utilizadas en la comunidad de Clojure debido a su rapidez y flexibilidad. Aquí tienes un ejemplo básico:</p>
+           <code>(require '[cheshire.core :as json])<br>(json/parse-string \"{\\\"nombre\\\":\\\"María\\\",\\\"edad\\\":25}\" true) ;; {:nombre \"María\", :edad 25}</code>
+           <p>El argumento <code>true</code> convierte automáticamente las claves de JSON en keywords de Clojure.</p>
+           <p>Para leer JSON desde un archivo, puedes usar:</p>
+           <code>(with-open [rdr (clojure.java.io/reader \"ruta/al/archivo.json\")]<br>  (json/parse-stream rdr true)) ;; {:nombre \"María\", :edad 25}</code>
+           
+           <h2>2. Leer JSON con <code>clojure.data.json</code></h2>
+           <p>La biblioteca <code>clojure.data.json</code>, incluida en el ecosistema oficial de Clojure, también permite trabajar con JSON de manera sencilla. Aquí tienes un ejemplo básico:</p>
+           <code>(require '[clojure.data.json :as json])<br>(json/read-str \"{\\\"nombre\\\":\\\"María\\\",\\\"edad\\\":25}\" :key-fn keyword) ;; {:nombre \"María\", :edad 25}</code>
+           <p>El argumento <code>:key-fn keyword</code> convierte las claves de JSON en keywords de Clojure.</p>
+           <p>Para leer JSON desde un archivo:</p>
+           <code>(with-open [rdr (clojure.java.io/reader \"ruta/al/archivo.json\")]<br>  (json/read rdr :key-fn keyword)) ;; {:nombre \"María\", :edad 25}</code>
+           
+           <h2>3. Comparativa entre <code>cheshire</code> y <code>clojure.data.json</code></h2>
+           <p>Ambas bibliotecas son útiles para trabajar con JSON, pero tienen diferencias importantes:</p>
+           <ul>
+             <li><strong>Velocidad:</strong> <code>cheshire</code> es más rápida gracias a su implementación basada en Jackson.</li>
+             <li><strong>Flexibilidad:</strong> <code>cheshire</code> incluye funcionalidades adicionales, como soporte para fechas y serialización personalizada.</li>
+             <li><strong>Ligereza:</strong> <code>clojure.data.json</code> tiene menos dependencias, ideal para proyectos más pequeños o ligeros.</li>
+             <li><strong>Popularidad:</strong> <code>cheshire</code> es más popular dentro de la comunidad Clojure.</li>
+           </ul>
+           <p>En resumen, <code>cheshire</code> es la mejor opción para la mayoría de los casos debido a su rendimiento y características avanzadas, mientras que <code>clojure.data.json</code> es adecuada para proyectos donde la simplicidad y la ausencia de dependencias externas son una prioridad.</p>"
+   :id 152}
+]
+;;create json
+;;read json

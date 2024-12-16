@@ -1,7 +1,5 @@
 {:nrepl {:port 8777}
 
-
-
  :source-paths ["src" "test"]
 
  :dependencies
@@ -10,8 +8,7 @@
   [binaryage/devtools "1.0.6"]
   [arttuka/reagent-material-ui "5.11.12-0"]
   [cljs-ajax "0.7.5"]
-  [day8.re-frame/http-fx "0.2.4"]
-  [metosin/reitit-frontend "0.7.2"]]
+  [day8.re-frame/http-fx "0.2.4"]]
 
  :dev-http
  {8280 "resources/public"
@@ -24,10 +21,26 @@
    :asset-path "/js/compiled"
    :modules
    {:app {:init-fn clojure-tutorials.frontend.core/init}}
+
+   ;; Compiler options
+   :compiler-options
+   {:optimizations :advanced
+    :source-map true
+    :pseudo-names false
+    :closure-warnings
+    {:global-this :off}}
+
    :js-options {:anon-fn-naming-policy :unmapped}
-   :devtools
-   {:preloads []}
+
    :dev
    {:compiler-options
-    {:closure-defines
-     {goog.DEBUG true}}}}}}
+    {:closure-defines {goog.DEBUG true}}
+    :source-map true
+    :output-wrapper true}}
+
+   ;; Optional: Uncomment for hashed module names in production
+   ;; :module-hash-names true
+
+   ;; Optional: Uncomment for build manifests (useful for caching strategies)
+   ;; :build-options {:manifest-name "manifest.edn"}
+  }}

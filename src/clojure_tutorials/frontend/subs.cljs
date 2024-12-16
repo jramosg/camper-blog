@@ -8,39 +8,21 @@
    (:articles db)))
 
 (re-frame/reg-sub
- ::sorted-articles
- :<- [::articles]
- (fn [articles]
-   (sort-by (comp js/parseInt :id val) articles)))
+ ::articles
+ (fn [db]
+   (:articles db)))
 
 (re-frame/reg-sub
- ::article
+ ::articles-count
  :<- [::articles]
- :<- [::path-params]
- (fn [[articles {:keys [id]}]]
-   (get articles id)))
-
-(re-frame/reg-sub
- ::article-id
- :<- [::article] 
- :-> :id)
+ :-> count)
 
 (re-frame/reg-sub
  ::route
  :-> :route)
 
 (re-frame/reg-sub
- ::route-view
- :<- [::route]
- :-> (comp :view :data))
-
-(re-frame/reg-sub
- ::path-params
- :<- [::route]
- :-> :path-params)
-
-(re-frame/reg-sub
  ::palette-mode
  (fn [db]
-   (or (js/localStorage.getItem "color-scheme")
+   (or (.getItem js/localStorage "data-color-scheme")
        (get-in db [:palette :mode] "light"))))
