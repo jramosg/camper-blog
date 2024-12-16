@@ -20,7 +20,7 @@
    :output-dir "resources/public/js/compiled"
    :asset-path "/js/compiled"
    :modules
-   {:app {:init-fn clojure-tutorials.frontend.core/init}}
+   {:app {:init-fn camper-blog.frontend.core/init}}
 
    ;; Compiler options
    :compiler-options
