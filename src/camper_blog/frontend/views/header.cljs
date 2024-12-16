@@ -7,13 +7,24 @@
    [reagent-mui.material.app-bar :refer [app-bar]]
    [reagent-mui.material.icon-button :refer [icon-button]]
    [reagent-mui.material.link :refer [link]]
-   [reagent-mui.material.toolbar :refer [toolbar]]))
+   [reagent-mui.material.toolbar :refer [toolbar]]
+   [reagent-mui.material.tooltip :refer [tooltip]]))
 
-(defn header [] 
+(defn header []
   (re-frame/dispatch [:camper-blog.frontend.events/load-articles])
   (fn []
-    (let [[path :as route] @(re-frame/subscribe [:camper-blog.frontend.subs/route])]
-     (prn"path " path)
+    (let [[path ] @(re-frame/subscribe [:camper-blog.frontend.subs/route])
+          {:keys [id]} @(re-frame/subscribe [:camper-blog.frontend.subs/current-article])
+          by-id @(re-frame/subscribe [:camper-blog.frontend.subs/articles-by-id])
+          articles-count (if (= id 1)
+                  (get-in by-id [@(re-frame/subscribe [:camper-blog.frontend.subs/articles-count]) :slug])
+                  (get-in by-id [(dec id) :slug]))
+          prv-article (if (= id 1)
+                        (get by-id articles-count)
+                        (get by-id (dec id)))
+          next-article (if (= id articles-count)
+                         (get by-id 1)
+                         (get by-id (inc id)))]
       [app-bar {:position :static
                 :enable-color-on-dark true}
        [toolbar
@@ -29,17 +40,18 @@
             [search-icon]]
            [input-base {:placeholder "Buscar..."}]]
         [:div.header-action-container
-         (when (= path "article")
-           (let [id (js/parseInt (second route))]
-             [:<>
-              [icon-button {:color "inherit"
-                            :aria-label "Artículo previo"
-                            :href (str "/article/" (if (= id 1)
-                                                     150 (dec id)))}
-               [navigate-before]]
-              [icon-button {:color "inherit"
-                            :aria-label "Siguient artículo"
-                            :href (str "/article/" (if (= id @(re-frame/subscribe [:camper-blog.frontend.subs/articles-count]))
-                                                     1 (inc id)))}
-               [navigate-next]]]))
+         (when (and path (not (#{["politica-de-cookies"]
+                                 ["politica-de-privacidad"]
+                                 ["sobre-nosotros"]} path)))
+           [:<>
+           [tooltip {:title (:title prv-article)}
+            [icon-button {:color "inherit"
+                          :aria-label "Artículo previo"
+                          :href (str "/" (:slug prv-article))}
+             [navigate-before]]]
+            [tooltip {:title (:title next-article)}
+             [icon-button {:color "inherit"
+                           :aria-label (:title next-article)
+                           :href (str "/" (:slug next-article))}
+              [navigate-next]]]])
          [theme-switch]]]])))

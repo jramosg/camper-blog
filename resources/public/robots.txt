@@ -5,4 +5,4 @@ Disallow: /politica-de-cookies
 Disallow: /sobre-nosotros
 
 # Sitemap location
-Sitemap: https://solucionesclojure.com/sitemap.xml
+Sitemap: http://campersyfurgonets.com//sitemap.xml

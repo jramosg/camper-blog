@@ -17,7 +17,7 @@
 (rf/reg-event-db
  ::articles-loaded
  (fn [db [_ articles]]
-   (assoc db :articles (reduce #(assoc %1 (str (:id %2)) %2) {} articles))))
+   (assoc db :articles articles)))
 
 (rf/reg-event-db
  ::articles-failed

@@ -362,3 +362,13 @@ html[data-color-scheme="dark"] .card:hover {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
+
+article h1:first-of-type {
+  margin-block-end: unset;
+}
+h2.description {
+  color: var(--blog-palette-text-secondary);
+  font-size: 1rem;
+  margin-block-start: unset;
+  font-weight: unset;
+}

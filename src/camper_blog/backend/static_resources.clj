@@ -8,7 +8,7 @@
   (:import (java.time ZonedDateTime)
            (java.time.format DateTimeFormatter)))
 
-(def domain "https://campersyfurgonetas.com")
+(def domain "https://campersyfurgonets.com")
 
 (defn- load-edn [source]
   (with-open [r (io/reader source)]
@@ -42,8 +42,6 @@
     [:meta {:name "viewport" :content "initial-scale=1, width=device-width"}]
     [:link {:rel "stylesheet" :href "/styles.css"}]
     ;(fonts)
-    [:meta {:name "google-site-verification"
-            :content "NEdWFaLiY4F7Mnw5exM0mj9XLjyr9mJ5VFtGVqjBeWA"}]
     ;(ads)
     ))
 
@@ -82,13 +80,10 @@
                  (h/raw "<!DOCTYPE html>")
                  [:html {:lang "en"}
                   [:head
-                   [:meta {:charset "utf-8"}]
                    [:meta {:name "description" :content "Todo sobre furgonetas y el mundo camper"}]
                    [:meta {:name "viewport" :content "initial-scale=1, width=device-width"}]
-                   [:title "Tutoriales Clojure"]
-                   [:link {:rel "stylesheet" :href "/styles.css"}]
-                   (fonts)
-
+                   [:title "Furgonetas camper: guías, consejos y destinos"]
+                   (common-head-tags)
                    [:script {:type "application/ld+json"}
                     (h/raw (json/generate-string
                             {"@context" "https://schema.org"
@@ -125,42 +120,43 @@
     (save-file "resources/public/index.html" content)))
 
 (defn articles []
-  (let [formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd")
-        today (.format (ZonedDateTime/now java.time.ZoneOffset/UTC) formatter)]
-    (doseq [{:keys [title description main]} (load-edn "resources/public/articles.edn")]
-      (let [path (format "resources/public/%s/index.html" (sanitize-title-for-pathname title))
-            content (h/html
-                     (h/raw "<!DOCTYPE html>")
-                     [:html {:lang "es"}
-                      [:head
-                       (common-head-tags)
-                       [:title title]
-                       [:meta {:name "description" :content description}]
-                       [:script {:type "application/ld+json"}
-                        (h/raw (json/generate-string
-                                {"@context" "https://schema.org",
-                                 "dateModified" today
-                                 "author" {"@type" "Person" "name" "Jon Ramos"},
-                                 "mainEntityOfPage" {"@type" "WebPage", "@id" "https://yourwebsite.com/furgonetas-camper"},
-                                 "articleBody"
-                                 "<section><h1>Furgoneta camper: Las mejores opciones para viajes por carretera</h1><h2>1. Volkswagen California</h2><p>La <strong>Volkswagen California</strong> es un clásico en el mundo de las campers. Con varias generaciones en su haber, sigue siendo una opción favorita gracias a su diseño compacto y funcional. Es ideal para:</p><ul><li>Viajeros en pareja o pequeños grupos.</li><li>Escapadas de fin de semana o vacaciones cortas.</li><li>Maniobrar fácilmente en carreteras estrechas o urbanas.</li></ul><p>La California destaca por su techo elevable, cocina integrada y múltiples configuraciones de asientos.</p><h2>2. Mercedes Marco Polo</h2><p>La <strong>Mercedes Marco Polo</strong> combina lujo y funcionalidad. Es perfecta para quienes buscan comodidad en sus aventuras. Algunas de sus características principales son:</p><ul><li>Interior de alta calidad con materiales premium.</li><li>Sistema de infoentretenimiento avanzado.</li><li>Opciones de personalización según tus necesidades.</li></ul><p>La Marco Polo es ideal para quienes desean viajar con estilo y comodidad.</p><h2>3. Fiat Ducato Camper</h2><p>La <strong>Fiat Ducato Camper</strong> es una opción espaciosa y versátil. Es popular entre familias y viajeros que necesitan más espacio para equipamiento o comodidad. Sus ventajas incluyen:</p><ul><li>Gran capacidad de almacenamiento.</li><li>Posibilidad de añadir baño y ducha.</li><li>Consumo de combustible eficiente para su tamaño.</li></ul><p>Es una de las furgonetas más utilizadas para proyectos de camperización por su amplio interior y flexibilidad.</p><h2>4. Ford Transit Custom Nugget</h2><p>La <strong>Ford Transit Custom Nugget</strong> es una alternativa económica pero funcional. Perfecta para aquellos que buscan calidad sin un precio elevado. Algunas características destacadas son:</p><ul><li>Cocina trasera completa con fregadero y fogones.</li><li>Zonas separadas para dormir y estar.</li><li>Techo elevable para mayor comodidad.</li></ul><p>La Transit Custom Nugget es ideal para principiantes en el mundo camper.</p><h2>5. Renault Trafic SpaceNomad</h2><p>La <strong>Renault Trafic SpaceNomad</strong> es perfecta para viajeros prácticos y aventureros. Destaca por:</p><ul><li>Diseño compacto y fácil de manejar.</li><li>Zona de cocina integrada con almacenamiento eficiente.</li><li>Buena relación calidad-precio.</li></ul><p>Es una excelente opción para viajes por carretera y escapadas frecuentes.</p><p>Estas opciones representan lo mejor en el mundo de las furgonetas camper. Analiza tus necesidades y elige la que más se adapte a tus viajes por carretera.</p></section>",
-                                 "publisher"
-                                 {"@type" "Person",
-                                  "name" "Jon Ramos"},
-                                 "datePublished" today,
-                                 "@type" "Article",
-                                 "description" description,
-                                 "headline" title}))]]]
-                     [:body
-                      [:div#app]
-                      [:main
-                       [:article
-                        [:h1 title]
-                        [:h2 description]
-                        (h/raw main)]]
-                      (footer)
-                      [:script {:src "/js/compiled/app.js" :defer true}]])]
-        (save-file path content)))))
+  (doseq [{:keys [title description main modified-at created-at keywords]}
+          (load-edn "resources/public/articles.edn")]
+    (let [path (format "resources/public/%s/index.html" (sanitize-title-for-pathname title))
+          content (h/html
+                   (h/raw "<!DOCTYPE html>")
+                   [:html {:lang "es"}
+                    [:head
+                     (common-head-tags)
+                     [:title title]
+                     (when (seq keywords)
+                       [:meta {:name "keywords" :content (str/join ", " keywords)}])
+                     [:meta {:name "description" :content description}]
+                     [:script {:type "application/ld+json"}
+                      (h/raw (json/generate-string
+                              {"@context" "https://schema.org",
+                               "dateModified" modified-at
+                               "author" {"@type" "Person" "name" "Jon Ramos"},
+                               "mainEntityOfPage" {"@type" "WebPage", "@id" "https://yourwebsite.com/furgonetas-camper"},
+                               "articleBody"
+                               "<section><h1>Furgoneta camper: Las mejores opciones para viajes por carretera</h1><h2>1. Volkswagen California</h2><p>La <strong>Volkswagen California</strong> es un clásico en el mundo de las campers. Con varias generaciones en su haber, sigue siendo una opción favorita gracias a su diseño compacto y funcional. Es ideal para:</p><ul><li>Viajeros en pareja o pequeños grupos.</li><li>Escapadas de fin de semana o vacaciones cortas.</li><li>Maniobrar fácilmente en carreteras estrechas o urbanas.</li></ul><p>La California destaca por su techo elevable, cocina integrada y múltiples configuraciones de asientos.</p><h2>2. Mercedes Marco Polo</h2><p>La <strong>Mercedes Marco Polo</strong> combina lujo y funcionalidad. Es perfecta para quienes buscan comodidad en sus aventuras. Algunas de sus características principales son:</p><ul><li>Interior de alta calidad con materiales premium.</li><li>Sistema de infoentretenimiento avanzado.</li><li>Opciones de personalización según tus necesidades.</li></ul><p>La Marco Polo es ideal para quienes desean viajar con estilo y comodidad.</p><h2>3. Fiat Ducato Camper</h2><p>La <strong>Fiat Ducato Camper</strong> es una opción espaciosa y versátil. Es popular entre familias y viajeros que necesitan más espacio para equipamiento o comodidad. Sus ventajas incluyen:</p><ul><li>Gran capacidad de almacenamiento.</li><li>Posibilidad de añadir baño y ducha.</li><li>Consumo de combustible eficiente para su tamaño.</li></ul><p>Es una de las furgonetas más utilizadas para proyectos de camperización por su amplio interior y flexibilidad.</p><h2>4. Ford Transit Custom Nugget</h2><p>La <strong>Ford Transit Custom Nugget</strong> es una alternativa económica pero funcional. Perfecta para aquellos que buscan calidad sin un precio elevado. Algunas características destacadas son:</p><ul><li>Cocina trasera completa con fregadero y fogones.</li><li>Zonas separadas para dormir y estar.</li><li>Techo elevable para mayor comodidad.</li></ul><p>La Transit Custom Nugget es ideal para principiantes en el mundo camper.</p><h2>5. Renault Trafic SpaceNomad</h2><p>La <strong>Renault Trafic SpaceNomad</strong> es perfecta para viajeros prácticos y aventureros. Destaca por:</p><ul><li>Diseño compacto y fácil de manejar.</li><li>Zona de cocina integrada con almacenamiento eficiente.</li><li>Buena relación calidad-precio.</li></ul><p>Es una excelente opción para viajes por carretera y escapadas frecuentes.</p><p>Estas opciones representan lo mejor en el mundo de las furgonetas camper. Analiza tus necesidades y elige la que más se adapte a tus viajes por carretera.</p></section>",
+                               "publisher"
+                               {"@type" "Person",
+                                "name" "Jon Ramos"},
+                               "datePublished" created-at,
+                               "@type" "Article",
+                               "description" description,
+                               "headline" title}))]]]
+                   [:body
+                    [:div#app]
+                    [:main
+                     [:article
+                      [:h1 title]
+                      [:h2.description description]
+                      (h/raw main)]]
+                    (footer)
+                    [:script {:src "/js/compiled/app.js" :defer true}]])]
+      (save-file path content))))
 
 (defn sitemap []
   (let [formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd'T'HH:mm:ssXXX")
@@ -177,10 +173,10 @@
        [:url
         [:loc domain]
         [:lastmod now]]
-       (for [{:keys [title]} (load-edn "resources/public/articles.edn")]
+       (for [{:keys [title modified-at]} (load-edn "resources/public/articles.edn")]
          [:url
           [:loc (format "%s/%s" domain (sanitize-title-for-pathname title))]
-          [:lastmod now]])
+          [:lastmod modified-at]])
        [:url
         [:loc (format "%s/politica-de-privacidad" domain)]
         [:lastmod now]]
@@ -203,7 +199,7 @@
       [:meta
        {:name "description"
         :content
-        "Política de privacidad del blog de campersyfurgonetas.com. Cumplimos con el RGPD y explicamos cómo manejamos tus datos personales."}]
+        "Política de privacidad del blog de campersyfurgonets.com. Cumplimos con el RGPD y explicamos cómo manejamos tus datos personales."}]
       [:title "Política de Privacidad"]
       [:link {:rel "stylesheet" :href "/styles.css"}]
       (fonts)]
@@ -213,7 +209,7 @@
        [:h1 "Política de Privacidad y Protección de Datos Personales"]
        [:p
         "En "
-        [:strong "campersyfurgonetas.com"]
+        [:strong "campersyfurgonets.com"]
         " respetamos y protegemos la privacidad de nuestros usuarios. Esta política de privacidad explica cómo recopilamos, usamos, almacenamos y compartimos tu información personal de acuerdo con el Reglamento General de Protección de Datos (RGPD) de la Unión Europea."]
        [:section
         [:h2 "1. Responsable del tratamiento de datos"]
@@ -302,7 +298,7 @@
       [:meta
        {:name "description"
         :content
-        "Política de Cookies para campersyfurgonetas.com. Explicamos qué cookies utilizamos y cómo gestionarlas."}]
+        "Política de Cookies para campersyfurgonets.com. Explicamos qué cookies utilizamos y cómo gestionarlas."}]
       [:title "Política de Cookies"]
       [:link {:rel "stylesheet" :href "/../../styles.css"}]
       (fonts)]
@@ -366,7 +362,7 @@
        [:section
         [:h2 "¿Quiénes somos?"]
         [:p
-         "En " [:strong "campersyfurgonetas"]
+         "En " [:strong "campersyfurgonets"]
          " somos un equipo de entusiastas de los viajes por carretera y la vida en furgoneta. Nuestro objetivo es compartir nuestra pasión por las furgonetas camper, brindando a nuestros lectores una guía completa para transformar una furgoneta común en el hogar perfecto para aventuras sobre ruedas."]]
        [:section
         [:h2 "Nuestra misión"]
@@ -374,7 +370,7 @@
          "Queremos inspirar y empoderar a todos aquellos que deseen experimentar la libertad de viajar en furgoneta. Ya sea que estés buscando convertir tu furgoneta en una camper o simplemente aprender sobre los mejores destinos para viajes por carretera, estamos aquí para proporcionarte la información más útil y actualizada."]]
        [:section
         [:h2 "Nuestra visión"]
-        [:p "La visión de campersyfurgonetas es convertirnos en la principal fuente de información y recursos para viajeros que buscan transformar su furgoneta en el vehículo perfecto para aventuras. Queremos ser la plataforma de referencia para todo lo relacionado con furgonetas camper: desde guías de conversión hasta consejos sobre destinos y rutas por carretera."]]
+        [:p "La visión de campersyfurgonets es convertirnos en la principal fuente de información y recursos para viajeros que buscan transformar su furgoneta en el vehículo perfecto para aventuras. Queremos ser la plataforma de referencia para todo lo relacionado con furgonetas camper: desde guías de conversión hasta consejos sobre destinos y rutas por carretera."]]
        [:section
         [:h2 "¿Qué hacemos?"]
         [:p
@@ -385,7 +381,7 @@
         [:h2 "¿Por qué elegimos este tema?"]
         [:p
          "Nos apasiona la idea de vivir y viajar en furgoneta porque representa una forma única de explorar el mundo, vivir de manera sostenible y disfrutar de la libertad total. La vida en una furgoneta camper es una experiencia transformadora que nos conecta con la naturaleza, fomenta la independencia y nos permite vivir al ritmo de nuestros propios sueños y objetivos."]]]]
-      (footer)]
+     (footer)]
     [:link {:as "script" :href "/js/compiled/app.js" :rel "preload"}]
     [:script {:src "/js/compiled/app.js" :defer true}])))
 
@@ -407,7 +403,6 @@
 
   (->> (map :id (load-edn "resources/public/articles.edn"))
        count)
-
   (index)
   (articles)
   (json/generate-string {:fecha (java.util.Date.)} {:date-format "yyyy-MM-dd"})
@@ -415,7 +410,13 @@
 
   (json/parse-string "{\"nombre\":\"Juan\",\"edad\":30}" true)
 
-  (filter (comp #{152} :id) (load-edn "resources/public/articles.edn"))
+  (save-file
+   "resources/public/articles.edn"
+   (vec (map-indexed
+         (fn [index m]
+           (assoc m :slug (sanitize-title-for-pathname (:title m))
+                  :id (inc index)))
+         (load-edn "resources/public/articles.edn"))))
 
   (json/parse-string "{
                        \"@context\": \"https://schema.org\",
@@ -441,4 +442,7 @@
                          }
                        },
                        \"articleBody\": \"<section><h1>Furgoneta camper: Las mejores opciones para viajes por carretera</h1><h2>1. Volkswagen California</h2><p>La <strong>Volkswagen California</strong> es un clásico en el mundo de las campers. Con varias generaciones en su haber, sigue siendo una opción favorita gracias a su diseño compacto y funcional. Es ideal para:</p><ul><li>Viajeros en pareja o pequeños grupos.</li><li>Escapadas de fin de semana o vacaciones cortas.</li><li>Maniobrar fácilmente en carreteras estrechas o urbanas.</li></ul><p>La California destaca por su techo elevable, cocina integrada y múltiples configuraciones de asientos.</p><h2>2. Mercedes Marco Polo</h2><p>La <strong>Mercedes Marco Polo</strong> combina lujo y funcionalidad. Es perfecta para quienes buscan comodidad en sus aventuras. Algunas de sus características principales son:</p><ul><li>Interior de alta calidad con materiales premium.</li><li>Sistema de infoentretenimiento avanzado.</li><li>Opciones de personalización según tus necesidades.</li></ul><p>La Marco Polo es ideal para quienes desean viajar con estilo y comodidad.</p><h2>3. Fiat Ducato Camper</h2><p>La <strong>Fiat Ducato Camper</strong> es una opción espaciosa y versátil. Es popular entre familias y viajeros que necesitan más espacio para equipamiento o comodidad. Sus ventajas incluyen:</p><ul><li>Gran capacidad de almacenamiento.</li><li>Posibilidad de añadir baño y ducha.</li><li>Consumo de combustible eficiente para su tamaño.</li></ul><p>Es una de las furgonetas más utilizadas para proyectos de camperización por su amplio interior y flexibilidad.</p><h2>4. Ford Transit Custom Nugget</h2><p>La <strong>Ford Transit Custom Nugget</strong> es una alternativa económica pero funcional. Perfecta para aquellos que buscan calidad sin un precio elevado. Algunas características destacadas son:</p><ul><li>Cocina trasera completa con fregadero y fogones.</li><li>Zonas separadas para dormir y estar.</li><li>Techo elevable para mayor comodidad.</li></ul><p>La Transit Custom Nugget es ideal para principiantes en el mundo camper.</p><h2>5. Renault Trafic SpaceNomad</h2><p>La <strong>Renault Trafic SpaceNomad</strong> es perfecta para viajeros prácticos y aventureros. Destaca por:</p><ul><li>Diseño compacto y fácil de manejar.</li><li>Zona de cocina integrada con almacenamiento eficiente.</li><li>Buena relación calidad-precio.</li></ul><p>Es una excelente opción para viajes por carretera y escapadas frecuentes.</p><p>Estas opciones representan lo mejor en el mundo de las furgonetas camper. Analiza tus necesidades y elige la que más se adapte a tus viajes por carretera.</p></section>\"
-                     }"))
+                     }")
+
+  (def formatter (DateTimeFormatter/ofPattern "yyyy-MM-dd'T'HH:mm:ssXXX"))
+  (.format (ZonedDateTime/now java.time.ZoneOffset/UTC) formatter))

@@ -23,7 +23,9 @@
     [:<>
      [styles/experimental-css-vars-provider
       {:theme (styles-js/experimental_extendTheme (mui-util/clj->js' {:cssVarPrefix "blog"
-                                                                      :palette {:mode @(re-frame/subscribe [:camper-blog.frontend.subs/palette-mode])}}))}
+                                                                      :palette {:mode @(re-frame/subscribe [:camper-blog.frontend.subs/palette-mode])
+                                                                                :primary {:main "#2E8B57"}
+                                                                                :secondary {:main "#F4A300"}}}))}
       [css-baseline]
       [header]
       [cookies/cookies-dialogs]
